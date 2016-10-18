@@ -1,0 +1,367 @@
+<extend name="Public:base" />
+<block name="title">
+    <title>channel</title>
+</block>
+<block name="nav">
+    <ul class="nav nav-pills nav-stacked custom-nav">
+        <li><a href="../Index/index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+        <li class="menu-list"><a href=""><i class="fa fa-random"></i> <span>周期走势</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Trend/exponential')}"> 支持指数与参与指数</a></li>
+                <li><a href="{:U('Trend/analyse')}"> 类目分析</a></li>
+                <li><a href="{:U('Trend/participate')}"> 类目参与</a></li>
+                <li><a href="{:U('Trend/line')}"> 项目上线</a></li>
+                <li><a href="{:U('Trend/realtime')}"> 实时统计</a></li>
+                <li><a href="{:U('Trend/timesharing')}"> 分时统计</a></li>
+                <li><a href="{:U('Trend/download')}"> 下载量</a></li>
+                <li><a href="{:U('Trend/register')}"> 用户周期</a></li>
+                <li><a href="{:U('Trend/active')}"> 活跃用户</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-male"></i> <span>人群分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('People/population')}"> 人群特性</a></li>
+                <li><a href="{:U('People/support')}"> 用户支持</a></li>
+                <li><a href="{:U('People/region')}"> 地域分析</a></li>
+                <li><a href="{:U('People/hierarchy')}"> 消费层级</a></li>
+                <li><a href="{:U('People/passes')}"> 消费次数</a></li>
+            </ul>
+        </li>
+        <li class="menu-list nav-active"><a href=""><i class="fa fa-cogs"></i> <span>需求分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Require/dispersion')}"> 类目分布</a></li>
+                <li><a href="{:U('Require/project')}"> 项目基础数据</a></li>
+                <li><a href="{:U('Require/market')}"> 市场细分</a></li>
+                <li class="active"><a href="{:U('Require/channel')}"> 渠道来源</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-comment"></i> <span>微信统计</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Statistics/user')}"> 用户分析</a></li>
+                <li><a href="{:U('Statistics/teletext')}"> 图文分析</a></li>
+                <li><a href="{:U('Statistics/message')}"> 消息分析</a></li>
+            </ul>
+        </li>
+        <li><a href="{:U('Login/index')}"><i class="fa fa-sign-in"></i> <span>登录 页面</span></a></li>
+    </ul>
+</block>
+<block name="content">
+    
+     <div class="wrapper">
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        android
+                        <span class="tools pull-right">
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                            <a href="javascript:;" class="fa fa-times"></a>
+                         </span>
+                    </header>
+                    <div class="panel-body">
+                        <header class="panel-heading no-border">
+                            <div class="widget-container">
+                                <div class="nav-tab">
+                                    <ul id="default-titles" class="nav-titles">
+                                        <li class="teletext-read" id="total-install"><div>总用户数</div></li>
+                                        <li id="new-user"><div>新增用户</div></li>
+                                        <li id="active-user"><div>活跃用户</div></li>
+                                        <li id="launch"><div>启动次数</div></li>
+                                        <li id="duration"><div>使用时长</div></li>
+                                        <li id="install-rate"><div>占比率</div></li>    
+                                    </ul>                                 
+                                </div>
+                            </div>
+                            <!-- <div>
+                                <input type="text" id="date-range1" class="datarangepicker2" value="" placeholder="请选择时间范围">              
+                            </div> -->
+                        </header>
+                        <div class="panel-body" id="charts-content">
+                            <div id="pie-chart" class="pie-chart">
+                                <div id="pie-chartContainer" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <section class="panel">
+                                                <div class="panel-body">
+                                                    <div id="graph-browse"></div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="footer">
+    <script type="text/javascript">
+    $(function() {
+        type_value='android';
+        $.ajax({
+            type:"get",
+            url:"/Api/YouMeng/channels/type/"+type_value,
+            success: function(res) {
+                var xchannel=[],count=[];
+                // x轴坐标
+                for(i=0;i<res.data.length;i++){
+                    xchannel[i]=res.data[i]['channel'];
+                }
+                chart1.xAxis[0].setCategories(xchannel);
+
+                //series数据
+                for(i=0;i<res.data.length;i++){
+                    count[i]=res.data[i]['total_install'];
+                }
+                chart1.series[0].update({data:count});
+                chart1.yAxis[0].setTitle({text: ''});
+                chart1.series[0].update({name:'总用户数'});
+            }
+        });
+        //总用户数
+        $("#total-install").click(function() {
+            var index=$(this).index();
+            $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+            $("#charts-content").show();
+            type_value='android';
+            $.ajax({
+                type:"get",
+                url:"/Api/YouMeng/channels/type/"+type_value,
+                success: function(res) {
+                    var xchannel=[],count=[];
+                    // x轴坐标
+                    for(i=0;i<res.data.length;i++){
+                        xchannel[i]=res.data[i]['channel'];
+                    }
+                    chart1.xAxis[0].setCategories(xchannel);
+
+                    //series数据
+                    for(i=0;i<res.data.length;i++){
+                        count[i]=res.data[i]['total_install'];
+                    }
+                    chart1.series[0].update({data:count});
+                    chart1.yAxis[0].setTitle({text: ''});
+                    chart1.series[0].update({name:'总用户数'});
+                }
+            });
+        });
+        //新增用户
+        $("#new-user").click(function() {
+            var index=$(this).index();
+            $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+            $("#charts-content").show();
+            type_value='android';
+            $.ajax({
+                type:"get",
+                url:"/Api/YouMeng/channels/type/"+type_value,
+                success: function(res) {
+                    console.log(res);
+                    var xchannel=[],count=[];
+                    // x轴坐标
+                    for(i=0;i<res.data.length;i++){
+                        xchannel[i]=res.data[i]['channel'];
+                    }
+                    console.log(xchannel);
+                    chart1.xAxis[0].setCategories(xchannel);
+
+                    //series数据
+                    for(i=0;i<res.data.length;i++){
+                        count[i]=res.data[i]['install'];
+                    }
+                    console.log(count);
+                    chart1.series[0].update({data:count});
+                    chart1.yAxis[0].setTitle({text: ''});
+                    chart1.series[0].update({name:'新增用户人数'});
+                }
+            });
+        });
+        //活跃用户
+        $("#active-user").click(function() {
+            var index=$(this).index();
+            $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+            $("#charts-content").show();
+            type_value='android';
+            $.ajax({
+                type:"get",
+                url:"/Api/YouMeng/channels/type/"+type_value,
+                success: function(res) {
+                    var xchannel=[],count=[];
+                    // x轴坐标
+                    for(i=0;i<res.data.length;i++){
+                        xchannel[i]=res.data[i]['channel'];
+                    }
+                    chart1.xAxis[0].setCategories(xchannel);
+
+                    //series数据
+                    for(i=0;i<res.data.length;i++){
+                        count[i]=res.data[i]['active_user'];
+                    }
+                    chart1.series[0].update({data:count});
+                    chart1.yAxis[0].setTitle({text: ''});
+                    chart1.series[0].update({name:'活跃用户人数'});
+                }
+            });
+        });
+        //启动次数
+        $("#launch").click(function() {
+            teletext_type=1;
+            var index=$(this).index();
+            $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+            $("#charts-content").show();
+            type_value='android';
+            $.ajax({
+                type:"get",
+                url:"/Api/YouMeng/channels/type/"+type_value,
+                success: function(res) {
+                    var xchannel=[],count=[];
+                    // x轴坐标
+                    for(i=0;i<res.data.length;i++){
+                        xchannel[i]=res.data[i]['channel'];
+                    }
+                    chart1.xAxis[0].setCategories(xchannel);
+
+                    //series数据
+                    for(i=0;i<res.data.length;i++){
+                        count[i]=res.data[i]['launch'];
+                    }
+                    chart1.series[0].update({data:count});
+                    chart1.yAxis[0].setTitle({text: ''});
+                    chart1.series[0].update({name:'启动次数'});
+                }
+            });
+        });
+        //使用时长
+        $("#duration").click(function() {
+            teletext_type=1;
+            var index=$(this).index();
+            $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+            $("#charts-content").show();
+            type_value='android';
+            $.ajax({
+                type:"get",
+                url:"/Api/YouMeng/channels/type/"+type_value,
+                success: function(res) {
+                    var xchannel=[],count=[];
+                    // x轴坐标
+                    for(i=0;i<res.data.length;i++){
+                        xchannel[i]=res.data[i]['channel'];
+                    }
+                    chart1.xAxis[0].setCategories(xchannel);
+
+                    //series数据
+                    for(i=0;i<res.data.length;i++){
+                        count[i]=res.data[i]['duration'];
+                    }
+                    chart1.series[0].update({data:count});
+                    chart1.yAxis[0].setTitle({text: ''});
+                    chart1.series[0].update({name:'使用时长'});
+                }
+            });
+        });
+        //用户数占总用户数的比例
+        $("#install-rate").click(function() {
+            teletext_type=1;
+            var index=$(this).index();
+            $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+            $("#charts-content").show();
+            type_value='android';
+            $.ajax({
+                type:"get",
+                url:"/Api/YouMeng/channels/type/"+type_value,
+                success: function(res) {
+                    var xchannel=[],count=[];
+                    // x轴坐标
+                    for(i=0;i<res.data.length;i++){
+                        xchannel[i]=res.data[i]['channel'];
+                    }
+                    chart1.xAxis[0].setCategories(xchannel);
+
+                    //series数据
+                    for(i=0;i<res.data.length;i++){
+                        count[i]=res.data[i]['install_rate'];
+                    }
+                    console.log(count);
+                    chart1.yAxis[0].setTitle({text: '百分比 (%)'});
+                    chart1.series[0].update({data:count});
+                    chart1.series[0].update({name:'用户数占总用户数的比例'});
+                }
+            });
+        });
+        
+        chart1=new Highcharts.Chart({
+            chart: {
+                type: 'column',
+                renderTo: 'graph-browse'
+            },
+            
+            title: {
+                text: null
+            },
+            xAxis: {
+                title: {
+                    text: null
+                },
+                tickmarkPlacement:'on',
+            },
+            yAxis: {
+                title: {
+                    text: null
+                },
+                // min: 0,
+                // max: 60,
+                // tickInterval:5,
+                labels: {
+                    formatter: function() {
+                        return this.value;
+                    }
+                }
+            },
+            // legend: {
+            //     enabled: false
+            // },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.f}</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: '人数',
+                dataLabels: {
+                    enabled: true,
+                    align: 'center',
+                    style: {
+                        fontWeight: 'bold'
+                    },
+                    x: 0,
+                    y:-5,
+                    color: '#FFFFFF',
+                    verticalAlign: 'middle',
+                    overflow: true,
+                    crop: false
+                }
+            }],
+            credits: {
+                enabled: false // 禁用版权信息
+            }
+        });
+    });
+    </script>
+</block>

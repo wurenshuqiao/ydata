@@ -1,0 +1,1308 @@
+<extend name="Public:base" />
+<block name="title">
+    <title>teletextgirlhome</title>
+</block>
+<block name="nav">
+    <ul class="nav nav-pills nav-stacked custom-nav">
+        <li><a href="../Index/index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+        <li class="menu-list"><a href=""><i class="fa fa-random"></i> <span>周期走势</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Trend/exponential')}"> 支持指数与参与指数</a></li>
+                <li><a href="{:U('Trend/analyse')}"> 类目分析</a></li>
+                <li><a href="{:U('Trend/participate')}"> 类目参与</a></li>
+                <li><a href="{:U('Trend/line')}"> 项目上线</a></li>
+                <li><a href="{:U('Trend/realtime')}"> 实时统计</a></li>
+                <li><a href="{:U('Trend/timesharing')}"> 分时统计</a></li>
+                <li><a href="{:U('Trend/download')}"> 下载量</a></li>
+                <li><a href="{:U('Trend/register')}"> 用户周期</a></li>
+                <li><a href="{:U('Trend/active')}"> 活跃用户</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-male"></i> <span>人群分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('People/population')}"> 人群特性</a></li>
+                <li><a href="{:U('People/support')}"> 用户支持</a></li>
+                <li><a href="{:U('People/region')}"> 地域分析</a></li>
+                <li><a href="{:U('People/hierarchy')}"> 消费层级</a></li>
+                <li><a href="{:U('People/passes')}"> 消费次数</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>需求分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Require/dispersion')}"> 类目分布</a></li>
+                <li><a href="{:U('Require/project')}"> 项目基础数据</a></li>
+                <li><a href="{:U('Require/market')}"> 市场细分</a></li>
+                <li><a href="{:U('Require/channel')}"> 渠道来源</a></li>
+            </ul>
+        </li>
+        <li class="menu-list nav-active"><a href=""><i class="fa fa-comment"></i> <span>微信统计</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Statistics/user')}"> 用户分析</a></li>
+                <li class="active"><a href="{:U('Statistics/teletext')}"> 图文分析</a></li>
+                <li><a href="{:U('Statistics/message')}"> 消息分析</a></li>
+            </ul>
+        </li>
+        <li><a href="{:U('Login/index')}"><i class="fa fa-sign-in"></i> <span>登录 页面</span></a></li>
+    </ul>
+</block>
+<block name="content">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="square-widget">
+                    <div class="widget-container">
+                        <div class="stepy-tab">
+                            <ul id="default-titles" class="stepy-titles clearfix">
+                                <li id="kaistart">
+                                    <a href="{:U('Statistics/teletext')}">开始吧</a>
+                                </li>
+                                <li id="chaping">
+                                    <a href="{:U('Statistics/teletextchaping')}"><div>差评</a>
+                                </li>
+                                <li id="onetown">
+                                    <a href="{:U('Statistics/teletextonetown')}"><div>一人一城</a>
+                                </li>
+                                <li class="current-step" id="girlhome">
+                                    <a href="{:U('Statistics/teletextgirlhome')}"><div>二姑娘家</a>
+                                </li>
+                                <li id="charlatan">
+                                    <a href="{:U('Statistics/teletextcharlatan')}"><div>江湖</a>
+                                </li>
+                                <li id="weekend">
+                                    <a href="{:U('Statistics/teletextweekend')}"><div>行周末</a>
+                                </li>
+                                <li id="sisters">
+                                    <a href="{:U('Statistics/teletextsisters')}"><div>坏寻姐妹</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="micro-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <span id="key">昨日关键指标</span>
+                            <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                            </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <div class="info_bd">
+                                            <div class="content" id="js_keydata">
+                                                <table class="ui_trendgrid ui_trendgrid_3">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="first">
+                                                                <div class="ui_trendgrid_item">
+                                                                    <div class="ui_trendgrid_chart"></div>
+                                                                    <dl>
+                                                                        <dt>图文页阅读次数</dt>
+                                                                        <dd class="ui_trendgrid_number"><strong>214277</strong><em class="ui_trendgrid_unit"></em></dd>
+                                                                        <dd>日 <i class="icon_down" title="下降"></i>22.9%</dd>
+                                                                        <dd>周 <i class="icon_up" title="上升"></i>69.7% </dd>
+                                                                        <dd>月 <i class="icon_equal"></i>--</dd>
+                                                                    </dl>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="ui_trendgrid_item">
+                                                                    <div class="ui_trendgrid_chart"></div>
+                                                                    <dl>
+                                                                        <dt>原文阅读次数</dt>
+                                                                        <dd class="ui_trendgrid_number"><strong>217</strong><em class="ui_trendgrid_unit"></em></dd>
+                                                                        <dd>日 <i class="icon_down" title="下降"></i>210%</dd>
+                                                                        <dd>周 <i class="icon_up" title="上升"></i>352.1% </dd>
+                                                                        <dd>月 <i class="icon_equal"></i>--</dd>
+                                                                    </dl>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="ui_trendgrid_item">
+                                                                    <div class="ui_trendgrid_chart"></div>
+                                                                    <dl>
+                                                                        <dt>分享转发次数</dt>
+                                                                        <dd class="ui_trendgrid_number"><strong>14593</strong><em class="ui_trendgrid_unit"></em></dd>
+                                                                        <dd>日 <i class="icon_down" title="下降"></i>10.1%</dd>
+                                                                        <dd>周 <i class="icon_up" title="上升"></i>167.7% </dd>
+                                                                        <dd>月 <i class="icon_equal"></i>--</dd>
+                                                                    </dl>
+                                                                </div>
+                                                            </td>
+                                                            <td class="last">
+                                                                <div class="ui_trendgrid_item">
+                                                                    <div class="ui_trendgrid_chart"></div>
+                                                                    <dl>
+                                                                        <dt>微信收藏人数</dt>
+                                                                        <dd class="ui_trendgrid_number"><strong>2897</strong><em class="ui_trendgrid_unit"></em></dd>
+                                                                        <dd>日 <i class="icon_down" title="下降"></i>12.2%</dd>
+                                                                        <dd>周 <i class="icon_up" title="上升"></i>228.8% </dd>
+                                                                        <dd>月 <i class="icon_equal"></i>--</dd>
+                                                                    </dl>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <!-- <div class="square-widget"> -->
+                            <div class="widget-container">
+                                <div class="nav-tab"><!-- //nav-titles nav-tab -->
+                                    <ul id="default-titles" class="nav-titles">
+                                        <li class="teletext-read" id="teletext-page"><div>图文页阅读</div></li>
+                                        <li id="original-page"><div>原文页阅读</div></li>
+                                        <li id="share-forwarding"><div>分享转发</div></li>
+                                        <li id="micro-collection"><div>微信收藏</div></li>
+                                    </ul>&nbsp;
+                                    <span class="tools pull-right">
+                                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                                <a href="javascript:;" class="fa fa-times"></a>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </header>
+                        <div class="panel-body">
+                            <div id="source-content" style="display:block">
+                                <!-- <section class="panel"> -->
+                                <header class="panel-heading no-border">
+                                    <ul class="calendar-plugin">
+                                        <li class="calendar-plugin-item1">
+                                            <div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                最近30天
+                                                <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                    <li><a href="#" data-value="7" data-index="0">最近7天</a></li>
+                                                    <li><a href="#" data-value="15" data-index="1">最近15天</a></li>
+                                                    <li><a href="#" data-value="30" data-index="2">最近30天</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>                                
+                                        <li class="calendar-plugin-item2">
+                                            <div>
+                                                <input type="text" id="date-range1" value="" placeholder="请选择时间范围">              
+                                            </div>
+                                        </li>
+                                    </ul>                                                
+                                </header>
+                                <div class="panel-body">
+                                    <div id="pie-chart" class="pie-chart">
+                                        <div id="pie-chartContainer" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <section class="panel">
+                                                        <div class="panel-body">
+                                                            <div id="donut-chart-js"></div>
+                                                        </div>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <header class="panel-heading no-border">
+                                                    <div class="widget-container">
+                                                        <div class="nav-tab">
+                                                            <ul id="default-titles" class="nav-titles">
+                                                                <li class="teletext-read" id="all-channels"><div>全部渠道</div></li>
+                                                                <li id="public-session"><div>公众号会话</div></li>
+                                                                <li id="friend-forwarding"><div>好友转发</div></li>
+                                                                <li id="friends-circle"><div>朋友圈</div></li>
+                                                                <li id="history-message"><div>历史消息</div></li>
+                                                                <li id="others"><div>其它</div></li>
+                                                            </ul>                                  
+                                                        </div>
+                                                    </div>
+                                                </header>
+                                                <div id="all-channels-charts" style="display:block">
+                                                    <div class="col-sm-12">
+                                                        <section class="panel">
+                                                            <div class="panel-body">
+                                                                <div id="all-channels-js"></div>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <section class="panel">
+                                                            <div class="panel-body">
+                                                                <table class="table table-bordered" style="text-align:center;vertical-align:middle;">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td colspan="11">
+                                                                            <input type="text" id="date-range3" value="" style="float:left;" placeholder="请选择时间范围">
+                                                                            <span style="float:right;color:#4A90E2">导出Excel</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td rowspan="2" style="vertical-align:middle;">时间</td>
+                                                                        <td colspan="2">图文页阅读</td>
+                                                                        <td colspan="2">从公众号会话打开</td>
+                                                                        <td colspan="2">从朋友圈打开</td>
+                                                                        <td colspan="2">分享转发</td>
+                                                                        <td colspan="2">微信收藏人数</td>   
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>人数</td>
+                                                                        <td>次数</td>
+                                                                        <td>人数</td>
+                                                                        <td>次数</td>
+                                                                        <td>人数</td>
+                                                                        <td>次数</td>
+                                                                        <td>人数</td>
+                                                                        <td>次数</td>
+                                                                        <td>人数</td>
+                                                                        <td>次数</td>  
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2016-02-17</td>
+                                                                        <td>103527</td>
+                                                                        <td>159964</td>
+                                                                        <td>43558</td>
+                                                                        <td>80901</td>
+                                                                        <td>44361</td>
+                                                                        <td>51690</td>
+                                                                        <td>5824</td>
+                                                                        <td>7952</td>
+                                                                        <td>1410</td>
+                                                                        <td>1818</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2016-02-16</td>
+                                                                        <td>103527</td>
+                                                                        <td>159964</td>
+                                                                        <td>43558</td>
+                                                                        <td>80901</td>
+                                                                        <td>44361</td>
+                                                                        <td>51690</td>
+                                                                        <td>5824</td>
+                                                                        <td>7952</td>
+                                                                        <td>1410</td>
+                                                                        <td>1818</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2016-02-15</td>
+                                                                        <td>103527</td>
+                                                                        <td>159964</td>
+                                                                        <td>43558</td>
+                                                                        <td>80901</td>
+                                                                        <td>44361</td>
+                                                                        <td>51690</td>
+                                                                        <td>5824</td>
+                                                                        <td>7952</td>
+                                                                        <td>1410</td>
+                                                                        <td>1818</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2016-02-14</td>
+                                                                        <td>103527</td>
+                                                                        <td>159964</td>
+                                                                        <td>43558</td>
+                                                                        <td>80901</td>
+                                                                        <td>44361</td>
+                                                                        <td>51690</td>
+                                                                        <td>5824</td>
+                                                                        <td>7952</td>
+                                                                        <td>1410</td>
+                                                                        <td>1818</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2016-02-13</td>
+                                                                        <td>103527</td>
+                                                                        <td>159964</td>
+                                                                        <td>43558</td>
+                                                                        <td>80901</td>
+                                                                        <td>44361</td>
+                                                                        <td>51690</td>
+                                                                        <td>5824</td>
+                                                                        <td>7952</td>
+                                                                        <td>1410</td>
+                                                                        <td>1818</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2016-02-12</td>
+                                                                        <td>103527</td>
+                                                                        <td>159964</td>
+                                                                        <td>43558</td>
+                                                                        <td>80901</td>
+                                                                        <td>44361</td>
+                                                                        <td>51690</td>
+                                                                        <td>5824</td>
+                                                                        <td>7952</td>
+                                                                        <td>1410</td>
+                                                                        <td>1818</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2016-02-11</td>
+                                                                        <td>103527</td>
+                                                                        <td>159964</td>
+                                                                        <td>43558</td>
+                                                                        <td>80901</td>
+                                                                        <td>44361</td>
+                                                                        <td>51690</td>
+                                                                        <td>5824</td>
+                                                                        <td>7952</td>
+                                                                        <td>1410</td>
+                                                                        <td>1818</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2016-02-10</td>
+                                                                        <td>103527</td>
+                                                                        <td>159964</td>
+                                                                        <td>43558</td>
+                                                                        <td>80901</td>
+                                                                        <td>44361</td>
+                                                                        <td>51690</td>
+                                                                        <td>5824</td>
+                                                                        <td>7952</td>
+                                                                        <td>1410</td>
+                                                                        <td>1818</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2016-02-09</td>
+                                                                        <td>103527</td>
+                                                                        <td>159964</td>
+                                                                        <td>43558</td>
+                                                                        <td>80901</td>
+                                                                        <td>44361</td>
+                                                                        <td>51690</td>
+                                                                        <td>5824</td>
+                                                                        <td>7952</td>
+                                                                        <td>1410</td>
+                                                                        <td>1818</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2016-02-08</td>
+                                                                        <td>103527</td>
+                                                                        <td>159964</td>
+                                                                        <td>43558</td>
+                                                                        <td>80901</td>
+                                                                        <td>44361</td>
+                                                                        <td>51690</td>
+                                                                        <td>5824</td>
+                                                                        <td>7952</td>
+                                                                        <td>1410</td>
+                                                                        <td>1818</td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                                              
+                                </div>
+                                <!-- </section>                                     -->
+                            </div>
+                            <div id="charts-content" style="display:none">
+                                <header class="panel-heading no-border">
+                                    <ul class="calendar-plugin">
+                                        <li class="calendar-plugin-item1">
+                                            <div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                最近30天
+                                                <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                    <li><a href="#" data-value="7" data-index="0">最近7天</a></li>
+                                                    <li><a href="#" data-value="15" data-index="1">最近15天</a></li>
+                                                    <li><a href="#" data-value="30" data-index="2">最近30天</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>                                
+                                        <li class="calendar-plugin-item2">
+                                            <div>
+                                                <input type="text" id="date-range2" value="" placeholder="请选择时间范围">              
+                                            </div>
+                                        </li>
+                                    </ul>                                                
+                                </header>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <section class="panel">
+                                                <div class="panel-body">
+                                                    <div id="pie-chart" class="pie-chart">
+                                                        <div id="chartContainer-trend" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="row">                                                
+                                        <div class="col-sm-12">
+                                            <section class="panel">
+                                                <div class="panel-body">
+                                                    <table class="table table-bordered" style="text-align:center;vertical-align:middle;">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td colspan="11">
+                                                                <input type="text" id="date-range3" value="" style="float:left;" placeholder="请选择时间范围">
+                                                                <span style="float:right;color:#4A90E2">导出Excel</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td rowspan="2" style="vertical-align:middle;">时间</td>
+                                                            <td colspan="2">图文页阅读</td>
+                                                            <td colspan="2">从公众号会话打开</td>
+                                                            <td colspan="2">从朋友圈打开</td>
+                                                            <td colspan="2">分享转发</td>
+                                                            <td colspan="2">微信收藏人数</td>   
+                                                        </tr>
+                                                        <tr>
+                                                            <td>人数</td>
+                                                            <td>次数</td>
+                                                            <td>人数</td>
+                                                            <td>次数</td>
+                                                            <td>人数</td>
+                                                            <td>次数</td>
+                                                            <td>人数</td>
+                                                            <td>次数</td>
+                                                            <td>人数</td>
+                                                            <td>次数</td>  
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2016-02-17</td>
+                                                            <td>103527</td>
+                                                            <td>159964</td>
+                                                            <td>43558</td>
+                                                            <td>80901</td>
+                                                            <td>44361</td>
+                                                            <td>51690</td>
+                                                            <td>5824</td>
+                                                            <td>7952</td>
+                                                            <td>1410</td>
+                                                            <td>1818</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2016-02-16</td>
+                                                            <td>103527</td>
+                                                            <td>159964</td>
+                                                            <td>43558</td>
+                                                            <td>80901</td>
+                                                            <td>44361</td>
+                                                            <td>51690</td>
+                                                            <td>5824</td>
+                                                            <td>7952</td>
+                                                            <td>1410</td>
+                                                            <td>1818</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2016-02-15</td>
+                                                            <td>103527</td>
+                                                            <td>159964</td>
+                                                            <td>43558</td>
+                                                            <td>80901</td>
+                                                            <td>44361</td>
+                                                            <td>51690</td>
+                                                            <td>5824</td>
+                                                            <td>7952</td>
+                                                            <td>1410</td>
+                                                            <td>1818</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2016-02-14</td>
+                                                            <td>103527</td>
+                                                            <td>159964</td>
+                                                            <td>43558</td>
+                                                            <td>80901</td>
+                                                            <td>44361</td>
+                                                            <td>51690</td>
+                                                            <td>5824</td>
+                                                            <td>7952</td>
+                                                            <td>1410</td>
+                                                            <td>1818</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2016-02-13</td>
+                                                            <td>103527</td>
+                                                            <td>159964</td>
+                                                            <td>43558</td>
+                                                            <td>80901</td>
+                                                            <td>44361</td>
+                                                            <td>51690</td>
+                                                            <td>5824</td>
+                                                            <td>7952</td>
+                                                            <td>1410</td>
+                                                            <td>1818</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2016-02-12</td>
+                                                            <td>103527</td>
+                                                            <td>159964</td>
+                                                            <td>43558</td>
+                                                            <td>80901</td>
+                                                            <td>44361</td>
+                                                            <td>51690</td>
+                                                            <td>5824</td>
+                                                            <td>7952</td>
+                                                            <td>1410</td>
+                                                            <td>1818</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2016-02-11</td>
+                                                            <td>103527</td>
+                                                            <td>159964</td>
+                                                            <td>43558</td>
+                                                            <td>80901</td>
+                                                            <td>44361</td>
+                                                            <td>51690</td>
+                                                            <td>5824</td>
+                                                            <td>7952</td>
+                                                            <td>1410</td>
+                                                            <td>1818</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2016-02-10</td>
+                                                            <td>103527</td>
+                                                            <td>159964</td>
+                                                            <td>43558</td>
+                                                            <td>80901</td>
+                                                            <td>44361</td>
+                                                            <td>51690</td>
+                                                            <td>5824</td>
+                                                            <td>7952</td>
+                                                            <td>1410</td>
+                                                            <td>1818</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2016-02-09</td>
+                                                            <td>103527</td>
+                                                            <td>159964</td>
+                                                            <td>43558</td>
+                                                            <td>80901</td>
+                                                            <td>44361</td>
+                                                            <td>51690</td>
+                                                            <td>5824</td>
+                                                            <td>7952</td>
+                                                            <td>1410</td>
+                                                            <td>1818</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2016-02-08</td>
+                                                            <td>103527</td>
+                                                            <td>159964</td>
+                                                            <td>43558</td>
+                                                            <td>80901</td>
+                                                            <td>44361</td>
+                                                            <td>51690</td>
+                                                            <td>5824</td>
+                                                            <td>7952</td>
+                                                            <td>1410</td>
+                                                            <td>1818</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            用户分享的场景
+                                <span class="tools pull-right">
+                                    <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                    <a href="javascript:;" class="fa fa-times"></a>
+                                 </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <div class="col-sm-6">
+                                            <div class="panel-body">
+                                                <div class="info_bd">
+                                                    <div class="content" id="js_keydata">
+                                                        <table class="ui_trendgrid ui_trendgrid_3">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="first">
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>好友转发</strong></dt>
+                                                                                <dd>总次数&nbsp;&nbsp;8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>朋友圈</strong></dt>
+                                                                                <dd>8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>腾讯微博</strong></dt>
+                                                                                <dd>8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>其他</strong></dt>
+                                                                                <dd>8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                        <div class="col-sm-6">
+                                            <div class="panel-body">
+                                                <div id="pie-chart" class="pie-chart">
+                                                    <div id="pie-chartContainer-usersharing" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            分时场景
+                                <span class="tools pull-right">
+                                    <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                    <a href="javascript:;" class="fa fa-times"></a>
+                                 </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <div class="col-sm-6">
+                                            <div class="panel-body">
+                                                <div class="info_bd">
+                                                    <div class="content" id="js_keydata">
+                                                        <table class="ui_trendgrid ui_trendgrid_3">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="first">
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>好友转发</strong></dt>
+                                                                                <dd>时间内次数&nbsp;&nbsp;8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>朋友圈</strong></dt>
+                                                                                <dd>8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>腾讯微博</strong></dt>
+                                                                                <dd>8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>其他</strong></dt>
+                                                                                <dd>8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                        <div class="col-sm-6">
+                                            <div class="panel-body">
+                                                <div id="pie-chart" class="pie-chart">
+                                                    <div id="pie-chartContainer-time" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>    
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            不同场景好友分享次数
+                            <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                             </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <div id="pie-chart" class="pie-chart">
+                                            <div id="pie-chartContainer-total" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="footer">
+    <script>
+        $(function () {
+            $("#key").html("二姑娘家的昨日关键指标");
+            $("#teletext-page").click(function() {
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                // $(".con").eq(index).addClass("show").siblings().removeClass("show");
+                $("#source-content").show();
+                $("#charts-content").hide();             
+            });
+            $("#original-page").click(function() {
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#source-content").hide();
+                $("#charts-content").show();
+                $.ajax({
+                    type:"get",
+                    url:"/Api/Data/teletext/",
+                    success: function(html) {
+                        // console.log(html.data);
+                        chart2.series[0].update({data:html.date1});
+                        chart2.series[1].update({data:html.num1});
+                    }
+                    
+                });
+            });
+            $("#share-forwarding").click(function() {
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#source-content").hide();
+                $("#charts-content").show();
+                $.ajax({
+                    type:"get",
+                    url:"/Api/Data/teletext/",
+                    success: function(html) {
+                        chart2.series[0].update({data:html.date2});
+                        chart2.series[1].update({data:html.num2});
+                    }
+                    
+                });
+            });
+            $("#micro-collection").click(function() {
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#source-content").hide();
+                $("#charts-content").show();
+                $.ajax({
+                    type:"get",
+                    url:"/Api/Data/teletext/",
+                    success: function(html) {
+                        chart2.series[0].update({data:html.date3});
+                        chart2.series[1].update({data:html.num3});
+                    }
+                    
+                });
+            });
+
+            /*全部来源切换*/
+            $.ajax({
+                type:"get",
+                url:"/Api/Data/channels/",
+                success: function(html) {
+                    // console.log(html.data);
+                    chart1.series[0].update({data:html.number1});
+                    chart1.series[1].update({data:html.account1});
+                }
+                
+            });
+            $("#all-channels").click(function() {
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#all-channels-charts").show();
+                $.ajax({
+                    type:"get",
+                    url:"/Api/Data/channels/",
+                    success: function(html) {
+                        // console.log(html.data);
+                        chart1.series[0].update({data:html.number1});
+                        chart1.series[1].update({data:html.account1});
+                    }
+                    
+                });
+            });
+            $("#public-session").click(function() {
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#all-channels-charts").show();
+                $.ajax({
+                    type:"get",
+                    url:"/Api/Data/channels/",
+                    success: function(html) {
+                        chart1.series[0].update({data:html.number2});
+                        chart1.series[1].update({data:html.account2});
+                    }
+                    
+                });
+            });
+            $("#friend-forwarding").click(function() {
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#all-channels-charts").show();
+                $.ajax({
+                    type:"get",
+                    url:"/Api/Data/channels/",
+                    success: function(html) {
+                        chart1.series[0].update({data:html.number3});
+                        chart1.series[1].update({data:html.account3});
+                    }
+                    
+                });
+            });
+            $("#friends-circle").click(function() {
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#all-channels-charts").show();
+                $.ajax({
+                    type:"get",
+                    url:"/Api/Data/channels/",
+                    success: function(html) {
+                        chart1.series[0].update({data:html.number4});
+                        chart1.series[1].update({data:html.account4});
+                    }
+                    
+                });
+            });
+            $("#history-message").click(function() {
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#all-channels-charts").show();
+                $.ajax({
+                    type:"get",
+                    url:"/Api/Data/channels/",
+                    success: function(html) {
+                        chart1.series[0].update({data:html.number5});
+                        chart1.series[1].update({data:html.account5});
+                    }
+                    
+                });
+            });
+            $("#others").click(function() {
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#all-channels-charts").show();
+                $.ajax({
+                    type:"get",
+                    url:"/Api/Data/channels/",
+                    success: function(html) {
+                        chart1.series[0].update({data:html.number6});
+                        chart1.series[1].update({data:html.account6});
+                    }
+                    
+                });
+            });
+            /*日期选择范围*/
+            $('#date-range1').dateRangePicker({
+                format: 'YYYY-MM-DD',
+                minDays:2,
+                maxDays:7,
+                endDate:new Date(new Date()-24*60*60*1000)
+            }).bind('datepicker-change',function(event,obj)
+            {
+                obj=$('#date-range1').val();
+                var arr=obj.split("to");
+                num1=$.trim(arr[0]);
+                num2=$.trim(arr[1]);
+                // console.log(num1);
+                // console.log(num2);
+            });
+            $('#date-range2').dateRangePicker({
+                format: 'YYYY-MM-DD',
+                minDays:2,
+                maxDays:7,
+                endDate:new Date(new Date()-24*60*60*1000)
+            }).bind('datepicker-change',function(event,obj)
+            {
+                obj=$('#date-range2').val();
+                var arr=obj.split("to");
+                num1=$.trim(arr[0]);
+                num2=$.trim(arr[1]);
+                // console.log(num1);
+                // console.log(num2);
+            });
+            $('#date-range3').dateRangePicker({
+                format: 'YYYY-MM-DD',
+                minDays:2,
+                maxDays:7,
+                endDate:new Date(new Date()-24*60*60*1000)
+            }).bind('datepicker-change',function(event,obj)
+            {
+                obj=$('#date-range3').val();
+                var arr=obj.split("to");
+                num1=$.trim(arr[0]);
+                num2=$.trim(arr[1]);
+                // console.log(num1);
+                // console.log(num2);
+            });
+
+            /*饼图*/
+            $('#donut-chart-js').highcharts({
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: '阅读来源分析'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        innerSize: '50%',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            // format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        },
+                        showInLegend: true
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: 'Browser share',
+                    data: [
+                        ['好友转发<br>166688次，127052人',       7.2],
+                        ['朋友圈<br>1146335次，992357人',         57.8],
+                        ['腾讯微博<br>15次，8人',    0.7],
+                        ['历史消息页<br>419860次，218142人',     26.8],
+                        ['其它<br>174246次，93414人',   7.5]
+                    ]
+                }],
+                credits: {
+                        enabled: false // 禁用版权信息
+                }
+            });
+            chart1=new Highcharts.Chart({
+                chart: {
+                    renderTo: 'all-channels-js',
+                    type: 'area'
+                },
+                plotOptions: {
+                    area: {
+                        fillOpacity: 0.2
+                    }
+                },
+                title: {
+                    text: '趋势图'
+
+                },
+                xAxis: {
+                    title: {
+                        text: null
+                    },
+                    tickmarkPlacement:'on',
+                    categories: ['2016.02.7', '2016.02.8', '2016.02.9', '2016.02.10', '2016.02.11', '2016.02.12', '2016.02.13', '2016.02.14', '2016.02.15', '2016.02.16', '2016.02.17', '2016.02.18', '2016.02.19', '2016.02.20', '2016.02.21', '2016.02.22', '2016.02.23', '2016.02.24', '2016.02.25', '2016.02.26', '2016.02.27', '2016.02.28', '2016.02.29', '2016.03.01','2016.03.02', '2016.03.03', '2016.03.04', '2016.03.05','2016.03.06']
+                },
+                yAxis: {
+                    title: {
+                        text: null
+                    },
+                    min: 0,
+                    max: 250000,
+                    tickInterval:50000,
+                    labels: {
+                        formatter: function() {
+                            return this.value;
+                        }
+                    }
+
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [{
+                    name: '图文页阅读人数',
+                    color:'#4A90E2'
+                },{
+                    name: '图文页阅读次数',
+                    color:'#04C255'
+                }],
+                credits: {
+                    enabled: false // 禁用版权信息
+                }
+            });
+            chart2=new Highcharts.Chart({
+                chart: {
+                    renderTo: 'chartContainer-trend',
+                    type: 'area'
+                },
+                plotOptions: {
+                    area: {
+                        fillOpacity: 0.2
+                    }
+                },
+                title: {
+                    text: '趋势图'
+
+                },
+                xAxis: {
+                    title: {
+                        text: null
+                    },
+                    tickmarkPlacement:'on',
+                    categories: ['2016.02.7', '2016.02.8', '2016.02.9', '2016.02.10', '2016.02.11', '2016.02.12', '2016.02.13', '2016.02.14', '2016.02.15', '2016.02.16', '2016.02.17', '2016.02.18', '2016.02.19', '2016.02.20', '2016.02.21', '2016.02.22', '2016.02.23', '2016.02.24', '2016.02.25', '2016.02.26', '2016.02.27', '2016.02.28', '2016.02.29', '2016.03.01','2016.03.02', '2016.03.03', '2016.03.04', '2016.03.05','2016.03.06']
+                },
+                yAxis: {
+                    title: {
+                        text: null
+                    },
+                    min: 0,
+                    max: 250,
+                    tickInterval:50,
+                    labels: {
+                        formatter: function() {
+                            return this.value;
+                        }
+                    }
+
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [{
+                    name: '原文页阅读人数',
+                    color:'#4A90E2',
+                },{
+                    name: '原文页阅读次数',
+                    color:'#04C255',
+                }],
+                credits: {
+                    enabled: false // 禁用版权信息
+                }
+            });
+            $('#pie-chartContainer-usersharing').highcharts({
+                 credits: {
+                        enabled: false // 禁用版权信息
+                    },
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: ''
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        }
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: 'Browser share',
+                    data: [
+                        ['好友转发',   45.0],
+                        ['朋友圈',       26.8],
+                        
+                        ['腾讯微博',    8.5],
+                        ['其他',     6.2],
+                        
+                    ]
+                }]
+            });
+            
+            $('#pie-chartContainer-time').highcharts({
+                credits: {
+                    enabled: false // 禁用版权信息
+                },
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: ''
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        }
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: 'Browser share',
+                    data: [
+                        ['好友转发',   45.0],
+                        ['朋友圈',       26.8],
+                        
+                        ['腾讯微博',    8.5],
+                        ['其他',     6.2],
+                        
+                    ]
+                }]
+            });
+            
+            $('#pie-chartContainer-total').highcharts({
+                credits: {
+                    enabled: false // 禁用版权信息
+                },
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: '不同场景好友分享次数'
+                },
+               
+                xAxis: {
+                    categories: [
+                        '01时',
+                        '02时',
+                        '03时',
+                        '04时',
+                        '05时',
+                        '06时',
+                        '07时',
+                        '08时',
+                        '09时',
+                        '10时',
+                        '11时',
+                        '12时'
+                    ]
+                },
+                yAxis: {
+                    min: 0,
+                    max: 300,
+                    tickInterval:50,
+                    title: {
+                        text: '分享次数'
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: '好友转发',
+                    data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+
+                }, {
+                    name: '朋友圈',
+                    data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+
+                }, {
+                    name: '腾讯微博',
+                    data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+
+                }, {
+                    name: '其他',
+                    data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+
+                }]
+            });
+        });   
+    </script>
+</block>

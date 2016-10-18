@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>Login</title>
+
+    <link href="__PUBLIC__/admin/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/admin/css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/admin/js/html5shiv.js"></script>
+    <script src="__PUBLIC__/admin/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="login-body">
+
+<div class="container">
+
+    <form id="login-form" class="form-signin" action="{:U('Index/index')}">
+        <div class="form-signin-heading text-center">
+            <h1 class="sign-title">开始众筹</h1>
+            <img src="__PUBLIC__/admin/images/k-APP-X1.png" alt=""/>
+        </div>
+        <div class="login-wrap">
+            <input id="username" type="text" name="username" class="form-control" placeholder="用户名" autofocus>
+            <input id="password" type="password" name="password" class="form-control" placeholder="密码">
+
+            <button id="btn" class="btn btn-lg btn-login btn-block" type="submit">
+                <i class="fa fa-check"></i>
+            </button>
+            <div class="registration"></div>
+        </div>
+    </form>
+
+</div>
+
+
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="__PUBLIC__/admin/js/jquery-1.10.2.min.js"></script>
+<script src="__PUBLIC__/admin/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/admin/js/modernizr.min.js"></script>
+<script>
+    $("#btn").click(function(){
+        $(this).attr("disabled","true");
+        $.post("/Api/Login/index/",$("#login-form").serialize(),function(res){
+            if(res.code=="200"){
+                setTimeout(function(){
+                    $("#btn").html("正在登陆中");
+                    location.href="{:U('Index/index')}";
+                },2000);
+            }
+            else{
+                $("#btn").html(res.msg);
+                setTimeout(function(){
+                    location.href="{:U('Index/login')}";
+                },2000);
+                
+            }
+        });
+
+//        $.ajax({
+//            type:"post",
+//            url:"/Api/Login/index/",
+//            data:'$("#login-form").serialize()',
+//            success:function(html){
+//                if(html=="ok"){
+//                    location.href ="{:U('Index/index')}";
+//                }
+//                else{
+//                    location.href ="{:U('Index/error')}";
+//                }
+//            }
+//        });
+    })
+</script>
+
+</body>
+</html>

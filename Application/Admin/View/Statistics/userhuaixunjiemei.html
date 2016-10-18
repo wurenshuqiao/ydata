@@ -1,0 +1,344 @@
+<extend name="Public:base" />
+<block name="title">
+    <title>userhuaixunjiemei</title>
+</block>
+<block name="header"><script src="__PUBLIC__/admin/js/baiduTemplate.js"></script></block>
+<block name="nav">
+    <ul class="nav nav-pills nav-stacked custom-nav">
+        <li><a href="../Index/index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+        <li class="menu-list"><a href=""><i class="fa fa-random"></i> <span>周期走势</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Trend/exponential')}"> 支持指数与参与指数</a></li>
+                <li><a href="{:U('Trend/analyse')}"> 类目分析</a></li>
+                <li><a href="{:U('Trend/participate')}"> 类目参与</a></li>
+                <li><a href="{:U('Trend/line')}"> 项目上线</a></li>
+                <li><a href="{:U('Trend/realtime')}"> 实时统计</a></li>
+                <li><a href="{:U('Trend/timesharing')}"> 分时统计</a></li>
+                <li><a href="{:U('Trend/download')}"> 下载量</a></li>
+                <li><a href="{:U('Trend/register')}"> 用户周期</a></li>
+                <li><a href="{:U('Trend/active')}"> 活跃用户</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-male"></i> <span>人群分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('People/population')}"> 人群特性</a></li>
+                <li><a href="{:U('People/support')}"> 用户支持</a></li>
+                <li><a href="{:U('People/region')}"> 地域分析</a></li>
+                <li><a href="{:U('People/hierarchy')}"> 消费层级</a></li>
+                <li><a href="{:U('People/passes')}"> 消费次数</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>需求分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Require/dispersion')}"> 类目分布</a></li>
+                <li><a href="{:U('Require/project')}"> 项目基础数据</a></li>
+                <li><a href="{:U('Require/market')}"> 市场细分</a></li>
+                <li><a href="{:U('Require/channel')}"> 渠道来源</a></li>
+            </ul>
+        </li>
+        <li class="menu-list nav-active"><a href=""><i class="fa fa-comment"></i> <span>微信统计</span></a>
+            <ul class="sub-menu-list">
+                <li class="active"><a href="{:U('Statistics/user')}"> 用户分析</a></li>
+                <li><a href="{:U('Statistics/teletext')}"> 图文分析</a></li>
+                <li><a href="{:U('Statistics/message')}"> 消息分析</a></li>
+            </ul>
+        </li>
+        <li><a href="{:U('Login/index')}"><i class="fa fa-sign-in"></i> <span>登录 页面</span></a></li>
+    </ul>
+</block>
+<block name="content">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="square-widget">
+                    <div class="widget-container">
+                        <div class="stepy-tab">
+                            <ul id="default-titles" class="stepy-titles clearfix">
+                                <li id="zonghezhishu">
+                                    <a href="{:U('Statistics/user')}">综合指数</a>
+                                </li>
+                                <li id="kaishiba">
+                                    <a href="{:U('Statistics/userkaishiba')}">开始吧</a>
+                                </li>
+                                <li id="chaping">
+                                    <a href="{:U('Statistics/userchaping')}">差评</a>
+                                </li>
+                                <li id="yirenyicheng">
+                                    <a href="{:U('Statistics/useryirenyicheng')}">一人一城</a>
+                                </li>
+                                <li id="muzhiyuedu">
+                                    <a href="{:U('Statistics/usermuzhiyuedu')}">拇指阅读</a>
+                                </li>
+                                <li id="erguniangjia">
+                                    <a href="{:U('Statistics/usererguniangjia')}">二姑娘家</a>
+                                </li>
+                                <li id="jianghu">
+                                    <a href="{:U('Statistics/userjianghu')}">江湖</a>
+                                </li>
+                                <li id="xingzhoumo">
+                                    <a href="{:U('Statistics/userxingzhoumo')}">行周末</a>
+                                </li>
+                                <li class="current-step" id="huaixunjiemei">
+                                    <a href="{:U('Statistics/userhuaixunjiemei')}">坏寻姐妹</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="micro-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <ul class="calendar-plugin">
+                                <li class="calendar-plugin-item1">
+                                    <div class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        最近30天
+                                        <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                            <li><a href="#" data-value="7" data-index="0">最近7天</a></li>
+                                            <li><a href="#" data-value="15" data-index="1">最近15天</a></li>
+                                            <li><a href="#" data-value="30" data-index="2">最近30天</a></li>
+                                        </ul>
+                                    </div>
+                                </li>                                
+                                <li class="calendar-plugin-item2">
+                                    <div>
+                                        <input type="text" id="date-range3" value="" placeholder="请选择时间范围">               
+                                    </div>
+                                </li>
+                                <li class="calendar-plugin-item1">
+                                    <div class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        全部来源
+                                        <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                            <li><a href="#" data-value="99999999" data-index="0" data-name="全部来源">全部来源</a></li>
+                                            <li><a href="#" data-value="1" data-index="1" data-name="公众号搜索">公众号搜索</a></li>
+                                            <li><a href="#" data-value="30" data-index="2" data-name="扫描二维码">扫描二维码</a>
+                                            <li><a href="#" data-value="43" data-index="3" data-name="图文页右上角菜单">图文页右上角菜单</a>
+                                            <li><a href="#" data-value="57" data-index="4" data-name="图文页内公众号名称">图文页内公众号名称</a>
+                                            <li><a href="#" data-value="17" data-index="5" data-name="名片分享">名片分享</a>
+                                            <li><a href="#" data-value="78" data-index="6" data-name="朋友圈广告">朋友圈广告</a>
+                                            <li><a href="#" data-value="51" data-index="7" data-name="支付后关注">支付后关注</a>
+                                            <li><a href="#" data-value="0" data-index="8" data-name="其他合计">其他合计</a>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            &nbsp;
+                            <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                            </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <div id="pie-chart" class="pie-chart">
+                                            <div id="pie-chartContainer-all" style="width:100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <span id="message_type">消息类型</span>
+                            <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                             </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <div id="pie-chart" class="pie-chart">
+                                            <div id="pie-chartContainer-allmtype" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            消息类型详细数据
+                                <span class="tools pull-right">
+                                    <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                    <a href="javascript:;" class="fa fa-times"></a>
+                                 </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th>时间</th>
+                                                <th>文字</th>
+                                                <th>图片</th>
+                                                <th>语言</th>
+                                                <th>视频</th>
+                                                <th>第三方应用消息</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id='test'>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="footer">
+    <script>
+        $(function () {
+            $.ajax({
+                type:"get",
+                url:"/Api/Data/sisters/",
+                success: function(html) {
+                    // console.log(html);
+                    chart1.series[0].update({data:html.account7});
+                    chart2.series[0].update({data:html.number7});
+                }
+                
+            });
+            /*日期选择范围*/
+            $('#date-range3').dateRangePicker({
+                format: 'YYYY-MM-DD',
+                minDays:2,
+                maxDays:7,
+                endDate:new Date(new Date()-24*60*60*1000)
+            }).bind('datepicker-change',function(event,obj)
+            {
+                obj=$('#date-range3').val();
+                var arr=obj.split("to");
+                num1=$.trim(arr[0]);
+                num2=$.trim(arr[1]);
+            });
+            
+            chart1=new Highcharts.Chart({
+                chart: {
+                    type: 'column',
+                    renderTo: 'pie-chartContainer-all'
+                },
+                title: {
+                    text: '用户渠道来源'
+                },
+                xAxis: {
+                    title: {
+                        text: '渠道'
+                    },
+                    categories: ['全部来源','其他合计','公众号搜索','名片分享','扫描二维码','图文页右上角菜单','图文页内公众号名称','公众号文章广告','支付后关注','朋友圈广告']
+                },
+                yAxis: {
+                    title: {
+                        text: '人数'
+                    },
+                    min: 0,
+                    max: 3500,
+                    tickInterval:500,
+                    labels: {
+                        formatter: function() {
+                            return this.value;
+                        }
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: '人数',
+                    dataLabels: {
+                        enabled: true,
+                        align: 'center',
+                        style: {
+                            fontWeight: 'bold'
+                        },
+                        x: 0,
+                        y:-5,
+                        color: '#FFFFFF',
+                        verticalAlign: 'middle',
+                        overflow: true,
+                        crop: false
+                    }
+                    
+                }],
+                credits: {
+                    enabled: false // 禁用版权信息
+                }
+            });
+            chart2=new Highcharts.Chart({
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    renderTo: 'pie-chartContainer-allmtype'
+                },
+                title: {
+                    text: '消息类型对比图'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            // format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        },
+                        showInLegend: true
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: 'Browser share',
+                    // data: [['文字',37],['图片',14],['语言',16],['视频',12],['第三方应用消息',21]]
+                }],
+                credits: {
+                    enabled: false // 禁用版权信息
+                }
+            });
+        });
+    </script>
+</block>

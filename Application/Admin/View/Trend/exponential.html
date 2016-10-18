@@ -1,0 +1,164 @@
+<extend name="Public:base" />
+<block name="title"><title>exponential</title></block>
+<block name="nav">
+    <ul class="nav nav-pills nav-stacked custom-nav">
+        <li><a href="../Index/index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+        <li class="menu-list nav-active"><a href=""><i class="fa fa-random"></i> <span>周期走势</span></a>
+            <ul class="sub-menu-list">
+                <li class="active"><a href="{:U('Trend/exponential')}"> 支持指数与参与指数</a></li>
+                <li><a href="{:U('Trend/analyse')}"> 类目分析</a></li>
+                <li><a href="{:U('Trend/participate')}"> 类目参与</a></li>
+                <li><a href="{:U('Trend/line')}"> 项目上线</a></li>
+                <li><a href="{:U('Trend/realtime')}"> 实时统计</a></li>
+                <li><a href="{:U('Trend/timesharing')}"> 分时统计</a></li>
+                <li><a href="{:U('Trend/download')}"> 下载量</a></li>
+                <li><a href="{:U('Trend/register')}"> 用户周期</a></li>
+                <li><a href="{:U('Trend/active')}"> 活跃用户</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-male"></i> <span>人群分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('People/population')}"> 人群特性</a></li>
+                <li><a href="{:U('People/support')}"> 用户支持</a></li>
+                <li><a href="{:U('People/region')}"> 地域分析</a></li>
+                <li><a href="{:U('People/hierarchy')}"> 消费层级</a></li>
+                <li><a href="{:U('People/passes')}"> 消费次数</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>需求分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Require/dispersion')}"> 类目分布</a></li>
+                <li><a href="{:U('Require/project')}"> 项目基础数据</a></li>
+                <li><a href="{:U('Require/market')}"> 市场细分</a></li>
+                <li><a href="{:U('Require/channel')}"> 渠道来源</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-comment"></i> <span>微信统计</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Statistics/user')}"> 用户分析</a></li>
+                <li><a href="{:U('Statistics/teletext')}"> 图文分析</a></li>
+                <li><a href="{:U('Statistics/message')}"> 消息分析</a></li>
+            </ul>
+        </li>
+        <li><a href="{:U('Login/index')}"><i class="fa fa-sign-in"></i> <span>登录 页面</span></a></li>
+
+    </ul>
+</block>
+<block name="content">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        支持指数与参与指数
+                        <span class="tools pull-right">
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                            <a href="javascript:;" class="fa fa-times"></a>
+                         </span>
+                    </header>
+                    <div class="panel-body">
+                        <div class="col-sm-12">
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <div id="pie-chart" class="pie-chart">
+                                        <div id="pie-chartContainer" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="footer">
+    <script>
+        $(function () {
+            var type=4;
+            var begin_date="2016-02-01";
+            var end_date="2016-02-07";
+
+            $.ajax({ 
+                type: "GET",
+                url: "/Api/WeiChat/getusersummary/type/"+type+"/begin_date/"+begin_date+"/end_date/"+end_date, 
+                success: function(res){
+                    console.log(res);
+                    //日期
+                    var search_date=[],new_user=[];
+                    var j=0;
+                    search_date[0]=res.data.list[0]['ref_date'];
+                    for(i=0;i<res.data.list.length-1;i++){
+                            if((new Date(Date.parse(res.data.list[i]['ref_date'].replace(/-/g, "/")))).getTime()!=(new Date(Date.parse(res.data.list[++i]['ref_date'].replace(/-/g, "/")))).getTime()){
+                                j++;
+                                search_date[j]=res.data.list[++i]['ref_date'];
+                            }
+                    }
+                    chart.xAxis[0].setCategories(search_date);
+                    
+                    //每日新增用户数量
+                    var new_user=[],sum=0,j=0;
+                    for(i=0;i<res.data.list.length;i++){
+                        if((i+1)%7==0){
+                            sum=parseInt(res.data.list[i]['new_user'])+sum;
+                            new_user[j]=sum;
+                            j++;
+                            sum=0;
+                        }
+                        else{
+                            sum=parseInt(res.data.list[i]['new_user'])+sum;
+                        }    
+                    }
+                    chart.series[0].setData(new_user);
+                    
+                }
+  });
+
+            // $('#pie-chartContainer').highcharts
+            var chart=new Highcharts.Chart({
+                chart: {
+                    renderTo:'pie-chartContainer',
+                },
+                title: {
+                    text: '时间的支持者总计与参与者总计的趋势'
+
+                },
+                xAxis: {
+                    tickmarkPlacement:'on',
+                    // ['2014.07.02', '2014.07.07', '2014.07.12', '2014.07.17', '2014.07.22', '2014.07.27','2014.08.01', '2014.08.06', '2014.08.11', '2014.08.16', '2014.08.21', '2014.08.26', '2014.08.31', '2014.09.10', '2014.09.15', '2014.09.20', '2014.09.25', '2014.09.30', '2014.10.05', '2014.10.10', '2014.10.15', '2014.10.20', '2014.10.25', '2014.10.30', '2014.11.04', '2014.11.09', '2014.11.14', '2014.11.19', '2014.11.24', '2014.11.29', '2014.12.04', '2014.12.09', '2014.12.14', '2014.12.19', '2014.12.24', '2014.12.29', '2015.01.03', '2015.01.08', '2015.01.13', '2015.01.18', '2015.01.23', '2015.01.28', '2015.02.02', '2015.02.07', '2015.02.12', '2015.02.17', '2015.02.22', '2015.02.27', '2015.03.07', '2015.03.12', '2015.03.17', '2015.03.22', '2015.03.27']
+                },
+                yAxis: {
+                    title: {
+                        text: '支持者/参与者',
+                    },
+                    labels: {
+                        formatter: function() {
+                            return this.value ;
+                        }
+                    }
+
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [{
+                    name: '新增用户',
+                    color:'#1EB8EB',
+                }
+                // ,{
+                //     name: '参与者',
+                //     color:'orange',
+                //     data: [0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5, 0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5, 0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5,0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5,0.2, 0.8, 5.7, 11.3, 14.1]
+                // }
+                ],
+                credits: {
+                    enabled: false // 禁用版权信息
+                }
+            });
+        });
+    </script>
+</block>

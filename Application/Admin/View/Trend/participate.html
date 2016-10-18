@@ -1,0 +1,139 @@
+<extend name="Public:base" />
+<block name="title"><title>participate</title></block>
+<block name="nav">
+    <ul class="nav nav-pills nav-stacked custom-nav">
+        <li><a href="../Index/index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+        <li class="menu-list nav-active"><a href=""><i class="fa fa-random"></i> <span>周期走势</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Trend/exponential')}"> 支持指数与参与指数</a></li>
+                <li><a href="{:U('Trend/analyse')}"> 类目分析</a></li>
+                <li class="active"><a href="{:U('Trend/participate')}"> 类目参与</a></li>
+                <li><a href="{:U('Trend/line')}"> 项目上线</a></li>
+                <li><a href="{:U('Trend/realtime')}"> 实时统计</a></li>
+                <li><a href="{:U('Trend/timesharing')}"> 分时统计</a></li>
+                <li><a href="{:U('Trend/download')}"> 下载量</a></li>
+                <li><a href="{:U('Trend/register')}"> 用户周期</a></li>
+                <li><a href="{:U('Trend/active')}"> 活跃用户</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-male"></i> <span>人群分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('People/population')}"> 人群特性</a></li>
+                <li><a href="{:U('People/support')}"> 用户支持</a></li>
+                <li><a href="{:U('People/region')}"> 地域分析</a></li>
+                <li><a href="{:U('People/hierarchy')}"> 消费层级</a></li>
+                <li><a href="{:U('People/passes')}"> 消费次数</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>需求分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Require/dispersion')}"> 类目分布</a></li>
+                <li><a href="{:U('Require/project')}"> 项目基础数据</a></li>
+                <li><a href="{:U('Require/market')}"> 市场细分</a></li>
+                <li><a href="{:U('Require/channel')}"> 渠道来源</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-comment"></i> <span>微信统计</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Statistics/user')}"> 用户分析</a></li>
+                <li><a href="{:U('Statistics/teletext')}"> 图文分析</a></li>
+                <li><a href="{:U('Statistics/message')}"> 消息分析</a></li>
+            </ul>
+        </li>
+        <li><a href="{:U('Login/index')}"><i class="fa fa-sign-in"></i> <span>登录 页面</span></a></li>
+
+    </ul>
+</block>
+<block name="content">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        类目参与或支持与类目细分
+                        <span class="tools pull-right">
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                            <a href="javascript:;" class="fa fa-times"></a>
+                         </span>
+                    </header>
+                    <div class="panel-body">
+                        <div class="col-sm-12">
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <div id="pie-chart" class="pie-chart">
+                                        <div id="pie-chartContainer" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">                                
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="footer">
+    <script>
+        $(function () {
+            $('#pie-chartContainer').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: '类目参与或支持与类目细分',
+                    margin: 30
+                },
+                xAxis: {
+                    categories: ['出版', '公益', '电影', '摄影', '科技', '其他', '生活', '学习', '艺术', '音乐', '娱乐']
+                },
+                yAxis: {
+                    min: 0,
+                    max: 250000,
+                    title: {
+                        text:null
+                    },
+                    labels: {
+                        formatter: function() {
+                            return this.value;
+                        }
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                tooltip: {
+                    formatter: function() {
+                        return '<b>'+ this.x +'</b><br/>'+
+                            this.series.name +': '+ this.y +'<br/>'+
+                            'Total: '+ this.point.stackTotal;
+                    }
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'normal'
+//                        dataLabels: {
+//                            enabled: true,
+//                            color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+//                        }
+                    }
+                },
+                series: [{
+                    name: '参与者',
+                    color: '#E7736C',
+                    data: [18000, 42000, 122000, 107000, 39000, 149000, 106000, 130000, 145000, 140000, 136000]
+                }, {
+                    name: '支持者',
+                    color: '#6AA4E2',
+                    data: [8000, 6000, 17000, 13000, 11000, 49000,12000, 28000, 45000, 85000, 37000]
+                }],
+                credits: {
+                    enabled: false // 禁用版权信息
+                }
+            });
+        });
+    </script>
+</block>

@@ -1,0 +1,498 @@
+<extend name="Public:base" />
+<block name="title">
+    <title>messagehuaixunjiemei</title>
+</block>
+<block name="nav">
+    <ul class="nav nav-pills nav-stacked custom-nav">
+        <li><a href="../Index/index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+        <li class="menu-list"><a href=""><i class="fa fa-random"></i> <span>周期走势</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Trend/exponential')}"> 支持指数与参与指数</a></li>
+                <li><a href="{:U('Trend/analyse')}"> 类目分析</a></li>
+                <li><a href="{:U('Trend/participate')}"> 类目参与</a></li>
+                <li><a href="{:U('Trend/line')}"> 项目上线</a></li>
+                <li><a href="{:U('Trend/realtime')}"> 实时统计</a></li>
+                <li><a href="{:U('Trend/timesharing')}"> 分时统计</a></li>
+                <li><a href="{:U('Trend/download')}"> 下载量</a></li>
+                <li><a href="{:U('Trend/register')}"> 用户周期</a></li>
+                <li><a href="{:U('Trend/active')}"> 活跃用户</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-male"></i> <span>人群分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('People/population')}"> 人群特性</a></li>
+                <li><a href="{:U('People/support')}"> 用户支持</a></li>
+                <li><a href="{:U('People/region')}"> 地域分析</a></li>
+                <li><a href="{:U('People/hierarchy')}"> 消费层级</a></li>
+                <li><a href="{:U('People/passes')}"> 消费次数</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>需求分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Require/dispersion')}"> 类目分布</a></li>
+                <li><a href="{:U('Require/project')}"> 项目基础数据</a></li>
+                <li><a href="{:U('Require/market')}"> 市场细分</a></li>
+                <li><a href="{:U('Require/channel')}"> 渠道来源</a></li>
+            </ul>
+        </li>
+        <li class="menu-list nav-active"><a href=""><i class="fa fa-comment"></i> <span>微信统计</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Statistics/user')}"> 用户分析</a></li>
+                <li><a href="{:U('Statistics/teletext')}"> 图文分析</a></li>
+                <li class="active"><a href="{:U('Statistics/message')}"> 消息分析</a></li>
+            </ul>
+        </li>
+        <li><a href="{:U('Login/index')}"><i class="fa fa-sign-in"></i> <span>登录 页面</span></a></li>
+    </ul>
+</block>
+<block name="content">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="square-widget">
+                    <div class="widget-container">
+                        <div class="stepy-tab">
+                            <ul id="default-titles" class="stepy-titles clearfix">
+                                <li id="zonghezhishu">
+                                    <a href="{:U('Statistics/message')}">综合指数</a>
+                                </li>
+                                <li id="kaishiba">
+                                    <a href="{:U('Statistics/messagekaishiba')}">开始吧</a>
+                                </li>
+                                <li id="chaping">
+                                    <a href="{:U('Statistics/messagechaping')}">差评</a>
+                                </li>
+                                <li id="yirenyicheng">
+                                    <a href="{:U('Statistics/messageyirenyicheng')}">一人一城</a>
+                                </li>
+                                <li id="muzhiyuedu">
+                                    <a href="{:U('Statistics/messagemuzhiyuedu')}">拇指阅读</a>
+                                </li>
+                                <li id="erguniangjia">
+                                    <a href="{:U('Statistics/messageerguniangjia')}">二姑娘家</a>
+                                </li>
+                                <li id="jianghu">
+                                    <a href="{:U('Statistics/messagejianghu')}">江湖</a>
+                                </li>
+                                <li id="xingzhoumo">
+                                    <a href="{:U('Statistics/messagexingzhoumo')}">行周末</a>
+                                </li>
+                                <li class="current-step" id="huaixunjiemei">
+                                    <a href="{:U('Statistics/messagehuaixunjiemei')}">坏寻姐妹</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="micro-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading no-border">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                日报
+                                <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#" data-value="hourly" data-index="0" data-name="小时报">小时报</a></li>
+                                    <li><a href="#" data-value="daily" data-index="1" data-name="日报">日报</a></li>
+                                    <li><a href="#" data-value="weekly" data-index="2" data-name="周报">周报</a></li>
+                                    <li><a href="#" data-value="monthly" data-index="3" data-name="月报">月报</a></li>
+                                </ul>
+                            </div>
+                        </header>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <span id="key">昨日关键指标</span>
+                            <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                            </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <div class="info_bd">
+                                            <div class="content" id="js_keydata">
+                                                <table class="ui_trendgrid ui_trendgrid_3">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="first">
+                                                                <div class="ui_trendgrid_item">
+                                                                    <div class="ui_trendgrid_chart"></div>
+                                                                    <dl>
+                                                                        <dt>消息发送人数</dt>
+                                                                        <dd class="ui_trendgrid_number"><strong>369</strong><em class="ui_trendgrid_unit"></em></dd>
+                                                                        <dd>日 <i class="icon_down" title="下降"></i>22.9%</dd>
+                                                                        <dd>周 <i class="icon_up" title="上升"></i>69.7% </dd>
+                                                                        <dd>月 <i class="icon_up" title="上升"></i>100.5%</dd>
+                                                                    </dl>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="ui_trendgrid_item">
+                                                                    <div class="ui_trendgrid_chart"></div>
+                                                                    <dl>
+                                                                        <dt>消息发送次数</dt>
+                                                                        <dd class="ui_trendgrid_number"><strong>603</strong><em class="ui_trendgrid_unit"></em></dd>
+                                                                        <dd>日 <i class="icon_down" title="下降"></i>210%</dd>
+                                                                        <dd>周 <i class="icon_up" title="上升"></i>352.1% </dd>
+                                                                        <dd>月 <i class="icon_up" title="上升"></i>136.5%</dd>
+                                                                    </dl>
+                                                                </div>
+                                                            </td>
+                                                            <td class="last">
+                                                                <div class="ui_trendgrid_item">
+                                                                    <div class="ui_trendgrid_chart"></div>
+                                                                    <dl>
+                                                                        <dt>人均发送次数</dt>
+                                                                        <dd class="ui_trendgrid_number"><strong>1.6</strong><em class="ui_trendgrid_unit"></em></dd>
+                                                                        <dd>日 <i class="icon_down" title="下降"></i>10.1%</dd>
+                                                                        <dd>周 <i class="icon_up" title="上升"></i>167.7% </dd>
+                                                                        <dd>月 <i class="icon_up" title="上升"></i>17.9%</dd>
+                                                                    </dl>
+                                                                </div>
+                                                            </td>                                                
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <div class="widget-container">
+                                <div class="nav-inner">
+                                    <span id="key-indicators">关键指标详解</span>
+                                    <ul id="default-titles" class="nav-message">
+                                        <li id="message-number" class="highlight-background"><div>消息发送人数</div></li>
+                                        <li id="message-times"><div>消息发送次数</div></li>
+                                        <li id="per-capita"><div>人均发送次数</div></li>
+                                    </ul>&nbsp;
+                                    <span class="tools pull-right">
+                                        <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                        <a href="javascript:;" class="fa fa-times"></a>
+                                    </span>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="panel-body">
+                            <div id="message-trend-content" style="display:block">
+                                <header class="panel-heading no-border">
+                                    <div class="widget-container">
+                                        <div class="nav-inner">
+                                            <span id="key-time">时间</span>
+                                            <ul id="default-titles" class="message-time">
+                                                <li id="seven-days" range="7"><div>7日</div></li>
+                                                <li id="fourteen-days" range="14"><div>14日</div></li>
+                                                <li id="thirty-days" range="30" class="highlight-color"><div>30日</div></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <input type="text" id="date-range2" class="datarangepicker" value="" placeholder="请选择时间范围">             
+                                    </div>                          
+                                </header>
+                                <div class="col-sm-12" id="chart-content">
+                                    <section class="panel">
+                                        <div class="panel-body">
+                                            <div id="pie-chart" class="pie-chart">
+                                                <div id="days-trend-chart" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <!-- <div id="pie-chart" class="pie-chart">
+                                    <div id="pie-chartContainer" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <section class="panel">
+                                                    <div class="panel-body">
+                                                        <div id="days-trend-chart"></div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="row">                                                
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            消息发送次数分布图
+                            <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                            </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <table class="table table-bordered">
+                                            <thead class="thead">
+                                            <tr>
+                                                <th class="message-degree">消息发送次数</th>
+                                                <th class="message-headcount">消息发送人数</th>
+                                                <th>占比</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1-5次</td>
+                                                <td>7621(96.58%)</td>
+                                                <td><div style="width:96.58%;" class="ui_progress_bar"></div></td>                                   
+                                            </tr>
+                                            <tr>
+                                                <td>6-10次</td>
+                                                <td>194(2.46%)</td>
+                                                <td><div style="width:2.46%;" class="ui_progress_bar"></div></td>                                   
+                                            </tr>
+                                            <tr>
+                                                <td>11-15次</td>
+                                                <td>76(0.96%)</td>
+                                                <td><div style="width:0.96%;" class="ui_progress_bar"></div></td>                                   
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>     
+            
+            <div class="row">                                                
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            详细数据
+                            <span class="pull-right">
+                                <a href="#" style="color:#4A90E2">导出Excel</a>
+                            </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <table class="table table-bordered">
+                                            <thead class="message-thead">
+                                            <tr>
+                                                <th class="data-time">时间</th>
+                                                <th>消息发送人数</th>
+                                                <th>消息发送次数</th>
+                                                <th>人均发送次数</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody style="text-align:right">
+                                            <tr>
+                                                <td class="tbody-time">2016-03-11</td>
+                                                <td class="td_high_light">381</td>
+                                                <td>650</td>
+                                                <td>1.7</td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="tbody-time">2016-02-19</td>
+                                                <td class="td_high_light">381</td>
+                                                <td>650</td>
+                                                <td>1.7</td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="tbody-time">2016-03-09</td>
+                                                <td class="td_high_light">381</td>
+                                                <td>650</td>
+                                                <td>1.7</td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="tbody-time">2016-03-07</td>
+                                                <td class="td_high_light">381</td>
+                                                <td>650</td>
+                                                <td>1.7</td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="tbody-time">2016-02-27</td>
+                                                <td class="td_high_light">381</td>
+                                                <td>650</td>
+                                                <td>1.7</td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="tbody-time">2016-02-26</td>
+                                                <td class="td_high_light">381</td>
+                                                <td>650</td>
+                                                <td>1.7</td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="tbody-time">2016-03-10</td>
+                                                <td class="td_high_light">381</td>
+                                                <td>650</td>
+                                                <td>1.7</td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="tbody-time">2016-03-12</td>
+                                                <td class="td_high_light">381</td>
+                                                <td>650</td>
+                                                <td>1.7</td> 
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>   
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="footer">
+    <script>
+        $(function () {
+            $.ajax({
+                type:"get",
+                url:"/Api/Data/message/",
+                success: function(html) {
+                    chart1.series[0].update({data:html.count1});
+                }
+            });
+            $("#message-number").click(function() {
+                var index=$(this).index();
+                $(this).addClass("highlight-background").siblings().removeClass("highlight-background");
+                $("#message-trend-content").show();
+                $.ajax({
+                    type:"get",
+                    url:"/Api/Data/message/",
+                    success: function(html) {
+                        chart1.series[0].update({data:html.count1});
+                    }
+                });
+            });
+            $("#message-times").click(function() {
+                var index=$(this).index();
+                $(this).addClass("highlight-background").siblings().removeClass("highlight-background");
+                $("#message-trend-content").show();
+                $.ajax({
+                    type:"get",
+                    url:"/Api/Data/message/",
+                    success: function(html) {
+                        chart1.series[0].update({data:html.count2});
+                    }
+                });
+            });
+            $("#per-capita").click(function() {
+                var index=$(this).index();
+                $(this).addClass("highlight-background").siblings().removeClass("highlight-background");
+                $("#message-trend-content").show();
+                $.ajax({
+                    type:"get",
+                    url:"/Api/Data/message/",
+                    success: function(html) {
+                        chart1.series[0].update({data:html.count3});
+                    }
+                });
+            });
+            // $("#thirty-days").click(function() {
+            //     var index=$(this).index();
+            //     $(this).addClass("highlight-color").siblings().removeClass("highlight-color");
+            //     $("#chart-content").show();
+            //     $.ajax({
+            //         type:"get",
+            //         url:"/Api/Data/message/",
+            //         success: function(html) {
+            //             chart1.series[0].update({data:html.count1});
+            //         }
+            //     });
+            // });
+            
+            /*日期选择范围*/
+            $('#date-range2').dateRangePicker({
+                format: 'YYYY-MM-DD',
+                minDays:2,
+                maxDays:7,
+                endDate:new Date(new Date()-24*60*60*1000)
+            }).bind('datepicker-change',function(event,obj)
+            {
+                obj=$('#date-range2').val();
+                var arr=obj.split("to");
+                num1=$.trim(arr[0]);
+                num2=$.trim(arr[1]);
+            });
+            
+            chart1=new Highcharts.Chart({
+                chart: {
+                    renderTo: 'days-trend-chart',
+                    type: 'area'
+                },
+                plotOptions: {
+                    area: {
+                        fillOpacity: 0.2
+                    }
+                },
+                title: {
+                    text: '趋势图'
+
+                },
+                xAxis: {
+                    title: {
+                        text: null
+                    },
+                    tickmarkPlacement:'on',
+                    categories: ['2016.02.10', '2016.02.11', '2016.02.12', '2016.02.13', '2016.02.14', '2016.02.15', '2016.02.16', '2016.02.17', '2016.02.18', '2016.02.19', '2016.02.20', '2016.02.21', '2016.02.22', '2016.02.23', '2016.02.24', '2016.02.25', '2016.02.26', '2016.02.27', '2016.02.28', '2016.02.29', '2016.03.01','2016.03.02', '2016.03.03', '2016.03.04', '2016.03.05','2016.03.06', '2016.03.07','2016.03.08', '2016.03.09']
+                },
+                yAxis: {
+                    title: {
+                        text: null
+                    },
+                    min: 0,
+                    max: 400,
+                    tickInterval:100,
+                    labels: {
+                        formatter: function() {
+                            return this.value;
+                        }
+                    }
+
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [{
+                    name: '消息发送人数',
+                    color:'#44B549',
+                }],
+                credits: {
+                    enabled: false // 禁用版权信息
+                }
+            });
+        });
+
+    </script>
+</block>

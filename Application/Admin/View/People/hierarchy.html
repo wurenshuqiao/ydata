@@ -1,0 +1,456 @@
+<extend name="Public:base" />
+<block name="title">
+    <title>hierarchy</title>
+</block>
+<block name="nav">
+    <ul class="nav nav-pills nav-stacked custom-nav">
+        <li><a href="{:U('Index/index')}"><i class="fa fa-home"></i> <span>首页</span></a></li>
+        <li class="menu-list"><a href=""><i class="fa fa-random"></i> <span>周期走势</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Trend/exponential')}"> 支持指数与参与指数</a></li>
+                <li><a href="{:U('Trend/analyse')}"> 类目分析</a></li>
+                <li><a href="{:U('Trend/participate')}"> 类目参与</a></li>
+                <li><a href="{:U('Trend/line')}"> 项目上线</a></li>
+                <li><a href="{:U('Trend/realtime')}"> 实时统计</a></li>
+                <li><a href="{:U('Trend/timesharing')}"> 分时统计</a></li>
+                <li><a href="{:U('Trend/download')}"> 下载量</a></li>
+                <li><a href="{:U('Trend/register')}"> 用户周期</a></li>
+                <li><a href="{:U('Trend/active')}"> 活跃用户</a></li>
+            </ul>
+        </li>
+        <li class="menu-list nav-active"><a href=""><i class="fa fa-male"></i> <span>人群分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('People/population')}"> 人群特性</a></li>
+                <li><a href="{:U('People/support')}"> 用户支持</a></li>
+                <li><a href="{:U('People/region')}"> 地域分析</a></li>
+                <li class="active"><a href="{:U('People/hierarchy')}"> 消费层级</a></li>
+                <li><a href="{:U('People/passes')}"> 消费次数</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>需求分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Require/dispersion')}"> 类目分布</a></li>
+                <li><a href="{:U('Require/project')}"> 项目基础数据</a></li>
+                <li><a href="{:U('Require/market')}"> 市场细分</a></li>
+                <li><a href="{:U('Require/channel')}"> 渠道来源</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-comment"></i> <span>微信统计</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Statistics/user')}"> 用户分析</a></li>
+                <li><a href="{:U('Statistics/teletext')}"> 图文分析</a></li>
+                <li><a href="{:U('Statistics/message')}"> 消息分析</a></li>
+            </ul>
+        </li>
+        <li><a href="{:U('Login/index')}"><i class="fa fa-sign-in"></i> <span>登录 页面</span></a></li>
+    </ul>
+</block>
+<block name="content">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        消费层级
+                        <span class="tools pull-right">
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                            <a href="javascript:;" class="fa fa-times"></a>
+                         </span>
+                    </header>
+                    <!-- <div class="panel-body">
+                        <div class="col-sm-12">
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <div id="pie-chart" class="pie-chart">
+                                        <div id="pie-chartContainer" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="panel-body">
+                                                        <div class="chartJS">
+                                                            <div id="consumption-level-all-js"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="panel-body">
+                                                        <div class="chartJS">
+                                                            <div id="consumption-level-man-js"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="panel-body">
+                                                        <div class="chartJS">
+                                                            <div id="consumption-level-woman-js"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="panel-body">
+                                                        <div class="chartJS">
+                                                            <div id="consumption-level-others-js"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div> -->
+                    <div class="panel-body">
+                        <div class="col-sm-6">
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <div id="pie-chart" class="pie-chart">
+                                        <div id="consumption-level-all-js" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-sm-6">
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <div id="pie-chart" class="pie-chart">
+                                        <div id="consumption-level-man-js" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-sm-6">
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <div id="pie-chart" class="pie-chart">
+                                        <div id="consumption-level-woman-js" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-sm-6">
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <div id="pie-chart" class="pie-chart">
+                                        <div id="consumption-level-others-js" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="footer">
+    <script type="text/javascript">
+    $(function() {
+        $('#consumption-level-all-js').highcharts({
+            credits: {
+                enabled: false // 禁用版权信息
+            },
+            chart: {
+                zoomType: 'xy'
+            },
+            title: {
+                text: '消费层级-全部'
+            },
+
+            xAxis: [{
+                categories: ['低', '偏低', '中', '偏高', '高'],
+                crosshair: true
+            }],
+            yAxis: [{ // Primary yAxis
+                labels: {
+
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
+                },
+                title: {
+                    text: '',
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
+                }
+            }, { // Secondary yAxis
+                title: {
+                    text: '',
+                    style: {
+                        color: Highcharts.getOptions().colors[0]
+                    }
+                },
+                labels: {
+
+                    style: {
+                        color: Highcharts.getOptions().colors[0]
+                    }
+                },
+                opposite: true
+            }],
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                x: 120,
+                verticalAlign: 'top',
+                y: 100,
+                floating: true,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+            },
+            series: [{
+                name: '百分比',
+                type: 'column',
+                yAxis: 1,
+                data: [8.5, 6.9, 9.5, 14.5, 18.2],
+                tooltip: {
+                    valueSuffix: '% '
+                }
+
+            }, {
+                name: '全网基数 ',
+                type: 'spline',
+                data: [8.5, 6.9, 9.5, 14.5, 18.2],
+                tooltip: {
+                    valueSuffix: '%'
+                }
+            }]
+        });
+    });
+    $(function() {
+        $('#consumption-level-man-js').highcharts({
+            credits: {
+                enabled: false // 禁用版权信息
+            },
+            chart: {
+                zoomType: 'xy'
+            },
+            title: {
+                text: '消费层级-男'
+            },
+
+            xAxis: [{
+                categories: ['低', '偏低', '中', '偏高', '高'],
+                crosshair: true
+            }],
+            yAxis: [{ // Primary yAxis
+                labels: {
+
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
+                },
+                title: {
+                    text: '',
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
+                }
+            }, { // Secondary yAxis
+                title: {
+                    text: '',
+                    style: {
+                        color: Highcharts.getOptions().colors[0]
+                    }
+                },
+                labels: {
+
+                    style: {
+                        color: Highcharts.getOptions().colors[0]
+                    }
+                },
+                opposite: true
+            }],
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                x: 120,
+                verticalAlign: 'top',
+                y: 100,
+                floating: true,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+            },
+            series: [{
+                name: '百分比',
+                type: 'column',
+                yAxis: 1,
+                data: [8.5, 6.9, 9.5, 14.5, 18.2],
+                tooltip: {
+                    valueSuffix: '% '
+                }
+
+            }, {
+                name: '全网基数 ',
+                type: 'spline',
+                data: [8.5, 6.9, 9.5, 14.5, 18.2],
+                tooltip: {
+                    valueSuffix: '%'
+                }
+            }]
+        });
+    });
+    $(function() {
+        $('#consumption-level-woman-js').highcharts({
+            credits: {
+                enabled: false // 禁用版权信息
+            },
+            chart: {
+                zoomType: 'xy'
+            },
+            title: {
+                text: '消费层级-女'
+            },
+
+            xAxis: [{
+                categories: ['低', '偏低', '中', '偏高', '高'],
+                crosshair: true
+            }],
+            yAxis: [{ // Primary yAxis
+                labels: {
+
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
+                },
+                title: {
+                    text: '',
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
+                }
+            }, { // Secondary yAxis
+                title: {
+                    text: '',
+                    style: {
+                        color: Highcharts.getOptions().colors[0]
+                    }
+                },
+                labels: {
+
+                    style: {
+                        color: Highcharts.getOptions().colors[0]
+                    }
+                },
+                opposite: true
+            }],
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                x: 120,
+                verticalAlign: 'top',
+                y: 100,
+                floating: true,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+            },
+            series: [{
+                name: '百分比',
+                type: 'column',
+                yAxis: 1,
+                data: [8.5, 6.9, 9.5, 14.5, 18.2],
+                tooltip: {
+                    valueSuffix: '% '
+                }
+
+            }, {
+                name: '全网基数 ',
+                type: 'spline',
+                data: [8.5, 6.9, 9.5, 14.5, 18.2],
+                tooltip: {
+                    valueSuffix: '%'
+                }
+            }]
+        });
+    });
+    $(function() {
+        $('#consumption-level-others-js').highcharts({
+            credits: {
+                enabled: false // 禁用版权信息
+            },
+            chart: {
+                zoomType: 'xy'
+            },
+            title: {
+                text: '消费层级-其他'
+            },
+
+            xAxis: [{
+                categories: ['低', '偏低', '中', '偏高', '高'],
+                crosshair: true
+            }],
+            yAxis: [{ // Primary yAxis
+                labels: {
+
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
+                },
+                title: {
+                    text: '',
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
+                }
+            }, { // Secondary yAxis
+                title: {
+                    text: '',
+                    style: {
+                        color: Highcharts.getOptions().colors[0]
+                    }
+                },
+                labels: {
+
+                    style: {
+                        color: Highcharts.getOptions().colors[0]
+                    }
+                },
+                opposite: true
+            }],
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                x: 120,
+                verticalAlign: 'top',
+                y: 100,
+                floating: true,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+            },
+            series: [{
+                name: '百分比',
+                type: 'column',
+                yAxis: 1,
+                data: [8.5, 6.9, 9.5, 14.5, 18.2],
+                tooltip: {
+                    valueSuffix: '% '
+                }
+
+            }, {
+                name: '全网基数 ',
+                type: 'spline',
+                data: [8.5, 6.9, 9.5, 14.5, 18.2],
+                tooltip: {
+                    valueSuffix: '%'
+                }
+            }]
+        });
+    });
+    </script>
+</block>

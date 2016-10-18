@@ -1,0 +1,120 @@
+<extend name="Public:base" />
+<block name="title"><title>line</title></block>
+<block name="nav">
+    <ul class="nav nav-pills nav-stacked custom-nav">
+        <li><a href="../Index/index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+        <li class="menu-list nav-active"><a href=""><i class="fa fa-random"></i> <span>周期走势</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Trend/exponential')}"> 支持指数与参与指数</a></li>
+                <li><a href="{:U('Trend/analyse')}"> 类目分析</a></li>
+                <li><a href="{:U('Trend/participate')}"> 类目参与</a></li>
+                <li class="active"><a href="{:U('Trend/line')}"> 项目上线</a></li>
+                <li><a href="{:U('Trend/realtime')}"> 实时统计</a></li>
+                <li><a href="{:U('Trend/timesharing')}"> 分时统计</a></li>
+                <li><a href="{:U('Trend/download')}"> 下载量</a></li>
+                <li><a href="{:U('Trend/register')}"> 用户周期</a></li>
+                <li><a href="{:U('Trend/active')}"> 活跃用户</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-male"></i> <span>人群分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('People/population')}"> 人群特性</a></li>
+                <li><a href="{:U('People/support')}"> 用户支持</a></li>
+                <li><a href="{:U('People/region')}"> 地域分析</a></li>
+                <li><a href="{:U('People/hierarchy')}"> 消费层级</a></li>
+                <li><a href="{:U('People/passes')}"> 消费次数</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>需求分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Require/dispersion')}"> 类目分布</a></li>
+                <li><a href="{:U('Require/project')}"> 项目基础数据</a></li>
+                <li><a href="{:U('Require/market')}"> 市场细分</a></li>
+                <li><a href="{:U('Require/channel')}"> 渠道来源</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-comment"></i> <span>微信统计</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Statistics/user')}"> 用户分析</a></li>
+                <li><a href="{:U('Statistics/teletext')}"> 图文分析</a></li>
+                <li><a href="{:U('Statistics/message')}"> 消息分析</a></li>
+            </ul>
+        </li>
+        <li><a href="{:U('Login/index')}"><i class="fa fa-sign-in"></i> <span>登录 页面</span></a></li>
+
+    </ul>
+</block>
+<block name="content">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        项目上线指数
+                        <span class="tools pull-right">
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                            <a href="javascript:;" class="fa fa-times"></a>
+                         </span>
+                    </header>
+                    <div class="panel-body">
+                        <div class="col-sm-12">
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <div id="pie-chart" class="pie-chart">
+                                        <div id="pie-chartContainer" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="footer">
+    <script>
+        $(function () {
+            chart=new Highcharts.Chart({
+                chart:{
+                    type: 'column',
+                    renderTo: 'pie-chartContainer'
+                },
+                title: {
+                    text: '日期的项目上线数量总计的趋势',
+                },
+                xAxis: {
+                    tickmarkPlacement:'on',
+                    categories: ['2014.07.02', '2014.07.07', '2014.07.12', '2014.07.17', '2014.07.22', '2014.07.27','2014.08.01', '2014.08.06', '2014.08.11', '2014.08.16', '2014.08.21', '2014.08.26', '2014.08.31', '2014.09.10', '2014.09.15', '2014.09.20', '2014.09.25', '2014.09.30', '2014.10.05', '2014.10.10', '2014.10.15', '2014.10.20', '2014.10.25', '2014.10.30', '2014.11.04', '2014.11.09', '2014.11.14', '2014.11.19', '2014.11.24', '2014.11.29', '2014.12.04', '2014.12.09', '2014.12.14', '2014.12.19', '2014.12.24', '2014.12.29', '2015.01.03', '2015.01.08', '2015.01.13', '2015.01.18', '2015.01.23', '2015.01.28', '2015.02.02', '2015.02.07', '2015.02.12', '2015.02.17', '2015.02.22', '2015.02.27', '2015.03.07', '2015.03.12', '2015.03.17', '2015.03.22', '2015.03.27']
+                },
+                yAxis: {
+                    title: {
+                        text: '项目上线数量'
+                    },
+                    min: 0,
+                    max: 1100,
+                    tickInterval:100,
+                    labels: {
+                        formatter: function() {
+                            return this.value;
+                        }
+                    }
+
+                },
+                legend: {
+                    enabled :false
+                },
+                series: [{
+                    name:'上线数',
+                    color:'#2A5EA2',
+                    data: [39, 420, 57, 85, 119, 152, 170, 166, 142, 103, 660, 48, 113, 170, 220, 248, 241, 201, 141, 86, 201, 141, 860, 25,39, 420, 57, 85, 119, 152, 170, 166, 142, 103, 66, 48, 1000,113, 170, 220, 248, 241, 201, 141, 86,248, 241, 201, 141, 86, 25,39, 42]
+                }],
+                credits: {
+                    enabled: false // 禁用版权信息
+                }
+            });
+        });
+    </script>
+</block>
+

@@ -1,0 +1,202 @@
+.info_bd {
+    position: relative;
+    z-index: 9;
+}
+.ui_trendgrid {
+    table-layout: fixed;
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+}
+.ui_trendgrid td {
+    height: 130px;
+    border-right: 1px solid #e7e7eb;
+}
+.ui_trendgrid td.last {
+    border-right: 0 none;
+}
+.ui_trendgrid_item {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.ui_trendgrid_chart {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+}
+.ui_trendgrid dl {
+    display: inline-block;
+    margin-top: 0;
+    padding: 0;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+.ui_trendgrid dt {
+    padding-bottom: 12px;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+}
+.ui_trendgrid_item b {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+}
+.ui_trendgrid dd.ui_trendgrid_number {
+    text-align: center;
+    color: #676767;
+    font-size: 30px;
+    /*margin-right: 40px;*/
+    margin-bottom: 15px;
+}
+.ui_trendgrid dd {
+    margin-top: 2px;
+    font-size: 14px;
+    line-height: 18px;
+    white-space: nowrap;
+}
+.ui_trendgrid dd.ui_trendgrid_number strong {
+    font-weight: 400;
+    font-style: normal;
+}
+.ui_trendgrid_unit {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+}
+.ui_trendgrid .icon_down {
+    margin-left: 10px;
+    position: relative;
+    top: -2px;
+    margin-right: 3px;
+    display: inline-block;
+    width: 10px;
+    height: 9px;
+    background: transparent url('../images/arrow-spr265437.png') no-repeat 0 0;
+    vertical-align: middle;
+    background-position: -10px 0;
+}
+.ui_trendgrid .icon_up, .ui_trendgrid .icon_down_grey {
+    margin-left: 10px;
+    position: relative;
+    top: -2px;
+    margin-right: 3px;
+    display: inline-block;
+    width: 10px;
+    height: 9px;
+    background: transparent url('../images/arrow-spr265437.png') no-repeat 0 0;
+    vertical-align: middle;
+}
+/*.con{ display:none;}
+.show{ display:block;}*/
+/*.input-group-time{
+    position:relative;
+    bottom:5px;
+}*/
+.ui_trendgrid .icon_equal{
+    margin-left: 13px;
+}
+.calendar-plugin{
+    list-style: none;
+    width:100%;
+    position:relative;
+    left:-40px;
+}
+.calendar-plugin li.calendar-plugin-item1{
+    width:96px;
+    margin-right: 10px;
+}
+.calendar-plugin li.calendar-plugin-item2{
+    width:183px;
+    margin-right: 10px;
+}
+/*.calendar-plugin li.calendar-plugin-item3{
+    margin-left: 400px;
+}*/
+.calendar-plugin li{
+    float: left;
+}
+.calendar-plugin li.calendar-plugin-item2 input{
+    height:34px;
+}
+
+.panel-body .datarange-time {
+    /*border-bottom: 1px dotted rgba(0, 0, 0, 0.2);*/
+    /*padding-left: 15px;*/
+    text-transform: uppercase;
+    color: #535351;
+    font-size: 14px;
+    font-weight: bold;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+/*图文分析*/
+.widget-container .nav-tab ul li.teletext-read { border: none; background: #576477!important; color: #fff; font-size: 18px; }
+.widget-container .nav-titles li, .nav-titles li { background: #f4f5f9; margin-right: 5px; border-radius: 5px; -webkit-border-radius: 5px;
+}
+.nav-titles { width: 100%; height:12px; list-style: none; margin: 0; padding: 0; }
+.nav-titles li { width: 125px;color: #ddd; font-size:14px; text-align: center; cursor: pointer; border:1px solid #c9cace; float: left; padding: 8px 15px; }
+.nav-titles .teletext-read { color: #369; cursor: auto; }
+.nav-tab ul li.teletext-read{ border-left:#ccc 1px solid; border-top:#ccc 1px solid; border-right:#ccc 1px solid; border-bottom:#fff 1px solid; }
+/*消息分析*/
+.widget-container .nav-inner ul li.highlight-background { border:none ; background: #44b549!important; color: #fff; font-size: 14px; }
+.widget-container .nav-message li, .nav-message li { background: #f4f5f9; }
+#key-indicators{ background: #FFFFFF; float: left; margin-top: 9px; margin-right: 15px;}
+.nav-message { width: 100%; height:12px; list-style: none; margin: 0; padding: 0; display:block;  }
+.nav-message li { width: 125px;color: #535351; font-size:14px; text-align: center; cursor: pointer; float: left; padding: 9px 15px;}
+.nav-message .highlight-background { color: #369; cursor: auto; }
+.nav-inner ul li.highlight-background{ border-left:#ccc 1px solid; border-top:#ccc 1px solid; border-right:#ccc 1px solid; border-bottom:#fff 1px solid; }
+
+
+.widget-container .nav-inner ul li.highlight-color { color: #459ae9; font-size: 14px; }
+.widget-container .message-time li, .message-time li { background: #ffffff; }
+#key-time{ background: #FFFFFF; float: left; margin-top: 5px; margin-right: 15px;}
+.message-time { width: 100%; height:12px; list-style: none; margin: 0; padding: 0; display:block;  }
+.message-time li { width: 125px;color: #535351; font-size:14px; text-align: center; cursor: pointer; border:1px solid #c9cace; float: left; padding: 5px 15px; margin-top: 2px;}
+/*.message-time .highlight-color { color: #369; cursor: auto; }*/
+.nav-inner ul li.highlight-color{ border-left:#ccc 1px solid; border:#ccc 1px solid; }
+.datarangepicker {
+    width: 200px;
+    height: 32px;
+    position: relative;
+    bottom: 10px;
+}
+
+
+.table .thead{ background:#f4f5f9;}
+.table .thead .message-degree{ width:160px;}
+.table .thead .message-headcount{ width:190px;}
+.table .ui_progress_bar{height: 10px; background: #44b549;}
+
+.table .td_high_light{ background:#f4f5f9;}
+
+.table .message-thead{ background:#f4f5f9;}
+.table .message-thead tr th{ text-align: right;}
+.table .message-thead .data-time{ text-align: left;}
+.table .tbody-time{ text-align: left;}
+
+/*Trend文件夹里的timesharing页面的*/
+.datapicker{
+    width: 168px;
+    height: 38px;
+    position: relative;
+    bottom: 12px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border:1px solid #ccc;
+}
+.datarangepicker2 {
+    width: 200px;
+    height: 38px;
+    position: relative;
+    bottom: 12px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border:1px solid #ccc;
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <block name="title"><title>active</title></block>
+
+    <link href="__PUBLIC__/admin/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/admin/css/jquery.stepy.css" rel="stylesheet">
+    <link href="__PUBLIC__/admin/css/style-responsive.css" rel="stylesheet">
+    <link href="__PUBLIC__/admin/css/statistics.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="__PUBLIC__/admin/css/daterangepicker.css">
+
+    <!--pickers css-->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/js/bootstrap-datepicker/css/datepicker-custom.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/js/bootstrap-timepicker/css/timepicker.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/js/bootstrap-colorpicker/css/colorpicker.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/js/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/js/bootstrap-datetimepicker/css/datetimepicker-custom.css" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/admin/js/html5shiv.js"></script>
+    <script src="__PUBLIC__/admin/js/respond.min.js"></script>
+    <![endif]-->
+    <block name="header"></block>
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="index.html"><img src="__PUBLIC__/admin/images/logo.png" alt=""></a>
+        </div>
+
+        <!--<div class="logo-icon text-center">-->
+        <!--<a href="index.html"><img src="images/logo_icon.png" alt=""></a>-->
+        <!--</div>-->
+        <!--logo and iconic logo end-->
+
+        <block name="left">
+        <div  class="left-side-inner">
+
+            <!--&lt;!&ndash; visible to small devices only &ndash;&gt;-->
+            <!--<div class="visible-xs hidden-sm hidden-md hidden-lg">-->
+            <!--<div class="media logged-user">-->
+            <!--<img alt="" src="images/photos/user-avatar.png" class="media-object">-->
+            <!--<div class="media-body">-->
+            <!--<h4><a href="#">John Doe</a></h4>-->
+            <!--<span>"Hello There..."</span>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<h5 class="left-nav-title">Account Information</h5>-->
+            <!--<ul class="nav nav-pills nav-stacked custom-nav">-->
+            <!--<li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>-->
+            <!--<li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>-->
+            <!--<li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>-->
+            <!--</ul>-->
+            <!--</div>-->
+
+            <!--sidebar nav start-->
+            <block name="nav">
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+                <li class="menu-list nav-active"><a href=""><i class="fa fa-random"></i> <span>周期走势</span></a>
+                    <ul class="sub-menu-list">
+                        <li class="active"><a href="exponential.html"> 支持指数与参与指数</a></li>
+                        <li><a href="analyse.html"> 类目分析</a></li>
+                        <li><a href="participate.html"> 类目参与</a></li>
+                        <li><a href="line.html"> 项目上线</a></li>
+                        <li><a href="realtime.html"> 实时统计</a></li>
+                        <li><a href="timesharing.html"> 分时统计</a></li>
+                        <li><a href="download.html"> 下载量</a></li>
+                        <li><a href="register.html"> 用户周期</a></li>
+                        <li><a href="active.html"> 活跃用户</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-male"></i> <span>人群分析</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="population.html"> 人群特性</a></li>
+                        <li><a href="support.html"> 用户支持</a></li>
+                        <li><a href="hierarchy.html"> 消费层级</a></li>
+                        <li><a href="passes.html"> 消费次数</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>需求分析</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="dispersion.html"> 类目分布</a></li>
+                        <li><a href="project.html"> 项目基础数据</a></li>
+                        <li><a href="market.html"> 市场细分</a></li>
+                        <li><a href="channel.html"> 渠道来源</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-comment"></i> <span>微信统计</span></a>
+                    <ul class="sub-menu-list">
+                        <!-- <li><a href="{:U('Statistics/user')}"> 用户分析</a></li> -->
+                        <li><a href="{:U('Statistics/teletext')}"> 图文分析</a></li>
+                        <li><a href="{:U('Statistics/message')}"> 消息分析</a></li>
+                    </ul>
+                </li>
+                <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>登录 页面</span></a></li>
+
+            </ul>
+            </block>
+            <!--sidebar nav end-->
+
+        </div>
+        </block>
+    </div>
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img src="__PUBLIC__/admin/images/photos/user-avatar.png" alt="" />
+                            admin
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="#"><i class="fa fa-user"></i>  人物简介</a></li>
+                            <li><a href="#"><i class="fa fa-cog"></i>  设置</a></li>
+                            <li><a href="#"><i class="fa fa-sign-out"></i> 退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--notification menu end -->
+
+        </div>
+        <!-- header section end-->
+
+        <block name="content">
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            新增活跃用户周期
+                        <span class="tools pull-right">
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                            <a href="javascript:;" class="fa fa-times"></a>
+                         </span>
+                        </header>
+                        <div class="panel-body">
+                            <div id="graph-line" style="position: relative;"><svg height="342" version="1.1" width="1383" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="24.5" y="310" text-anchor="end" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;" font-size="12px" font-family="sans-serif" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan></text><path fill="none" stroke="#aaaaaa" d="M37,310H1358" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="24.5" y="238.75" text-anchor="end" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;" font-size="12px" font-family="sans-serif" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">10</tspan></text><path fill="none" stroke="#aaaaaa" d="M37,238.75H1358" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="24.5" y="167.5" text-anchor="end" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;" font-size="12px" font-family="sans-serif" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">20</tspan></text><path fill="none" stroke="#aaaaaa" d="M37,167.5H1358" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="24.5" y="96.25" text-anchor="end" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;" font-size="12px" font-family="sans-serif" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">30</tspan></text><path fill="none" stroke="#aaaaaa" d="M37,96.25H1358" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="24.5" y="25" text-anchor="end" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;" font-size="12px" font-family="sans-serif" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">40</tspan></text><path fill="none" stroke="#aaaaaa" d="M37,25H1358" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="1358" y="322.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,6)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">X</tspan></text><text x="1211.2222222222222" y="322.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,6)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">IX</tspan></text><text x="1064.4444444444443" y="322.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,6)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">VIII</tspan></text><text x="917.6666666666666" y="322.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,6)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">VII</tspan></text><text x="770.8888888888889" y="322.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,6)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">VI</tspan></text><text x="624.1111111111111" y="322.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,6)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">V</tspan></text><text x="477.3333333333333" y="322.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,6)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">IV</tspan></text><text x="330.55555555555554" y="322.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,6)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">III</tspan></text><text x="183.77777777777777" y="322.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,6)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">II</tspan></text><text x="37" y="322.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,6)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">I</tspan></text><path fill="none" stroke="#1fb5ad" d="M37,67.75C73.69444444444444,85.5625,147.08333333333331,111.390625,183.77777777777777,139C220.47222222222223,166.609375,293.8611111111111,277.9375,330.55555555555554,288.625C367.25,299.3125,440.63888888888886,233.40625,477.3333333333333,224.5C514.0277777777777,215.59375,587.4166666666666,226.28125,624.1111111111111,217.375C660.8055555555555,208.46875,734.1944444444445,146.125,770.8888888888889,153.25C807.5833333333334,160.375,880.9722222222222,277.9375,917.6666666666666,274.375C954.3611111111111,270.8125,1027.75,130.984375,1064.4444444444443,124.75C1101.1388888888887,118.515625,1174.5277777777778,218.265625,1211.2222222222222,224.5C1247.9166666666665,230.734375,1321.3055555555557,187.09375,1358,174.625" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="37" cy="67.75" r="7" fill="#1fb5ad" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="183.77777777777777" cy="139" r="4" fill="#1fb5ad" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="330.55555555555554" cy="288.625" r="4" fill="#1fb5ad" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="477.3333333333333" cy="224.5" r="4" fill="#1fb5ad" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="624.1111111111111" cy="217.375" r="4" fill="#1fb5ad" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="770.8888888888889" cy="153.25" r="4" fill="#1fb5ad" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="917.6666666666666" cy="274.375" r="4" fill="#1fb5ad" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="1064.4444444444443" cy="124.75" r="4" fill="#1fb5ad" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="1211.2222222222222" cy="224.5" r="4" fill="#1fb5ad" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="1358" cy="174.625" r="4" fill="#1fb5ad" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle></svg><div class="morris-hover morris-default-style" style="left: 4px; top: 77px;"><div class="morris-hover-row-label"></div><div class="morris-hover-point" style="color: #1FB5AD">
+
+                            </div></div></div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+        </block>
+
+    </div>
+    <!-- main content end-->
+</section>
+
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="__PUBLIC__/admin/js/jquery-1.10.2.min.js"></script>
+<script src="__PUBLIC__/admin/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="__PUBLIC__/admin/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="__PUBLIC__/admin/js/jquery.validate.min.js"></script>
+<script src="__PUBLIC__/admin/js/jquery.stepy.js"></script>
+<script src="__PUBLIC__/admin/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/admin/js/modernizr.min.js"></script>
+<script src="__PUBLIC__/admin/js/jquery.nicescroll.js"></script>
+<script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+<script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/exporting.js"></script>
+<!-- <script type="text/javascript" src="https://code.highcharts.com/stock/highstock.js"></script> -->
+
+<!--common scripts for all pages-->
+<script src="__PUBLIC__/admin/js/scripts.js"></script>
+
+<script src="__PUBLIC__/admin/js/moment.min.js"></script>
+<script src="__PUBLIC__/admin/js/jquery.daterangepicker.js"></script>
+
+<!--pickers plugins-->
+<script type="text/javascript" src="__PUBLIC__/admin/js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/js/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/js/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/js/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/js/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+
+<block name="footer"></block>
+</body>
+</html>

@@ -1,0 +1,2325 @@
+<extend name="Public:base" />
+<block name="title">
+    <title>teletextchaping</title>
+</block>
+<block name="header"><script src="__PUBLIC__/admin/js/baiduTemplate.js"></script></block>
+<block name="nav">
+    <ul class="nav nav-pills nav-stacked custom-nav">
+        <li><a href="../Index/index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+        <li class="menu-list"><a href=""><i class="fa fa-random"></i> <span>周期走势</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Trend/exponential')}"> 支持指数与参与指数</a></li>
+                <li><a href="{:U('Trend/analyse')}"> 类目分析</a></li>
+                <li><a href="{:U('Trend/participate')}"> 类目参与</a></li>
+                <li><a href="{:U('Trend/line')}"> 项目上线</a></li>
+                <li><a href="{:U('Trend/realtime')}"> 实时统计</a></li>
+                <li><a href="{:U('Trend/timesharing')}"> 分时统计</a></li>
+                <li><a href="{:U('Trend/download')}"> 下载量</a></li>
+                <li><a href="{:U('Trend/register')}"> 用户周期</a></li>
+                <li><a href="{:U('Trend/active')}"> 活跃用户</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-male"></i> <span>人群分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('People/population')}"> 人群特性</a></li>
+                <li><a href="{:U('People/support')}"> 用户支持</a></li>
+                <li><a href="{:U('People/region')}"> 地域分析</a></li>
+                <li><a href="{:U('People/hierarchy')}"> 消费层级</a></li>
+                <li><a href="{:U('People/passes')}"> 消费次数</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>需求分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Require/dispersion')}"> 类目分布</a></li>
+                <li><a href="{:U('Require/project')}"> 项目基础数据</a></li>
+                <li><a href="{:U('Require/market')}"> 市场细分</a></li>
+                <li><a href="{:U('Require/channel')}"> 渠道来源</a></li>
+            </ul>
+        </li>
+        <li class="menu-list nav-active"><a href=""><i class="fa fa-comment"></i> <span>微信统计</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Statistics/user')}"> 用户分析</a></li>
+                <li class="active"><a href="{:U('Statistics/teletext')}"> 图文分析</a></li>
+                <li><a href="{:U('Statistics/message')}"> 消息分析</a></li>
+            </ul>
+        </li>
+        <li><a href="{:U('Login/index')}"><i class="fa fa-sign-in"></i> <span>登录 页面</span></a></li>
+    </ul>
+</block>
+<block name="content">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="square-widget">
+                    <div class="widget-container">
+                        <div class="stepy-tab">
+                            <ul id="default-titles" class="stepy-titles clearfix">
+                                <li id="kaishiba">
+                                    <a href="{:U('Statistics/teletext')}">开始吧</a>
+                                </li>
+                                <li class="current-step" id="chaping">
+                                    <a href="{:U('Statistics/teletextchaping')}"><div>差评</a>
+                                </li>
+                                <li id="yirenyicheng">
+                                    <a href="{:U('Statistics/teletextyirenyicheng')}"><div>一人一城</a>
+                                </li>
+                                <li id="muzhiyuedu">
+                                    <a href="{:U('Statistics/teletextmuzhiyuedu')}"><div>拇指阅读</a>
+                                </li>
+                                <li id="erguniangjia">
+                                    <a href="{:U('Statistics/teletexterguniangjia')}"><div>二姑娘家</a>
+                                </li>
+                                <li id="jianghu">
+                                    <a href="{:U('Statistics/teletextjianghu')}"><div>江湖</a>
+                                </li>
+                                <li id="xingzhoumo">
+                                    <a href="{:U('Statistics/teletextxingzhoumo')}"><div>行周末</a>
+                                </li>
+                                <li id="huaixunjiemei">
+                                    <a href="{:U('Statistics/teletexthuaixunjiemei')}"><div>坏寻姐妹</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="micro-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <span id="key">昨日关键指标</span>
+                            <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                            </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <div class="info_bd">
+                                            <div class="content" id="js_keydata">
+                                                <table class="ui_trendgrid ui_trendgrid_3">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="first">
+                                                                <div class="ui_trendgrid_item">
+                                                                    <div class="ui_trendgrid_chart"></div>
+                                                                    <dl>
+                                                                        <dt>图文页阅读次数</dt>
+                                                                        <dd class="ui_trendgrid_number"><strong id="int_count"></strong><em class="ui_trendgrid_unit"></em></dd>
+                                                                        <dd>日 <i id="int_day_count1"></i><b id="int_day_count2"></b></dd>
+                                                                        <dd>周 <i class="icon_equal"></i>--</dd>
+                                                                        <dd>月 <i class="icon_equal"></i>--</dd>
+                                                                    </dl>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="ui_trendgrid_item">
+                                                                    <div class="ui_trendgrid_chart"></div>
+                                                                    <dl>
+                                                                        <dt>原文阅读次数</dt>
+                                                                        <dd class="ui_trendgrid_number"><strong id="ori_count"></strong><em class="ui_trendgrid_unit"></em></dd>
+                                                                        <dd>日 <i id="ori_day_count1"></i><b id="ori_day_count2"></b></dd>
+                                                                        <dd>周 <i class="icon_equal"></i>--</dd>
+                                                                        <dd>月 <i class="icon_equal"></i>--</dd>
+                                                                    </dl>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="ui_trendgrid_item">
+                                                                    <div class="ui_trendgrid_chart"></div>
+                                                                    <dl>
+                                                                        <dt>分享转发次数</dt>
+                                                                        <dd class="ui_trendgrid_number"><strong id="share_count"></strong><em class="ui_trendgrid_unit"></em></dd>
+                                                                        <dd>日 <i id="share_day_count1"></i><b id="share_day_count2"></b></dd>
+                                                                        <dd>周 <i class="icon_equal"></i>--</dd>
+                                                                        <dd>月 <i class="icon_equal"></i>--</dd>
+                                                                    </dl>
+                                                                </div>
+                                                            </td>
+                                                            <td class="last">
+                                                                <div class="ui_trendgrid_item">
+                                                                    <div class="ui_trendgrid_chart"></div>
+                                                                    <dl>
+                                                                        <dt>微信收藏人数</dt>
+                                                                        <dd class="ui_trendgrid_number"><strong id="col_count"></strong><em class="ui_trendgrid_unit"></em></dd>
+                                                                        <dd>日 <i id="col_day_count1"></i><b id="col_day_count2"></b></dd>
+                                                                        <dd>周 <i class="icon_equal"></i>--</dd>
+                                                                        <dd>月 <i class="icon_equal"></i>--</dd>
+                                                                    </dl>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <!-- <div class="square-widget"> -->
+                            <div class="widget-container">
+                                <div class="nav-tab"><!-- //nav-titles nav-tab -->
+                                    <ul id="default-titles" class="nav-titles">
+                                        <li class="teletext-read" id="teletext-page"><div>图文页阅读</div></li>
+                                        <li id="original-page"><div>原文页阅读</div></li>
+                                        <li id="share-forwarding"><div>分享转发</div></li>
+                                        <li id="micro-collection"><div>微信收藏</div></li>
+                                    </ul>&nbsp;
+                                    <span class="tools pull-right">
+                                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                                <a href="javascript:;" class="fa fa-times"></a>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </header>
+                        <div class="panel-body">
+                            <div id="source-content" style="display:block">
+                                <!-- <section class="panel"> -->
+                                <header class="panel-heading no-border">
+                                    <ul class="calendar-plugin">
+                                        <li class="calendar-plugin-item1">
+                                            <div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                最近30天
+                                                <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                    <li><a href="#" data-value="7" data-index="0">最近7天</a></li>
+                                                    <li><a href="#" data-value="15" data-index="1">最近15天</a></li>
+                                                    <li><a href="#" data-value="30" data-index="2">最近30天</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>                                
+                                        <li class="calendar-plugin-item2">
+                                            <div>
+                                                <input type="text" id="date-range1" value="" placeholder="请选择时间范围">              
+                                            </div>
+                                        </li>
+                                    </ul>                                                
+                                </header>
+                                <div class="panel-body">
+                                    <div id="pie-chart" class="pie-chart">
+                                        <div id="pie-chartContainer" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <section class="panel">
+                                                        <div class="panel-body">
+                                                            <div id="donut-chart-js"></div>
+                                                        </div>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <header class="panel-heading no-border">
+                                                    <div class="widget-container">
+                                                        <div class="nav-tab">
+                                                            <ul id="default-titles" class="nav-titles">
+                                                                <li class="teletext-read" id="all-channels"><div>全部渠道</div></li>
+                                                                <li id="public-session"><div>公众号会话</div></li>
+                                                                <li id="friend-forwarding"><div>好友转发</div></li>
+                                                                <li id="friends-circle"><div>朋友圈</div></li>
+                                                                <li id="history-message"><div>历史消息</div></li>
+                                                                <li id="others"><div>其它</div></li>
+                                                            </ul>                                  
+                                                        </div>
+                                                    </div>
+                                                </header>
+                                                <div id="all-channels-charts" style="display:block">
+                                                    <div class="col-sm-12">
+                                                        <section class="panel">
+                                                            <div class="panel-body">
+                                                                <div id="all-channels-js"></div>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <section class="panel">
+                                                            <div class="panel-body">
+                                                                <table class="table table-bordered" style="text-align:center;vertical-align:middle;">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td colspan="11">
+                                                                                <input type="text" id="date-range3" value="" style="float:left;" placeholder="请选择时间范围">
+                                                                                <span style="float:right;color:#4A90E2">导出Excel</span>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </thead>    
+                                                                    <tbody id="test">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                                              
+                                </div>
+                                <!-- </section>                                     -->
+                            </div>
+                            <div id="charts-content" style="display:none">
+                                <header class="panel-heading no-border">
+                                    <ul class="calendar-plugin">
+                                        <li class="calendar-plugin-item1">
+                                            <div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                最近30天
+                                                <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                    <li><a href="#" data-value="7" data-index="0">最近7天</a></li>
+                                                    <li><a href="#" data-value="15" data-index="1">最近15天</a></li>
+                                                    <li><a href="#" data-value="30" data-index="2">最近30天</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>                                
+                                        <li class="calendar-plugin-item2">
+                                            <div>
+                                                <input type="text" id="date-range2" value="" placeholder="请选择时间范围">              
+                                            </div>
+                                        </li>
+                                    </ul>                                                
+                                </header>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <section class="panel">
+                                                <div class="panel-body">
+                                                    <div id="pie-chart" class="pie-chart">
+                                                        <div id="chartContainer-trend" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="row">                                                
+                                        <div class="col-sm-12">
+                                            <section class="panel">
+                                                <div class="panel-body">
+                                                    <table class="table table-bordered" style="text-align:center;vertical-align:middle;">
+                                                        <thead>
+                                                            <tr>
+                                                                <td colspan="11">
+                                                                    <input type="text" id="date-range4" value="" style="float:left;" placeholder="请选择时间范围">
+                                                                    <span style="float:right;color:#4A90E2">导出Excel</span>
+                                                                </td>
+                                                            </tr>
+                                                        </thead>    
+                                                        <tbody id="test2">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            用户分享的场景
+                                <span class="tools pull-right">
+                                    <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                    <a href="javascript:;" class="fa fa-times"></a>
+                                 </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <div class="col-sm-6">
+                                            <div class="panel-body">
+                                                <div class="info_bd">
+                                                    <div class="content" id="js_keydata">
+                                                        <table class="ui_trendgrid ui_trendgrid_3">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="first">
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>好友转发</strong></dt>
+                                                                                <dd id='share_type1'>总次数&nbsp;&nbsp;8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>朋友圈</strong></dt>
+                                                                                <dd id='share_type2'>8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>腾讯微博</strong></dt>
+                                                                                <dd id='share_type3'>8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>其他</strong></dt>
+                                                                                <dd id='share_type4'>8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                        <div class="col-sm-6">
+                                            <div class="panel-body">
+                                                <div id="pie-chart" class="pie-chart">
+                                                    <div id="pie-chartContainer-usersharing" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            分时场景
+                                <span class="tools pull-right">
+                                    <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                    <a href="javascript:;" class="fa fa-times"></a>
+                                 </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <div class="col-sm-6">
+                                            <div class="panel-body">
+                                                <div class="info_bd">
+                                                    <div class="content" id="js_keydata">
+                                                        <table class="ui_trendgrid ui_trendgrid_3">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="first">
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>好友转发</strong></dt>
+                                                                                <dd id='time_share_type1'>时间内次数&nbsp;&nbsp;8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>朋友圈</strong></dt>
+                                                                                <dd id='time_share_type2'>8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>腾讯微博</strong></dt>
+                                                                                <dd id='time_share_type3'>8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="ui_trendgrid_item">
+                                                                            <div class="ui_trendgrid_chart"></div>
+                                                                            <dl>
+                                                                                <dt><strong>其他</strong></dt>
+                                                                                <dd id='time_share_type4'>8976</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                        <div class="col-sm-6">
+                                            <div class="panel-body">
+                                                <div id="pie-chart" class="pie-chart">
+                                                    <div id="pie-chartContainer-time" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>    
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            不同场景好友分享次数
+                            <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                             </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <div id="pie-chart" class="pie-chart">
+                                            <div id="pie-chartContainer-total" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="footer">
+
+    <!-- 模板1开始，可以使用script（type设置为text/html）来存放模板片段，并且用id标示 -->
+    <script id="teletext_table1" type="text/html">
+    <div>
+        <tr>
+            <td rowspan="2" style="vertical-align:middle;">时间</td>
+            <td colspan="2">图文页阅读</td>
+            <td colspan="2">从公众号会话打开</td>
+            <td colspan="2">从朋友圈打开</td>
+            <td colspan="2">分享转发</td>
+            <td colspan="2">微信收藏人数</td>   
+        </tr>
+        <tr>
+            <td>人数</td>
+            <td>次数</td>
+            <td>人数</td>
+            <td>次数</td>
+            <td>人数</td>
+            <td>次数</td>
+            <td>人数</td>
+            <td>次数</td>
+            <td>人数</td>
+            <td>次数</td>  
+        </tr>
+            <div>
+            <!-- 判断语句if else-->
+            <%if(first[0].length>1) { %>
+                <%for(var j=0;j<first.length;j++){%>
+                    <tr>
+                        <!-- 循环语句 for-->
+                        <%for(var i=0;i<11;i++){%>
+                            <td><%=first[j][i]%></td>
+                        <%}%>
+                    </tr>
+                <%}%>
+            <%}else{%>
+                <h2>没有list数据</h2>   
+            <%}%>
+    </div>  
+    </div>  
+    </script>
+    <!-- 模板2开始，可以使用script（type设置为text/html）来存放模板片段，并且用id标示 -->
+    <script id="teletext_table2" type="text/html">
+    <div>
+        <tr>
+            <td rowspan="2" style="vertical-align:middle;">时间</td>
+            <td colspan="2">图文页阅读</td>
+            <td colspan="2">从公众号会话打开</td>
+            <td colspan="2">从朋友圈打开</td>
+            <td colspan="2">分享转发</td>
+            <td colspan="2">微信收藏人数</td>   
+        </tr>
+        <tr>
+            <td>人数</td>
+            <td>次数</td>
+            <td>人数</td>
+            <td>次数</td>
+            <td>人数</td>
+            <td>次数</td>
+            <td>人数</td>
+            <td>次数</td>
+            <td>人数</td>
+            <td>次数</td>  
+        </tr>
+            <div>
+            <!-- 判断语句if else-->
+            <%if(first[0].length>1) { %>
+                <%for(var j=0;j<first.length;j++){%>
+                    <tr>
+                        <!-- 循环语句 for-->
+                        <%for(var i=0;i<11;i++){%>
+                            <td><%=first[j][i]%></td>
+                        <%}%>
+                    </tr>
+                <%}%>
+            <%}else{%>
+                <h2>没有list数据</h2>   
+            <%}%>
+    </div>  
+    </div>  
+    </script>
+
+    <script type="text/javascript">
+        //表格1
+        function showExcel1(num1,num2){
+            $.ajax({
+                type:"get",
+                url:"/Api/WeiChat/getuserread/type/1/begin_date/"+num1+"/end_date/"+num2,
+                success: function(res) {
+                    data=res.data.list;
+
+                    var date=[],user_count=[],k=0;
+                    var time={
+                        'first':[]
+                    }
+
+                    var j=0;
+                    date[j]=data[0]['ref_date'];
+                    for(i=0;i<data.length-1;i++){
+                        if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                        {
+                            j++;
+                            date[j]=data[i+1]['ref_date'];
+                        }
+                    }
+
+                    for(k=0;k<date.length;k++){
+                        user_count[k]=new Array();
+                    }
+                    for(k=0;k<date.length;k++){
+                        user_count[k][0]=date[k];
+                    }
+
+
+                    var sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime()){
+                                sum+=data[i]['int_page_read_user'];
+                            }
+                        }
+                        user_count[j][1]=sum;
+                        sum=0;
+                    }
+                    k++;
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime()){
+                                sum+=data[i]['int_page_read_count'];
+                            }
+                        }
+                        user_count[j][2]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==0){
+                                sum+=data[i]['int_page_read_user'];
+                            }
+                        }
+                        user_count[j][3]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==0){
+                                sum+=data[i]['int_page_read_count'];
+                            }
+                        }
+                        user_count[j][4]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==2){
+                                sum+=data[i]['int_page_read_user'];
+                            }
+                        }
+                        user_count[j][5]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==2){
+                                sum+=data[i]['int_page_read_count'];
+                            }
+                        }
+                        user_count[j][6]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime()){
+                                sum+=data[i]['share_user'];
+                            }
+                        }
+                        user_count[j][7]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime()){
+                                sum+=data[i]['share_count'];
+                            }
+                        }
+                        user_count[j][8]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime()){
+                                sum+=data[i]['add_to_fav_user'];
+                            }
+                        }
+                        user_count[j][9]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime()){
+                                sum+=data[i]['add_to_fav_count'];
+                            }
+                        }
+                        user_count[j][10]=sum;
+                        sum=0;
+                    }
+
+                    for(k=0;k<date.length;k++){
+                        time['first'][k]=new Array();
+                    }
+
+                    for(i=0;i<user_count.length;i++){
+                        for(j=0;j<user_count[0].length;j++){
+                            time['first'][i][j]=user_count[i][j];
+                        }
+                    }
+
+                    var bt=baidu.template;
+
+                    var html=bt('teletext_table1',time);
+
+                    document.getElementById('test').innerHTML=html;
+                }
+            })
+        }
+        //表格2
+        function showExcel2(num1,num2){
+            $.ajax({
+                type:"get",
+                url:"/Api/WeiChat/getuserread/type/1/begin_date/"+num1+"/end_date/"+num2,
+                success: function(res) {
+                    data=res.data.list;
+
+                    var date=[],user_count=[],k=0;
+                    var time={
+                        'first':[]
+                    }
+
+                    var j=0;
+                    date[j]=data[0]['ref_date'];
+                    for(i=0;i<data.length-1;i++){
+                        if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                        {
+                            j++;
+                            date[j]=data[i+1]['ref_date'];
+                        }
+                    }
+
+                    for(k=0;k<date.length;k++){
+                        user_count[k]=new Array();
+                    }
+                    for(k=0;k<date.length;k++){
+                        user_count[k][0]=date[k];
+                    }
+
+
+                    var sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime()){
+                                sum+=data[i]['int_page_read_user'];
+                            }
+                        }
+                        user_count[j][1]=sum;
+                        sum=0;
+                    }
+                    k++;
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime()){
+                                sum+=data[i]['int_page_read_count'];
+                            }
+                        }
+                        user_count[j][2]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==0){
+                                sum+=data[i]['int_page_read_user'];
+                            }
+                        }
+                        user_count[j][3]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==0){
+                                sum+=data[i]['int_page_read_count'];
+                            }
+                        }
+                        user_count[j][4]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==2){
+                                sum+=data[i]['int_page_read_user'];
+                            }
+                        }
+                        user_count[j][5]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==2){
+                                sum+=data[i]['int_page_read_count'];
+                            }
+                        }
+                        user_count[j][6]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime()){
+                                sum+=data[i]['share_user'];
+                            }
+                        }
+                        user_count[j][7]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime()){
+                                sum+=data[i]['share_count'];
+                            }
+                        }
+                        user_count[j][8]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime()){
+                                sum+=data[i]['add_to_fav_user'];
+                            }
+                        }
+                        user_count[j][9]=sum;
+                        sum=0;
+                    }
+
+                    sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime()){
+                                sum+=data[i]['add_to_fav_count'];
+                            }
+                        }
+                        user_count[j][10]=sum;
+                        sum=0;
+                    }
+
+                    for(k=0;k<date.length;k++){
+                        time['first'][k]=new Array();
+                    }
+
+                    for(i=0;i<user_count.length;i++){
+                        for(j=0;j<user_count[0].length;j++){
+                            time['first'][i][j]=user_count[i][j];
+                        }
+                    }
+
+                    var bt=baidu.template;
+
+                    var html=bt('teletext_table2',time);
+
+                    document.getElementById('test2').innerHTML=html;
+                }
+            })
+        }
+
+
+        // 图文页阅读
+        function showTeletext(num1,num2){
+            $.ajax({
+                    type:"get",
+                    url:"/Api/WeiChat/getuserread/type/1/begin_date/"+num1+"/end_date/"+num2,
+                    success: function(res) {
+                    var msg=[
+                        ['会话'],
+                        ['好友转发'],
+                        ['朋友圈'],
+                        ['腾讯微博'],
+                        ['历史消息页'],
+                        ['其它']
+                    ],sum1=0,sum2=0,j=0,total1=0,total2=0;
+                        var data=res.data.list;
+
+                        for(i=0;i<data.length;i++){
+                            total1=parseInt(data[i]['int_page_read_user'])+total1;
+                            total2=parseInt(data[i]['int_page_read_count'])+total2;
+                        }
+
+                        sum1=0,sum2=0;
+                        for(i=0;i<data.length;i++){
+                            if(data[i]['user_source']==0){
+                                sum1=parseInt(data[i]['int_page_read_user'])+sum1;
+                                sum2=parseInt(data[i]['int_page_read_count'])+sum2;
+                            }
+                        }
+                        msg[j][0]=msg[j][0]+'<br/>'+sum1+'人 '+sum2+'次';
+                        msg[j][1]=sum2/total2;
+                        j++;
+
+                        sum1=0,sum2=0;
+                        for(i=0;i<data.length;i++){
+                            if(data[i]['user_source']==1){
+                                sum1=parseInt(data[i]['int_page_read_user'])+sum1;
+                                sum2=parseInt(data[i]['int_page_read_count'])+sum2;
+                            }
+                        }
+                        msg[j][0]=msg[j][0]+'<br/>'+sum1+'人 '+sum2+'次';
+                        msg[j][1]=sum2/total2;
+                        j++;
+
+                        sum1=0,sum2=0;
+                        for(i=0;i<data.length;i++){
+                            if(data[i]['user_source']==2){
+                                sum1=parseInt(data[i]['int_page_read_user'])+sum1;
+                                sum2=parseInt(data[i]['int_page_read_count'])+sum2;
+                            }
+                        }
+                        msg[j][0]=msg[j][0]+'<br/>'+sum1+'人 '+sum2+'次';
+                        msg[j][1]=sum2/total2;
+                        j++;
+
+                        sum1=0,sum2=0;
+                        for(i=0;i<data.length;i++){
+                            if(data[i]['user_source']==3){
+                                sum1=parseInt(data[i]['int_page_read_user'])+sum1;
+                                sum2=parseInt(data[i]['int_page_read_count'])+sum2;
+                            }
+                        }
+                        msg[j][0]=msg[j][0]+'<br/>'+sum1+'人 '+sum2+'次';
+                        msg[j][1]=sum2/total2;
+                        j++;
+
+                        sum1=0,sum2=0;
+                        for(i=0;i<data.length;i++){
+                            if(data[i]['user_source']==4){
+                                sum1=parseInt(data[i]['int_page_read_user'])+sum1;
+                                sum2=parseInt(data[i]['int_page_read_count'])+sum2;
+                            }
+                        }
+                        msg[j][0]=msg[j][0]+'<br/>'+sum1+'人 '+sum2+'次';
+                        msg[j][1]=sum2/total2;
+                        j++;
+
+
+                        sum1=0,sum2=0;
+                        for(i=0;i<data.length;i++){
+                            if(data[i]['user_source']==5){
+                                sum1=parseInt(data[i]['int_page_read_user'])+sum1;
+                                sum2=parseInt(data[i]['int_page_read_count'])+sum2;
+                            }
+                        }
+                        msg[j][0]=msg[j][0]+'<br/>'+sum1+'人 '+sum2+'次';
+                        msg[j][1]=sum2/total2;
+
+                        chart3.series[0].update({data:msg});
+                    }   
+                });
+        }
+        //原文页阅读
+        function showOriginal(num1,num2){
+            $.ajax({
+                    type:"get",
+                    url:"/Api/WeiChat/getuserread/type/1/begin_date/"+num1+"/end_date/"+num2,
+                    success: function(res) {
+                        data=res.data.list;
+
+                        // x轴坐标 时间
+                        var date=[],count=[],j=0;
+                        date[0]=data[0]['ref_date'];
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                j++;
+                                date[j]=data[i+1]['ref_date'];
+                                
+                            }
+                        }
+                        chart2.xAxis[0].setCategories(date);
+
+                        // 原文页的阅读人数
+                        var k=0,sum=0,user=[];
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                sum+=parseInt(data[i]['ori_page_read_user']);
+                            }
+                            else{
+                                sum+=parseInt(data[i]['ori_page_read_user']);
+                                user[k]=sum;
+                                k++;
+                                sum=0;
+                            }
+                        }
+                        if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            user[k]=sum+parseInt(data[data.length-1]['ori_page_read_user']);
+                        }
+                        else{
+                            user[k]=sum;
+                            user[k+1]=parseInt(data[data.length-1]['ori_page_read_user']);
+                        }
+                        chart2.series[0].update({data:user});
+                        chart2.series[0].update({name:'原文页的阅读人数'});
+                        
+
+                        // 原文页的阅读次数
+                        var count=[];
+                        k=0,sum=0;
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                sum+=parseInt(data[i]['ori_page_read_count']);
+                            }
+                            else{
+                                sum+=parseInt(data[i]['ori_page_read_count']);
+                                count[k]=sum;
+                                k++;
+                                sum=0;
+                            }
+                        }
+                        if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            count[k]=sum+parseInt(data[data.length-1]['ori_page_read_count']);
+                        }
+                        else{
+                            count[k]=sum;
+                            count[k+1]=parseInt(data[data.length-1]['ori_page_read_count']);
+                        }
+                        chart2.series[1].update({data:count});
+                        chart2.series[1].update({name:'原文页的阅读次数'});
+
+                        
+                    }
+                });
+        }
+        //分享转发
+        function showShare(num1,num2){
+            $.ajax({
+                    type:"get",
+                    url:"/Api/WeiChat/getusershare/type/1/begin_date/"+num1+"/end_date/"+num2,
+                    success: function(res) {
+                        data=res.data.list;
+
+                        // x轴坐标 时间
+                        var date=[],count=[],j=0;
+                        date[0]=data[0]['ref_date'];
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                j++;
+                                date[j]=data[i+1]['ref_date'];
+                                
+                            }
+                        }
+                        chart2.xAxis[0].setCategories(date);
+
+                        // 原文页的阅读人数
+                        var k=0,sum=0,user=[];
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                sum+=parseInt(data[i]['share_user']);
+                            }
+                            else{
+                                sum+=parseInt(data[i]['share_user']);
+                                user[k]=sum;
+                                k++;
+                                sum=0;
+                            }
+                        }
+                        if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            user[k]=sum+parseInt(data[data.length-1]['share_user']);
+                        }
+                        else{
+                            user[k]=sum;
+                            user[k+1]=parseInt(data[data.length-1]['share_user']);
+                        }
+                        chart2.series[0].update({data:user});
+                        chart2.series[0].update({name:'分享转发人数'});
+                        
+
+                        // 原文页的阅读次数
+                        var count=[];
+                        k=0,sum=0;
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                sum+=parseInt(data[i]['share_count']);
+                            }
+                            else{
+                                sum+=parseInt(data[i]['share_count']);
+                                count[k]=sum;
+                                k++;
+                                sum=0;
+                            }
+                        }
+                        if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            count[k]=sum+parseInt(data[data.length-1]['share_count']);
+                        }
+                        else{
+                            count[k]=sum;
+                            count[k+1]=parseInt(data[data.length-1]['share_count']);
+                        }
+                        chart2.series[1].update({data:count});
+                        chart2.series[1].update({name:'分享转发次数'});
+                    }
+                });
+        }
+        //微信收藏
+        function showMicro(num1,num2){
+            $.ajax({
+                    type:"get",
+                    url:"/Api/WeiChat/getuserread/type/1/begin_date/"+num1+"/end_date/"+num2,
+                    success: function(res) {
+                        data=res.data.list;
+
+                        // x轴坐标 时间
+                        var date=[],count=[],j=0;
+                        date[0]=data[0]['ref_date'];
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                j++;
+                                date[j]=data[i+1]['ref_date'];
+                                
+                            }
+                        }
+                        chart2.xAxis[0].setCategories(date);
+
+                        // 微信收藏人数
+                        var user=[];
+                        k=0,sum=0;
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                sum+=parseInt(data[i]['add_to_fav_user']);
+                            }
+                            else{
+                                sum+=parseInt(data[i]['add_to_fav_user']);
+                                user[k]=sum;
+                                k++;
+                                sum=0;
+                            }
+                        }
+                        if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            user[k]=sum+parseInt(data[data.length-1]['add_to_fav_user']);
+                        }
+                        else{
+                            user[k]=sum;
+                            user[k+1]=parseInt(data[data.length-1]['add_to_fav_user']);
+                        }
+                        chart2.series[0].update({data:user});
+                        chart2.series[0].update({name:'微信收藏人数'});
+
+                        // count.length=0;
+                        chart2.series[1].update({data:count});
+                        chart2.series[1].update({name:''});
+                    }
+                });
+        }
+
+
+        //全部渠道
+        function showAll(num1,num2){
+            $.ajax({
+                type:"get",
+                url:"/Api/WeiChat/getuserread/type/1/begin_date/"+num1+"/end_date/"+num2,
+                success: function(res) {
+                    data=res.data.list;
+
+                    // x轴坐标 时间
+                    var date=[],count=[],j=0;
+                    date[0]=data[0]['ref_date'];
+                    for(i=0;i<data.length-1;i++){
+                        if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                        {
+                            j++;
+                            date[j]=data[i+1]['ref_date'];
+                            
+                        }
+                    }
+                    chart1.xAxis[0].setCategories(date);
+
+                    // 图文页的阅读人数
+                    var user=[];
+                    k=0,sum=0;
+                    for(i=0;i<data.length-1;i++){
+                        if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                        {
+                            sum+=parseInt(data[i]['int_page_read_user']);
+                        }
+                        else{
+                            sum+=parseInt(data[i]['int_page_read_user']);
+                            user[k]=sum;
+                            k++;
+                            sum=0;
+                        }
+                    }
+                    if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                        user[k]=sum+parseInt(data[data.length-1]['int_page_read_user']);
+                    }
+                    else{
+                        user[k]=sum;
+                        user[k+1]=parseInt(data[data.length-1]['int_page_read_user']);
+                    }
+                    chart1.series[0].update({data:user});
+                    chart1.series[0].update({name:'图文页的阅读人数'});
+
+                    // 图文页的阅读次数
+                    var count=[];
+                    k=0,sum=0;
+                    for(i=0;i<data.length-1;i++){
+                        if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                        {
+                            sum+=parseInt(data[i]['int_page_read_count']);
+                        }
+                        else{
+                            sum+=parseInt(data[i]['int_page_read_count']);
+                            count[k]=sum;
+                            k++;
+                            sum=0;
+                        }
+                    }
+                    if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                        count[k]=sum+parseInt(data[data.length-1]['int_page_read_count']);
+                    }
+                    else{
+                        count[k]=sum;
+                        count[k+1]=parseInt(data[data.length-1]['int_page_read_count']);
+                    }
+                    chart1.series[1].update({data:count});
+                    chart1.series[1].update({name:'图文页的阅读次数'});
+                }
+            });
+        }
+        //公众号会话
+        function showPublic(num1,num2){
+            $.ajax({
+                type:"get",
+                url:"/Api/WeiChat/getuserread/type/1/begin_date/"+num1+"/end_date/"+num2,
+                success: function(res) {
+                    var data=res.data.list,date=chart1.xAxis[0].categories;
+
+                    // x轴坐标 时间
+                    var date=[],count=[],j=0;
+                    date[0]=data[0]['ref_date'];
+                    for(i=0;i<data.length-1;i++){
+                        if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                        {
+                            j++;
+                            date[j]=data[i+1]['ref_date'];
+                            
+                        }
+                    }
+                    chart1.xAxis[0].setCategories(date);
+
+                    // 图文页的阅读人数
+                    var user=[];
+                    k=0,sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==0)
+                            {
+                                user[j]=data[i]['int_page_read_user'];
+                            }
+                        }
+                        if(new Date(data[data.length-1]['ref_date']).getTime()==new Date(date[j]).getTime() && data[data.length-1]['user_source']==0){
+                            user[j]=data[data.length-1]['int_page_read_user'];
+                        }
+                    }
+                    chart1.series[0].update({data:user});
+                    chart1.series[0].update({name:'图文页的阅读人数'});
+
+                    // 图文页的阅读人数
+                    var count=[];
+                    k=0,sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==0)
+                            {
+                                count[j]=data[i]['int_page_read_count'];
+                            }
+                        }
+                        if(new Date(data[data.length-1]['ref_date']).getTime()==new Date(date[j]).getTime() && data[data.length-1]['user_source']==0){
+                            count[j]=data[data.length-1]['int_page_read_count'];
+                        }
+                    }
+                    chart1.series[1].update({data:count});
+                    chart1.series[1].update({name:'图文页的阅读人数'});
+                }
+            });
+        }
+        //好友转发
+        function showForward(num1,num2){
+            $.ajax({
+                type:"get",
+                url:"/Api/WeiChat/getuserread/type/1/begin_date/"+num1+"/end_date/"+num2,
+                success: function(res) {
+                    var data=res.data.list,date=chart1.xAxis[0].categories;
+
+                    // x轴坐标 时间
+                    var date=[],count=[],j=0;
+                    date[0]=data[0]['ref_date'];
+                    for(i=0;i<data.length-1;i++){
+                        if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                        {
+                            j++;
+                            date[j]=data[i+1]['ref_date'];
+                            
+                        }
+                    }
+                    chart1.xAxis[0].setCategories(date);
+
+                    // 图文页的阅读人数
+                    var user=[];
+                    k=0,sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==1)
+                            {
+                                user[j]=data[i]['int_page_read_user'];
+                            }
+                        }
+                        if(new Date(data[data.length-1]['ref_date']).getTime()==new Date(date[j]).getTime() && data[data.length-1]['user_source']==1){
+                            user[j]=data[data.length-1]['int_page_read_user'];
+                        }
+                    }
+                    chart1.series[0].update({data:user});
+                    chart1.series[0].update({name:'图文页的阅读人数'});
+
+                    // 图文页的阅读人数
+                    var count=[];
+                    k=0,sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==1)
+                            {
+                                count[j]=data[i]['int_page_read_count'];
+                            }
+                        }
+                        if(new Date(data[data.length-1]['ref_date']).getTime()==new Date(date[j]).getTime() && data[data.length-1]['user_source']==1){
+                            count[j]=data[data.length-1]['int_page_read_count'];
+                        }
+                    }
+                    chart1.series[1].update({data:count});
+                    chart1.series[1].update({name:'图文页的阅读人数'});
+                }
+            });
+        }
+        //朋友圈
+        function showCircle(num1,num2){
+            $.ajax({
+                type:"get",
+                url:"/Api/WeiChat/getuserread/type/1/begin_date/"+num1+"/end_date/"+num2,
+                success: function(res) {
+                    var data=res.data.list,date=chart1.xAxis[0].categories;
+
+                    // x轴坐标 时间
+                    var date=[],count=[],j=0;
+                    date[0]=data[0]['ref_date'];
+                    for(i=0;i<data.length-1;i++){
+                        if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                        {
+                            j++;
+                            date[j]=data[i+1]['ref_date'];
+                            
+                        }
+                    }
+                    chart1.xAxis[0].setCategories(date);
+
+                    // 图文页的阅读人数
+                    var user=[];
+                    k=0,sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==2)
+                            {
+                                user[j]=data[i]['int_page_read_user'];
+                            }
+                        }
+                        if(new Date(data[data.length-1]['ref_date']).getTime()==new Date(date[j]).getTime() && data[data.length-1]['user_source']==2){
+                            user[j]=data[data.length-1]['int_page_read_user'];
+                        }
+                    }
+                    chart1.series[0].update({data:user});
+                    chart1.series[0].update({name:'图文页的阅读人数'});
+
+                    // 图文页的阅读人数
+                    var count=[];
+                    k=0,sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==2)
+                            {
+                                count[j]=data[i]['int_page_read_count'];
+                            }
+                        }
+                        if(new Date(data[data.length-1]['ref_date']).getTime()==new Date(date[j]).getTime() && data[data.length-1]['user_source']==2){
+                            count[j]=data[data.length-1]['int_page_read_count'];
+                        }
+                    }
+                    chart1.series[1].update({data:count});
+                    chart1.series[1].update({name:'图文页的阅读人数'});
+                }
+            }); 
+        }
+        //历史消息
+        function showHistory(num1,num2){
+            $.ajax({
+                type:"get",
+                url:"/Api/WeiChat/getuserread/type/1/begin_date/"+num1+"/end_date/"+num2,
+                success: function(res) {
+                    var data=res.data.list,date=chart1.xAxis[0].categories;
+
+                    // x轴坐标 时间
+                    var date=[],count=[],j=0;
+                    date[0]=data[0]['ref_date'];
+                    for(i=0;i<data.length-1;i++){
+                        if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                        {
+                            j++;
+                            date[j]=data[i+1]['ref_date'];
+                            
+                        }
+                    }
+                    chart1.xAxis[0].setCategories(date);
+
+                    // 图文页的阅读人数
+                    var user=[];
+                    k=0,sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==4)
+                            {
+                                user[j]=data[i]['int_page_read_user'];
+                            }
+                        }
+                        if(new Date(data[data.length-1]['ref_date']).getTime()==new Date(date[j]).getTime() && data[data.length-1]['user_source']==4){
+                            user[j]=data[data.length-1]['int_page_read_user'];
+                        }
+                    }
+                    chart1.series[0].update({data:user});
+                    chart1.series[0].update({name:'图文页的阅读人数'});
+
+                    // 图文页的阅读人数
+                    var count=[];
+                    k=0,sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==4)
+                            {
+                                count[j]=data[i]['int_page_read_count'];
+                            }
+                        }
+                        if(new Date(data[data.length-1]['ref_date']).getTime()==new Date(date[j]).getTime() && data[data.length-1]['user_source']==4){
+                            count[j]=data[data.length-1]['int_page_read_count'];
+                        }
+                    }
+                    chart1.series[1].update({data:count});
+                    chart1.series[1].update({name:'图文页的阅读人数'});
+                }
+            }); 
+        }
+        //其他
+        function showOthers(num1,num2){
+            $.ajax({
+                type:"get",
+                url:"/Api/WeiChat/getuserread/type/1/begin_date/"+num1+"/end_date/"+num2,
+                success: function(res) {
+                    var data=res.data.list,date=chart1.xAxis[0].categories;
+
+                    // x轴坐标 时间
+                    var date=[],count=[],j=0;
+                    date[0]=data[0]['ref_date'];
+                    for(i=0;i<data.length-1;i++){
+                        if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                        {
+                            j++;
+                            date[j]=data[i+1]['ref_date'];
+                            
+                        }
+                    }
+                    chart1.xAxis[0].setCategories(date);
+
+                    // 图文页的阅读人数
+                    var user=[];
+                    k=0,sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==5)
+                            {
+                                user[j]=data[i]['int_page_read_user'];
+                            }
+                        }
+                        if(new Date(data[data.length-1]['ref_date']).getTime()==new Date(date[j]).getTime() && data[data.length-1]['user_source']==5){
+                            user[j]=data[data.length-1]['int_page_read_user'];
+                        }
+                    }
+                    chart1.series[0].update({data:user});
+                    chart1.series[0].update({name:'图文页的阅读人数'});
+
+                    // 图文页的阅读人数
+                    var count=[];
+                    k=0,sum=0;
+                    for(j=0;j<date.length;j++){
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime() && data[i]['user_source']==5)
+                            {
+                                count[j]=data[i]['int_page_read_count'];
+                            }
+                        }
+                        if(new Date(data[data.length-1]['ref_date']).getTime()==new Date(date[j]).getTime() && data[data.length-1]['user_source']==5){
+                            count[j]=data[data.length-1]['int_page_read_count'];
+                        }
+                    }
+                    chart1.series[1].update({data:count});
+                    chart1.series[1].update({name:'图文页的阅读人数'});
+                }
+            });
+        }
+    </script>
+    <script>
+        $(function () {
+
+            $("#key").html("昨日关键指标");
+
+
+            time1=new Date(new Date()-3*24*60*60*1000);
+            time2=new Date(new Date()-24*60*60*1000);
+            time3=new Date(new Date()-2*24*60*60*1000);
+            num1=(time1.getFullYear()+"-"+(time1.getMonth()+1).toString()+"-"+time1.getDate());
+            num2=(time2.getFullYear()+"-"+(time2.getMonth()+1).toString()+"-"+time2.getDate());
+            num3=(time2.getFullYear()+"-"+(time3.getMonth()+1).toString()+"-"+time3.getDate());
+
+            //表格
+            showExcel1(num1,num2);
+            showExcel2(num1,num2);
+            $('#date-range3').dateRangePicker({
+                        format: 'YYYY-MM-DD',
+                        minDays:2,
+                        maxDays:3,
+                        endDate:new Date(new Date()-24*60*60*1000)
+                    }).bind('datepicker-change',function(event,obj){
+                        obj=$('#date-range3').val();
+                        var arr=obj.split("to");
+                        num1=$.trim(arr[0]);
+                        num2=$.trim(arr[1]);
+                        showExcel1(num1,num2);
+                    });
+            $('#date-range4').dateRangePicker({
+                        format: 'YYYY-MM-DD',
+                        minDays:2,
+                        maxDays:3,
+                        endDate:new Date(new Date()-24*60*60*1000)
+                    }).bind('datepicker-change',function(event,obj){
+                        obj=$('#date-range4').val();
+                        var arr=obj.split("to");
+                        num1=$.trim(arr[0]);
+                        num2=$.trim(arr[1]);
+                        showExcel2(num1,num2);
+                    });
+
+            //昨日关键指标
+            $.ajax({
+                type:"get",
+                url:"/Api/WeiChat/getuserread/type/1/begin_date/"+num3+"/end_date/"+num2,
+                success: function(res) {
+                    data=res.data.list;
+                    var int_day_count1=0,int_day_count2=0,int_day_count3=0,ori_day_count1=0,ori_day_count2=0,ori_day_count3=0,share_day_count1=0,share_day_count2=0,share_day_count3=0,col_day_count1=0,col_day_count2=0,col_day_count3=0;
+                    for(i=0;i<data.length;i++){
+                        if(new Date(data[i]['ref_date']).getTime()==new Date(data[0]['ref_date']).getTime()){
+                            int_day_count1+=data[i]['int_page_read_count'];
+                            ori_day_count1+=data[i]['ori_page_read_count'];
+                            share_day_count1+=data[i]['share_count'];
+                            col_day_count1+=data[i]['add_to_fav_user'];
+                        }
+                        if(new Date(data[i]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            int_day_count2+=data[i]['int_page_read_count'];
+                            ori_day_count2+=data[i]['ori_page_read_count'];
+                            share_day_count2+=data[i]['share_count'];
+                            col_day_count2+=data[i]['add_to_fav_user'];
+                        }
+                    }
+                    $('#int_count').html(int_day_count2);
+                    $('#ori_count').html(ori_day_count2);
+                    $('#share_count').html(share_day_count2);
+                    $('#col_count').html(col_day_count2);
+                    
+                    int_day_count3=(int_day_count2-int_day_count1)/int_day_count1*100;
+                    ori_day_count3=(ori_day_count2-ori_day_count1)/ori_day_count1*100;
+                    share_day_count3=(share_day_count2-share_day_count1)/share_day_count1*100;
+                    col_day_count3=(col_day_count2-col_day_count1)/col_day_count1*100;
+
+                    // console.log(add_count.toFixed(2));
+                    // $('#day_count').html(add_count);
+                    if(int_day_count3>0)
+                    {
+                        $('#int_day_count1').addClass('icon_up');
+                        $('#int_day_count2').html(int_day_count3.toFixed(2)+"%");
+                    }
+                    else if(int_day_count3<0){
+                        $('#int_day_count1').addClass('icon_down');
+                        int_day_count3=(-int_day_count3);
+                        $('#int_day_count2').html(int_day_count3.toFixed(2)+"%");
+                    }
+                    else{
+                        $('#int_day_count1').addClass('icon_equal');
+                        $('#int_day_count2').html(int_day_count3.toFixed(2)+"%");
+                    }
+
+                    if(ori_day_count3>0)
+                    {
+                        $('#ori_day_count1').addClass('icon_up');
+                        $('#ori_day_count2').html(ori_day_count3.toFixed(2)+"%");
+                    }
+                    else if(ori_day_count3<0){
+                        $('#ori_day_count1').addClass('icon_down');
+                        ori_day_count3=(-ori_day_count3);
+                        $('#ori_day_count2').html(ori_day_count3.toFixed(2)+"%");
+                    }
+                    else{
+                        $('#ori_day_count1').addClass('icon_equal');
+                        $('#ori_day_count2').html(ori_day_count3.toFixed(2)+"%");
+                    }
+
+                    if(share_day_count3>0)
+                    {
+                        $('#share_day_count1').addClass('icon_up');
+                        $('#share_day_count2').html(share_day_count3.toFixed(2)+"%");
+                    }
+                    else if(share_day_count3<0){
+                        $('#share_day_count1').addClass('icon_down');
+                        share_day_count3=(-share_day_count3);
+                        $('#share_day_count2').html(share_day_count3.toFixed(2)+"%");
+                    }
+                    else{
+                        $('#share_day_count1').addClass('icon_equal');
+                        $('#share_day_count2').html(share_day_count3.toFixed(2)+"%");
+                    }
+
+
+                    if(col_day_count3>0)
+                    {
+                        $('#col_day_count1').addClass('icon_up');
+                        $('#col_day_count2').html(col_day_count3.toFixed(2)+"%");
+                    }
+                    else if(col_day_count3<0){
+                        $('#col_day_count1').addClass('icon_down');
+                        col_day_count3=(-col_day_count3);
+                        $('#col_day_count2').html(col_day_count3.toFixed(2)+"%");
+                    }
+                    else{
+                        $('#col_day_count1').addClass('icon_equal');
+                        $('#col_day_count2').html(col_day_count3.toFixed(2)+"%");
+                    }
+                    
+                }
+            });
+            //用户分享场景
+            $.ajax({
+                type:"get",
+                url:"/Api/WeiChat/getusershare/type/1/begin_date/"+num1+"/end_date/"+num2,
+                success: function(res) {
+                    data=res.data.list;
+
+                    var share_count=[
+                        ['好友转发'],
+                        ['朋友圈'],
+                        ['腾讯微博'],
+                        ['其他'],
+                    ];
+
+                    var sum=0,j=0,total=0;
+
+                    for(i=0;i<data.length;i++){
+                        if(data[i]['share_scene']==1){
+                            sum+=data[i]['share_count'];
+                        }
+                    }
+                    $('#share_type1').html(sum);
+                    share_count[j][1]=sum;
+                    j++;
+
+                    sum=0;
+                    for(i=0;i<data.length;i++){
+                        if(data[i]['share_scene']==2){
+                            sum+=data[i]['share_count'];
+                        }
+                    }
+                    $('#share_type2').html(sum);
+                    share_count[j][1]=sum;
+                    j++;
+
+                    sum=0;
+                    for(i=0;i<data.length;i++){
+                        if(data[i]['share_scene']==3){
+                            sum+=data[i]['share_count'];
+                        }
+                    }
+                    $('#share_type3').html(sum);
+                    share_count[j][1]=sum;
+                    j++;
+
+                    sum=0;
+                    for(i=0;i<data.length;i++){
+                        if(data[i]['share_scene']==255){
+                            sum+=data[i]['share_count'];
+                        }
+                    }
+                    $('#share_type4').html(sum);
+                    share_count[j][1]=sum;
+                    j++;
+
+                    chart4.series[0].update({data:share_count});
+                }
+            })
+            //分时场景
+            $.ajax({
+                type:"get",
+                url:"/Api/WeiChat/getusersharehour/type/1/begin_date/"+num2+"/end_date/"+num2,
+                success: function(res) {
+                    data=res.data.list;
+
+                    var share_count=[
+                        ['好友转发'],
+                        ['朋友圈'],
+                        ['腾讯微博'],
+                        ['其他'],
+                    ];
+
+                    var sum=0,j=0,total=0;
+
+                    for(i=0;i<data.length;i++){
+                        if(data[i]['share_scene']==1){
+                            sum+=data[i]['share_count'];
+                        }
+                    }
+                    share_count[j][1]=sum;
+                    $('#time_share_type1').html(share_count[j][1]);
+                    j++;
+
+                    sum=0;
+                    for(i=0;i<data.length;i++){
+                        if(data[i]['share_scene']==2){
+                            sum+=data[i]['share_count'];
+                        }
+                    }
+                    share_count[j][1]=sum;
+                    $('#time_share_type2').html(share_count[j][1]);
+                    j++;
+
+                    sum=0;
+                    for(i=0;i<data.length;i++){
+                        if(data[i]['share_scene']==3){
+                            sum+=data[i]['share_count'];
+                        }
+                    }
+                    share_count[j][1]=sum;
+                    $('#time_share_type3').html(share_count[j][1]);
+                    j++;
+
+                    sum=0;
+                    for(i=0;i<data.length;i++){
+                        if(data[i]['share_scene']==255){
+                            sum+=data[i]['share_count'];
+                        }
+                    }
+                    share_count[j][1]=sum;
+                    $('#time_share_type4').html(share_count[j][1]);
+                    j++;
+
+                    chart5.series[0].update({data:share_count});
+                }
+            })
+            //不同场景好友分享次数
+            $.ajax({
+                type:"get",
+                url:"/Api/WeiChat/getusersharehour/type/1/begin_date/"+num2+"/end_date/"+num2,
+                success: function(res) {
+                    data=res.data.list;
+
+                    var share_count1=[],share_count2=[],share_count3=[],share_count4=[],k=0,sum=0,j=0;
+                    for(k=0;k<2400;k+=100){
+                        for(i=0;i<data.length;i++){
+                            if(data[i]['share_scene']==1 && data[i]['ref_hour']==k){
+                                sum=data[i]['share_count'];
+                            }
+                        }
+                        share_count1[j]=sum;
+                        sum=0;
+                        j++;
+                    }
+
+                    j=0;
+                    for(k=0;k<2400;k+=100){
+                        for(i=0;i<data.length;i++){
+                            if(data[i]['share_scene']==2 && data[i]['ref_hour']==k){
+                                sum=data[i]['share_count'];
+                            }
+                        }
+                        share_count2[j]=sum;
+                        sum=0;
+                        j++;
+                    }
+
+                    j=0;
+                    for(k=0;k<2400;k+=100){
+                        for(i=0;i<data.length;i++){
+                            if(data[i]['share_scene']==3 && data[i]['ref_hour']==k){
+                                sum=data[i]['share_count'];
+                            }
+                        }
+                        share_count3[j]=sum;
+                        sum=0;
+                        j++;
+                    }
+
+                    j=0;
+                    for(k=0;k<2400;k+=100){
+                        for(i=0;i<data.length;i++){
+                            if(data[i]['share_scene']==255 && data[i]['ref_hour']==k){
+                                sum=data[i]['share_count'];
+                            }
+                        }
+                        share_count4[j]=sum;
+                        sum=0;
+                        j++;
+                    }
+
+                    chart6.series[0].update({data:share_count1});
+                    chart6.series[1].update({data:share_count2});
+                    chart6.series[2].update({data:share_count3});
+                    chart6.series[3].update({data:share_count4});
+
+
+                }
+            })
+
+            // 图文页阅读
+            showTeletext(num1,num2);
+            $('#date-range1').dateRangePicker({
+                format: 'YYYY-MM-DD',
+                minDays:2,
+                maxDays:3,
+                endDate:new Date(new Date()-24*60*60*1000)
+            }).bind('datepicker-change',function(event,obj){
+                obj=$('#date-range1').val();
+                var arr=obj.split("to");
+                num1=$.trim(arr[0]);
+                num2=$.trim(arr[1]);
+                // 图文页阅读
+                showTeletext(num1,num2);
+                if(channels_type==0){
+                    showAll(num1,num2);
+                }
+                else if(channels_type==1){
+                    showPublic(num1,num2);
+                }
+                else if(channels_type==2){
+                    showForward(num1,num2);
+                }
+                else if(channels_type==3){
+                    showCircle(num1,num2);
+                }
+                else if(channels_type==4){
+                    showHistory(num1,num2);
+                }
+                else if(channels_type==5){
+                    showOthers(num1,num2);
+                }
+                else{
+                    showAll(num1,num2);
+                }
+            });
+            $('#date-range2').dateRangePicker({
+                    format: 'YYYY-MM-DD',
+                    minDays:2,
+                    maxDays:3,
+                    endDate:new Date(new Date()-24*60*60*1000)
+            }).bind('datepicker-change',function(event,obj){
+                obj=$('#date-range2').val();
+                var arr=obj.split("to");
+                num1=$.trim(arr[0]);
+                num2=$.trim(arr[1]);
+                    if(teletext_type==1){
+                        showOriginal(num1,num2);
+                    }
+                    if(teletext_type==2){
+                        showShare(num1,num2);
+                    }
+                    if(teletext_type==3){
+                        showMicro(num1,num2);
+                    }
+            });
+            
+            //图文页阅读
+            $("#teletext-page").click(function() {
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                // $(".con").eq(index).addClass("show").siblings().removeClass("show");
+                $("#source-content").show();
+                $("#charts-content").hide();
+                showTeletext(num1,num2);
+            });
+            //原文页阅读
+            $("#original-page").click(function() {
+                teletext_type=1;
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#source-content").hide();
+                $("#charts-content").show();
+                showOriginal(num1,num2);
+
+            });
+            //分享转发
+            $("#share-forwarding").click(function() {
+                teletext_type=2;
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#source-content").hide();
+                $("#charts-content").show();
+                showShare(num1,num2);
+            });
+            //微信收藏
+            $("#micro-collection").click(function() {
+                // chart2.redraw();//图形重绘
+                teletext_type=3;
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#source-content").hide();
+                $("#charts-content").show();
+                showMicro(num1,num2);
+            });
+
+            //全部渠道
+            channels_type=6;
+            showAll(num1,num2);
+            $("#all-channels").click(function() {
+                channels_type=0;
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#all-channels-charts").show();
+                showAll(num1,num2);
+            });
+            //公众号会话
+            $("#public-session").click(function() {
+                channels_type=1;
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#all-channels-charts").show();
+                showPublic(num1,num2);
+            });
+            //好友转发
+            $("#friend-forwarding").click(function() {
+                channels_type=2;
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#all-channels-charts").show();
+                showForward(num1,num2);
+            });
+            //朋友圈
+            $("#friends-circle").click(function() {
+                channels_type=3;
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#all-channels-charts").show();
+                showCircle(num1,num2);
+            });
+            //历史消息
+            $("#history-message").click(function() {
+                channels_type=4;
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#all-channels-charts").show();
+                showHistory(num1,num2);
+            });
+            //其他
+            $("#others").click(function() {
+                channels_type=5;
+                var index=$(this).index();
+                $(this).addClass("teletext-read").siblings().removeClass("teletext-read");
+                $("#all-channels-charts").show();
+                showOthers(num1,num2);
+            });
+
+            /*饼图*/
+            chart3=new Highcharts.Chart({
+                chart: {
+                    renderTo:'donut-chart-js',
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: '阅读来源分析'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        innerSize: '50%',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            // format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        },
+                        showInLegend: true
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: 'Browser share',
+                    data: []
+                }],
+                credits: {
+                        enabled: false // 禁用版权信息
+                }
+            });
+            chart1=new Highcharts.Chart({
+                chart: {
+                    renderTo: 'all-channels-js',
+                    type: 'area'
+                },
+                plotOptions: {
+                    area: {
+                        fillOpacity: 0.2
+                    }
+                },
+                title: {
+                    text: '趋势图'
+
+                },
+                xAxis: {
+                    title: {
+                        text: null
+                    },
+                    tickmarkPlacement:'on',
+                },
+                yAxis: {
+                    title: {
+                        text: null
+                    },
+                    // min: 0,
+                    // max: 250000,
+                    // tickInterval:50000,
+                    labels: {
+                        formatter: function() {
+                            return this.value;
+                        }
+                    }
+
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [{
+                    name: '图文页阅读人数',
+                    color:'#4A90E2'
+                },{
+                    name: '图文页阅读次数',
+                    color:'#04C255'
+                }],
+                credits: {
+                    enabled: false // 禁用版权信息
+                }
+            });
+            chart2=new Highcharts.Chart({
+                chart: {
+                    renderTo: 'chartContainer-trend',
+                    type: 'area'
+                },
+                plotOptions: {
+                    area: {
+                        fillOpacity: 0.2
+                    }
+                },
+                title: {
+                    text: '趋势图'
+
+                },
+                xAxis: {
+                    title: {
+                        text: null
+                    },
+                    tickmarkPlacement:'on',
+                },
+                yAxis: {
+                    title: {
+                        text: null
+                    },
+                    // min: 0,
+                    // max: 250,
+                    // tickInterval:50,
+                    labels: {
+                        formatter: function() {
+                            return this.value;
+                        }
+                    }
+
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [{
+                    name: '原文页阅读人数',
+                    color:'#4A90E2',
+                },{
+                    name: '原文页阅读次数',
+                    color:'#04C255',
+                }],
+                credits: {
+                    enabled: false // 禁用版权信息
+                }
+            });
+
+            chart4=new Highcharts.Chart({
+                credits: {
+                        enabled: false // 禁用版权信息
+                    },
+                chart: {
+                    renderTo:'pie-chartContainer-usersharing',
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: ''
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        }
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: 'Browser share',
+                    data: []
+                }]
+            });
+            chart5=new Highcharts.Chart({
+                credits: {
+                    enabled: false // 禁用版权信息
+                },
+                chart: {
+                    renderTo:'pie-chartContainer-time',
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: ''
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        }
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: 'Browser share',
+                    data: []
+                }]
+            });
+            chart6=new Highcharts.Chart({
+                credits: {
+                    enabled: false // 禁用版权信息
+                },
+                chart: {
+                    renderTo:'pie-chartContainer-total',
+                    type: 'column'
+                },
+                title: {
+                    text: '不同场景好友分享次数'
+                },
+               
+                xAxis: {
+                    categories: [
+                        '01时',
+                        '02时',
+                        '03时',
+                        '04时',
+                        '05时',
+                        '06时',
+                        '07时',
+                        '08时',
+                        '09时',
+                        '10时',
+                        '11时',
+                        '12时',
+                        '13时',
+                        '14时',
+                        '15时',
+                        '16时',
+                        '17时',
+                        '18时',
+                        '19时',
+                        '20时',
+                        '21时',
+                        '22时',
+                        '23时',
+                        '24时'
+                    ]
+                },
+                yAxis: {
+                    // min: 0,
+                    // max: 300,
+                    // tickInterval:50,
+                    title: {
+                        text: '分享次数'
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:f}次</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: '好友转发',
+                }, {
+                    name: '朋友圈',
+                }, {
+                    name: '腾讯微博',
+                }, {
+                    name: '其他',
+                }]
+            });
+        });   
+    </script>
+</block>

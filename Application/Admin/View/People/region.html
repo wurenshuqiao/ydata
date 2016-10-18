@@ -1,0 +1,320 @@
+<extend name="Public:base" />
+<block name="title">
+    <title>region</title>
+</block>
+<block name="nav">
+    <ul class="nav nav-pills nav-stacked custom-nav">
+        <li><a href="../Index/index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+        <li class="menu-list"><a href=""><i class="fa fa-random"></i> <span>周期走势</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Trend/exponential')}"> 支持指数与参与指数</a></li>
+                <li><a href="{:U('Trend/analyse')}"> 类目分析</a></li>
+                <li><a href="{:U('Trend/participate')}"> 类目参与</a></li>
+                <li><a href="{:U('Trend/line')}"> 项目上线</a></li>
+                <li><a href="{:U('Trend/realtime')}"> 实时统计</a></li>
+                <li><a href="{:U('Trend/timesharing')}"> 分时统计</a></li>
+                <li><a href="{:U('Trend/download')}"> 下载量</a></li>
+                <li><a href="{:U('Trend/register')}"> 用户周期</a></li>
+                <li><a href="{:U('Trend/active')}"> 活跃用户</a></li>
+            </ul>
+        </li>
+        <li class="menu-list nav-active"><a href=""><i class="fa fa-male"></i> <span>人群分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('People/population')}"> 人群特性</a></li>
+                <li><a href="{:U('People/support')}"> 用户支持</a></li>
+                <li class="active"><a href="{:U('People/region')}"> 地域分析</a></li>
+                <li><a href="{:U('People/hierarchy')}"> 消费层级</a></li>
+                <li><a href="{:U('People/passes')}"> 消费次数</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>需求分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Require/dispersion')}"> 类目分布</a></li>
+                <li><a href="{:U('Require/project')}"> 项目基础数据</a></li>
+                <li><a href="{:U('Require/market')}"> 市场细分</a></li>
+                <li><a href="{:U('Require/channel')}"> 渠道来源</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-comment"></i> <span>微信统计</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Statistics/user')}"> 用户分析</a></li>
+                <li><a href="{:U('Statistics/teletext')}"> 图文分析</a></li>
+                <li><a href="{:U('Statistics/message')}"> 消息分析</a></li>
+            </ul>
+        </li>
+        <li><a href="{:U('Login/index')}"><i class="fa fa-sign-in"></i> <span>登录 页面</span></a></li>
+    </ul>
+</block>
+<block name="content">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        地域分析
+                        <span class="tools pull-right">
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                            <a href="javascript:;" class="fa fa-times"></a>
+                         </span>
+                    </header>
+                    <!-- <div class="panel-body">
+                        <div class="col-sm-12">
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <div id="pie-chart" class="pie-chart">
+                                        <div id="pie-chartContainer" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="panel-body">
+                                                        <div class="chartJS">
+                                                            <div id="china-map-js"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="panel-body">
+                                                        <div class="chartJS">
+                                                            <div id="china-chart-js"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div> -->
+                    <div class="panel-body">
+                        <div class="col-sm-6">
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <div id="pie-chart" class="pie-chart">
+                                        <div id="china-map-js" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-sm-6">
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <div id="pie-chart" class="pie-chart">
+                                        <div id="china-chart-js" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="footer">
+    <script type="text/javascript" src="http://cdn.hcharts.cn/highmaps/highmaps.js"></script>
+    <script type="text/javascript" src="http://www.hcharts.cn/datas/maps/china.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        // Prepare random data
+        var data = [{
+            value: 727,
+            name: "浙江",
+            href: 'http://www.hcharts.cn'
+        }, {
+            value: 727,
+            name: "北京",
+            href: 'http://www.hcharts.cn'
+        }, {
+            value: 120,
+            name: '广东',
+            href: 'http://www.hcharts.cn'
+
+        }, {
+            value: 10,
+            name: '内蒙古',
+            href: 'http://www.hcharts.cn'
+        }, {
+            value: 200,
+            name: "西藏"
+        }, {
+            value: 1000,
+            name: "台湾"
+        }];
+
+        var mapData = [{
+            z: 12,
+            name: '福州'
+        }, {
+            z: 120,
+            name: "厦门"
+        }, {
+            z: 1200,
+            name: '杭州'
+        }, {
+            z: 100,
+            name: "上海"
+        }, {
+            z: 1000,
+            name: '北京'
+        }, {
+            z: 10000,
+            name: '广州',
+            color: '#00ccee'
+        }, {
+            z: 10,
+            name: '深圳'
+        }, {
+            z: 12000,
+            name: "重庆"
+        }, {
+            z: 20,
+            name: "苏州"
+        }, {
+            z: 1000,
+            name: '武汉'
+        }];
+
+
+        var mapArray = Highcharts.maps['cn-with-city'];
+        var mappoint = Highcharts.geojson(mapArray, 'mappoint');
+        $('#china-map-js').highcharts('Map', {
+
+            title: {
+                text: null
+            },
+            credits: {
+                enabled: false
+            },
+
+            colors: function(color) {
+                return {
+                    radialGradient: {
+                        cx: 0.5,
+                        cy: 0.3,
+                        r: 0.7
+                    },
+                    stops: [
+                        [0, color],
+                        [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+                    ]
+                };
+            }(),
+            chart: {
+                events: {
+                    click: function(e) {
+                        var x = Math.round(e.xAxis[0].value),
+                            y = Math.round(e.yAxis[0].value);
+
+                        this.get('clicks').addPoint({
+                            x: x,
+                            y: y,
+                            name: '[' + x + ', ' + y + ']'
+                        });
+                    }
+                }
+            },
+
+            mapNavigation: {
+                enabled: true,
+
+                buttonOptions: {
+                    verticalAlign: 'bottom'
+                }
+            },
+
+
+            colorAxis: {
+                min: 0,
+                stops: [
+                    [0, '#EFEFFF'],
+                    [0.5, Highcharts.getOptions().colors[0]],
+                    [1, '#006cee']
+                ]
+            },
+
+
+            series: [{
+                //keys:keys,
+                data: mapData,
+                type: 'mapbubble',
+                mapData: mappoint,
+                joinBy: ['name', 'name'],
+                name: 'Random data',
+                states: {
+                    hover: {
+                        color: '#BADA55'
+                    }
+                },
+                // negativeColor:'#FF0022',
+                maxSize: '5%',
+                minSize: 5,
+                negativeColor: '#FF0022',
+                zThreshold: 120,
+                showInLegend: true,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}',
+                    style: {
+                        fontSize: '8px',
+                        color: '#000'
+                    }
+                },
+                states: {
+                    hover: {
+                        brightness: 0.8,
+                        borderWidth: 10
+                    }
+                },
+                tooltip: {
+                    formatter: function() {
+                        return this.point.name + " \t" + this.point.z;
+                    }
+                },
+                zIndex: 1000
+            }, {
+                type: 'mappoint',
+                id: 'clicks',
+                showInLegend: false,
+                name: 'Clicks'
+            }, {
+                // Basic China map
+                data: data,
+                mapData: mapArray,
+                joinBy: ['name', 'name'],
+                name: 'Random data',
+                showInLegend: false,
+                events: {
+
+                },
+                states: {
+                    hover: {
+                        color: '#BADA55'
+                    }
+                },
+                events: {
+                    click: function(e) {
+                        var href = e.point.href;
+                        window.location.href = href;
+                        //console.log(e.point.href);
+                    }
+                },
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}',
+                    style: {
+                        fontSize: '8px'
+                    }
+                }
+            }, ]
+
+        }, function(map) {
+            console.log("Map init ok!");
+
+        });
+
+    });
+    </script>
+</block>

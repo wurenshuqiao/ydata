@@ -1,0 +1,156 @@
+<extend name="Public:base" />
+<block name="header">
+    <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+
+    <link href="__PUBLIC__/admin/js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
+    <link href="__PUBLIC__/admin/js/iCheck/skins/square/square.css" rel="stylesheet">
+    <link href="__PUBLIC__/admin/js/iCheck/skins/square/red.css" rel="stylesheet">
+    <link href="__PUBLIC__/admin/js/iCheck/skins/square/blue.css" rel="stylesheet">
+
+    <!--dashboard calendar-->
+    <link href="__PUBLIC__/admin/css/clndr.css" rel="stylesheet">
+
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="__PUBLIC__/admin/js/morris-chart/morris.css">
+
+
+</block>
+
+  <block name="title"><title>index</title></block>
+  <block name="nav">
+      <ul class="nav nav-pills nav-stacked custom-nav">
+      <li class="active"><a href="{:U('Index/index')}"><i class="fa fa-home"></i> <span>首页</span></a></li>
+      <li class="menu-list"><a href=""><i class="fa fa-random"></i> <span>周期走势</span></a>
+          <ul class="sub-menu-list">
+              <li><a href="{:U('Trend/exponential')}"> 支持指数与参与指数</a></li>
+              <li><a href="{:U('Trend/analyse')}"> 类目分析</a></li>
+              <li><a href="{:U('Trend/participate')}"> 类目参与</a></li>
+              <li><a href="{:U('Trend/line')}"> 项目上线</a></li>
+              <li><a href="{:U('Trend/realtime')}"> 实时统计</a></li>
+              <li><a href="{:U('Trend/timesharing')}"> 分时统计</a></li>
+              <li><a href="{:U('Trend/download')}"> 下载量</a></li>
+              <li><a href="{:U('Trend/register')}"> 用户周期</a></li>
+              <li><a href="{:U('Trend/active')}"> 活跃用户</a></li>
+          </ul>
+      </li>
+      <li class="menu-list"><a href=""><i class="fa fa-male"></i> <span>人群分析</span></a>
+          <ul class="sub-menu-list">
+              <li><a href="{:U('People/population')}"> 人群特性</a></li>
+              <li><a href="{:U('People/support')}"> 用户支持</a></li>
+              <li><a href="{:U('People/region')}"> 地域分析</a></li>
+              <li><a href="{:U('People/hierarchy')}"> 消费层级</a></li>
+              <li><a href="{:U('People/passes')}"> 消费次数</a></li>
+          </ul>
+      </li>
+      <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>需求分析</span></a>
+          <ul class="sub-menu-list">
+              <li><a href="{:U('Require/dispersion')}"> 类目分布</a></li>
+              <li><a href="{:U('Require/project')}"> 项目基础数据</a></li>
+              <li><a href="{:U('Require/market')}"> 市场细分</a></li>
+              <li><a href="{:U('Require/channel')}"> 渠道来源</a></li>
+          </ul>
+      </li>
+      <li class="menu-list"><a href=""><i class="fa fa-comment"></i> <span>微信统计</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Statistics/user')}"> 用户分析</a></li>
+                <li><a href="{:U('Statistics/teletext')}"> 图文分析</a></li>
+                <li class="active"><a href="{:U('Statistics/message')}"> 消息分析</a></li>
+            </ul>
+      </li>
+      <li><a href="{:U('Login/index')}"><i class="fa fa-sign-in"></i> <span>登录 页面</span></a></li>
+
+  </ul>
+  </block>
+
+<block name="content">
+
+<script src="__PUBLIC__/admin/js/baiduTemplate.js"></script>
+ <table class="table table-bordered" style="text-align:center;vertical-align:middle;">
+       
+<div id='result'>
+    
+</div>
+
+
+<!-- 模板1开始，可以使用script（type设置为text/html）来存放模板片段，并且用id标示 -->
+<script id="demo-data" type="text/html">
+    <ul>
+    {{for(var i=0;i<5;i++){ }}
+
+       <p>{{=list[i]}}</p>
+    
+    {{ } }}
+
+
+        <li>qqq</li>
+    </ul>
+</script>
+<!-- 模板1结束 -->
+
+<!-- 使用模板 -->
+<script type="text/javascript">
+var data={
+    "title":'欢迎使用baiduTemplate',
+    "list":[
+        'test1:默认支持HTML转义，如输出<script>，也可以关掉，语法<:=value> 详见API',
+        'test2:123',
+        'test3:34534',
+        'test4:list[5]未定义，模板系统会输出空'
+    ]
+};
+
+//使用baidu.template命名空间
+var bt=baidu.template;
+
+//可以设置分隔符
+//bt.LEFT_DELIMITER='<!';
+//bt.RIGHT_DELIMITER='!>';
+
+//可以设置输出变量是否自动HTML转义
+//bt.ESCAPE = false;
+
+//最简使用方法
+var html=bt('demo-data',data);
+
+//渲染
+document.getElementById('result').innerHTML=html;
+</script>
+
+</block>
+
+
+<block name="footer">
+    <!--easy pie chart-->
+    <script src="__PUBLIC__/admin/js/easypiechart/jquery.easypiechart.js"></script>
+    <script src="__PUBLIC__/admin/js/easypiechart/easypiechart-init.js"></script>
+
+    <!--Sparkline Chart-->
+    <script src="__PUBLIC__/admin/js/sparkline/jquery.sparkline.js"></script>
+    <script src="__PUBLIC__/admin/js/sparkline/sparkline-init.js"></script>
+
+    <!--icheck -->
+    <script src="__PUBLIC__/admin/js/iCheck/jquery.icheck.js"></script>
+    <script src="__PUBLIC__/admin/js/icheck-init.js"></script>
+
+    <!-- jQuery Flot Chart-->
+    <script src="__PUBLIC__/admin/js/flot-chart/jquery.flot.js"></script>
+    <script src="__PUBLIC__/admin/js/flot-chart/jquery.flot.tooltip.js"></script>
+    <script src="__PUBLIC__/admin/js/flot-chart/jquery.flot.resize.js"></script>
+
+
+    <!--Morris Chart-->
+    <script src="__PUBLIC__/admin/js/morris-chart/morris.js"></script>
+    <script src="__PUBLIC__/admin/js/morris-chart/raphael-min.js"></script>
+
+    <!--Calendar-->
+    <script src="__PUBLIC__/admin/js/calendar/clndr.js"></script>
+    <script src="__PUBLIC__/admin/js/calendar/evnt.calendar.init.js"></script>
+    <script src="__PUBLIC__/admin/js/calendar/moment-2.2.1.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+
+    <!--Dashboard Charts-->
+    <script src="__PUBLIC__/admin/js/dashboard-chart-init.js"></script>
+    
+
+</block>
+

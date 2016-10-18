@@ -1,0 +1,1063 @@
+<extend name="Public:base" />
+<block name="title">
+    <title>messagechaping</title>
+</block>
+<block name="header"><script src="__PUBLIC__/admin/js/baiduTemplate.js"></script></block>
+<block name="nav">
+    <ul class="nav nav-pills nav-stacked custom-nav">
+        <li><a href="../Index/index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+        <li class="menu-list"><a href=""><i class="fa fa-random"></i> <span>周期走势</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Trend/exponential')}"> 支持指数与参与指数</a></li>
+                <li><a href="{:U('Trend/analyse')}"> 类目分析</a></li>
+                <li><a href="{:U('Trend/participate')}"> 类目参与</a></li>
+                <li><a href="{:U('Trend/line')}"> 项目上线</a></li>
+                <li><a href="{:U('Trend/realtime')}"> 实时统计</a></li>
+                <li><a href="{:U('Trend/timesharing')}"> 分时统计</a></li>
+                <li><a href="{:U('Trend/download')}"> 下载量</a></li>
+                <li><a href="{:U('Trend/register')}"> 用户周期</a></li>
+                <li><a href="{:U('Trend/active')}"> 活跃用户</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-male"></i> <span>人群分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('People/population')}"> 人群特性</a></li>
+                <li><a href="{:U('People/support')}"> 用户支持</a></li>
+                <li><a href="{:U('People/region')}"> 地域分析</a></li>
+                <li><a href="{:U('People/hierarchy')}"> 消费层级</a></li>
+                <li><a href="{:U('People/passes')}"> 消费次数</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>需求分析</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Require/dispersion')}"> 类目分布</a></li>
+                <li><a href="{:U('Require/project')}"> 项目基础数据</a></li>
+                <li><a href="{:U('Require/market')}"> 市场细分</a></li>
+                <li><a href="{:U('Require/channel')}"> 渠道来源</a></li>
+            </ul>
+        </li>
+        <li class="menu-list nav-active"><a href=""><i class="fa fa-comment"></i> <span>微信统计</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="{:U('Statistics/user')}"> 用户分析</a></li>
+                <li><a href="{:U('Statistics/teletext')}"> 图文分析</a></li>
+                <li class="active"><a href="{:U('Statistics/message')}"> 消息分析</a></li>
+            </ul>
+        </li>
+        <li><a href="{:U('Login/index')}"><i class="fa fa-sign-in"></i> <span>登录 页面</span></a></li>
+    </ul>
+</block>
+<block name="content">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="square-widget">
+                    <div class="widget-container">
+                        <div class="stepy-tab">
+                            <ul id="default-titles" class="stepy-titles clearfix">
+                                <li id="zonghezhishu">
+                                    <a href="{:U('Statistics/message')}">综合指数</a>
+                                </li>
+                                <li id="kaishiba">
+                                    <a href="{:U('Statistics/messagekaishiba')}">开始吧</a>
+                                </li>
+                                <li class="current-step" id="chaping">
+                                    <a href="{:U('Statistics/messagechaping')}">差评</a>
+                                </li>
+                                <li id="yirenyicheng">
+                                    <a href="{:U('Statistics/messageyirenyicheng')}">一人一城</a>
+                                </li>
+                                <li id="muzhiyuedu">
+                                    <a href="{:U('Statistics/messagemuzhiyuedu')}">拇指阅读</a>
+                                </li>
+                                <li id="erguniangjia">
+                                    <a href="{:U('Statistics/messageerguniangjia')}">二姑娘家</a>
+                                </li>
+                                <li id="jianghu">
+                                    <a href="{:U('Statistics/messagejianghu')}">江湖</a>
+                                </li>
+                                <li id="xingzhoumo">
+                                    <a href="{:U('Statistics/messagexingzhoumo')}">行周末</a>
+                                </li>
+                                <li id="huaixunjiemei">
+                                    <a href="{:U('Statistics/messagehuaixunjiemei')}">坏寻姐妹</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="micro-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading no-border">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                日报
+                                <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#" data-value="hourly" data-index="0" data-name="小时报">小时报</a></li>
+                                    <li><a href="#" data-value="daily" data-index="1" data-name="日报">日报</a></li>
+                                    <li><a href="#" data-value="weekly" data-index="2" data-name="周报">周报</a></li>
+                                    <li><a href="#" data-value="monthly" data-index="3" data-name="月报">月报</a></li>
+                                </ul>
+                            </div>
+                        </header>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <span id="key">昨日关键指标</span>
+                            <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                            </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <div class="info_bd">
+                                            <div class="content" id="js_keydata">
+                                                <table class="ui_trendgrid ui_trendgrid_3">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="first">
+                                                                <div class="ui_trendgrid_item">
+                                                                    <div class="ui_trendgrid_chart"></div>
+                                                                    <dl>
+                                                                        <dt>消息发送人数</dt>
+                                                                        <dd class="ui_trendgrid_number"><strong id="peo_count"></strong><em class="ui_trendgrid_unit"></em></dd>
+                                                                        <dd>日 <i id="peo_day_count1"></i><b id="peo_day_count2"></b></dd>
+                                                                        <dd>周 <i class="icon_equal" ></i>--</dd>
+                                                                        <dd>月 <i class="icon_equal" ></i>--</dd>
+                                                                    </dl>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="ui_trendgrid_item">
+                                                                    <div class="ui_trendgrid_chart"></div>
+                                                                    <dl>
+                                                                        <dt>消息发送次数</dt>
+                                                                        <dd class="ui_trendgrid_number"><strong id="tim_count"></strong><em class="ui_trendgrid_unit"></em></dd>
+                                                                        <dd>日 <i id="tim_day_count1"></i><b id="tim_day_count2"></b></dd>
+                                                                        <dd>周 <i class="icon_equal"></i>--</dd>
+                                                                        <dd>月 <i class="icon_equal"></i>--</dd>
+                                                                    </dl>
+                                                                </div>
+                                                            </td>
+                                                            <td class="last">
+                                                                <div class="ui_trendgrid_item">
+                                                                    <div class="ui_trendgrid_chart"></div>
+                                                                    <dl>
+                                                                        <dt>人均发送次数</dt>
+                                                                        <dd class="ui_trendgrid_number"><strong id="per_count"></strong><em class="ui_trendgrid_unit"></em></dd>
+                                                                        <dd>日 <i id="per_day_count1"></i> <b  id="per_day_count2" ></b></dd>
+                                                                        <dd>周 <i class="icon_equal"></i>--</dd>
+                                                                        <dd>月 <i class="icon_equal" ></i>--</dd>
+                                                                    </dl>
+                                                                </div>
+                                                            </td>                                                
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <div class="widget-container">
+                                <div class="nav-inner">
+                                    <span id="key-indicators">关键指标详解</span>
+                                    <ul id="default-titles" class="nav-message">
+                                        <li id="message-number" class="highlight-background"><div>消息发送人数</div></li>
+                                        <li id="message-times"><div>消息发送次数</div></li>
+                                        <li id="per-capita"><div>人均发送次数</div></li>
+                                    </ul>&nbsp;
+                                    <span class="tools pull-right">
+                                        <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                        <a href="javascript:;" class="fa fa-times"></a>
+                                    </span>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="panel-body">
+                            <div id="message-trend-content" style="display:block">
+                                <header class="panel-heading no-border">
+                                    <div class="widget-container">
+                                        <div class="nav-inner">
+                                            <span id="key-time">时间</span>
+                                            <ul id="default-titles" class="message-time">
+                                                <li id="seven-days" range="7"  class="highlight-color"><div>7日</div></li>
+                                                <li id="fourteen-days" range="14"><div>14日</div></li>
+                                                <li id="thirty-days" range="30"><div>30日</div></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <input type="text" id="date-range2" class="datarangepicker" value="" placeholder="请选择时间范围">             
+                                    </div>                          
+                                </header>
+                                <div class="col-sm-12" id="chart-content">
+                                    <section class="panel">
+                                        <div class="panel-body">
+                                            <div id="pie-chart" class="pie-chart">
+                                                <div id="days-trend-chart" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <!-- <div id="pie-chart" class="pie-chart">
+                                    <div id="pie-chartContainer" style="width: 100%; height: 400px; text-align: left; padding: 0px; position: relative;">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <section class="panel">
+                                                    <div class="panel-body">
+                                                        <div id="days-trend-chart"></div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="row">                                                
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            消息发送次数分布图
+                            <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                            </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <table class="table table-bordered">
+                                            <thead class="thead">
+                                            <tr>
+                                                <th class="message-degree">消息发送次数</th>
+                                                <th class="message-headcount">消息发送人数</th>
+                                                <th>占比</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                             <tr >
+                                                <td>1-5次</td>
+                                                <td><span id="td221"></span>(<span id="td222"></span>)</td>
+                                                <td><div id="percent1" class="ui_progress_bar"></div></td>                                   
+                                            </tr>
+                                            <tr >
+                                                <td>6-10次</td>
+                                                <td><span id="td321"></span>(<span id="td322"></span>)</td>
+                                                <td><div id="percent2"  class="ui_progress_bar"></div></td>                                   
+                                            </tr>
+                                            <tr >
+                                                <td>11-15次</td>
+                                                <td><span id="td421"></span>(<span id="td422"></span>)</td>
+                                                <td><div id="percent3" class="ui_progress_bar"></div></td>       
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>     
+            
+            <div class="row">                                                
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            详细数据
+                            <span class="pull-right">
+                                <a href="#" style="color:#4A90E2">导出Excel</a>
+                            </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <table class="table table-bordered">
+                                            <thead class="message-thead">
+                                            <tr>
+                                                <th style="text-align:center">时间</th>
+                                                <th style="text-align:center">消息发送人数</th>
+                                                <th style="text-align:center">消息发送次数</th>
+                                                <th style="text-align:center">人均发送次数</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody style="text-align:center" id="test2">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>   
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="footer">
+    <script>
+        $(function () {
+            showTable1(num1,num2);
+            $("#key").html("昨日关键指标");
+            time1=new Date(new Date()-7*24*60*60*1000);
+            time2=new Date(new Date()-24*60*60*1000);
+            time3=new Date(new Date()-2*24*60*60*1000);
+            num1=(time1.getFullYear()+"-"+(time1.getMonth()+1).toString()+"-"+time1.getDate());
+            num2=(time2.getFullYear()+"-"+(time2.getMonth()+1).toString()+"-"+time2.getDate());
+            num3=(time2.getFullYear()+"-"+(time3.getMonth()+1).toString()+"-"+time3.getDate());
+            $.ajax({
+                type:"get",
+                url:"/Api/WeiChat/getupstreammsg/type/1/begin_date/"+num3+"/end_date/"+num2,
+                success: function(res) {
+                    data=res.data.list;
+                    var peo_day_count1=0,peo_day_count2=0,peo_day_count3=0,tim_day_count1=0,tim_day_count2=0,tim_day_count3=0,per_day_count1=0,per_day_count2=0,per_day_count3=0;
+                    for(i=0;i<data.length;i++){
+                        if(new Date(data[i]['ref_date']).getTime()==new Date(data[0]['ref_date']).getTime()){
+                            peo_day_count1+=data[i]['msg_user'];
+                            tim_day_count1+=data[i]['msg_count'];  
+                        }
+                        if(new Date(data[i]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            peo_day_count2+=data[i]['msg_user'];
+                            tim_day_count2+=data[i]['msg_count'];  
+                        }
+                    }
+                    per_day_count1=tim_day_count1/peo_day_count1;
+                    per_day_count2=tim_day_count2/peo_day_count2;
+                    $("#peo_count").html(peo_day_count2);
+                    $("#tim_count").html(tim_day_count2);
+                    $("#per_count").html(per_day_count2.toFixed(1));
+
+                    peo_day_count3=(peo_day_count2-peo_day_count1)/peo_day_count1*100;
+                    tim_day_count3=(tim_day_count2-tim_day_count1)/tim_day_count1*100;
+                    per_day_count3=(per_day_count2-per_day_count1)/per_day_count1*100;
+
+                    if(peo_day_count3>0)
+                    {
+                        $('#peo_day_count1').addClass('icon_up');
+                        $('#peo_day_count2').html(peo_day_count3.toFixed(2)+"%");
+                    }
+                    else if(peo_day_count3<0){
+                        $('#peo_day_count1').addClass('icon_down');
+                        peo_day_count3=(-peo_day_count3);
+                        $('#peo_day_count2').html(peo_day_count3.toFixed(2)+"%");
+                    }
+                    else{
+                        $('#peo_day_count1').addClass('icon_equal');
+                        $('#peo_day_count2').html(peo_day_count3.toFixed(2)+"%");
+                    }
+
+                     if(tim_day_count3>0)
+                    {
+                        $('#tim_day_count1').addClass('icon_up');
+                        $('#tim_day_count2').html(tim_day_count3.toFixed(2)+"%");
+                    }
+                    else if(tim_day_count3<0){
+                        $('#tim_day_count1').addClass('icon_down');
+                        tim_day_count3=(-tim_day_count3);
+                        $('#tim_day_count2').html(tim_day_count3.toFixed(2)+"%");
+                    }
+                    else{
+                        $('#tim_day_count1').addClass('icon_equal');
+                        $('#tim_day_count2').html(tim_day_count3.toFixed(2)+"%");
+                    }
+
+                     if(per_day_count3>0)
+                    {
+                        $('#per_day_count1').addClass('icon_up');
+                        $('#per_day_count2').html(per_day_count3.toFixed(2)+"%");
+                    }
+                    else if(per_day_count3<0){
+                        $('#per_day_count1').addClass('icon_down');
+                        per_day_count3=(-per_day_count3);
+                        $('#per_day_count2').html(per_day_count3.toFixed(2)+"%");
+                    }
+                    else{
+                        $('#per_day_count1').addClass('icon_equal');
+                        $('#per_day_count2').html(per_day_count3.toFixed(2)+"%");
+                    }
+                    
+                }
+            });
+            $.ajax({
+                    type:"get",
+                    url:"/Api/WeiChat/getupstreammsg/type/1/begin_date/"+num1+"/end_date/"+num2,
+                    success: function(res) {
+                        data=res.data.list;
+                         // x轴坐标 时间
+                        var date=[],count=[],j=0;
+                        date[0]=data[0]['ref_date'];
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                j++;
+                                date[j]=data[i+1]['ref_date'];
+                            }
+                        }
+                        
+                        chart1.xAxis[0].setCategories(date);
+                         // 消息发送人数
+                        var user=[];
+                        k=0,sum=0;
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                sum+=parseInt(data[i]['msg_user']);
+                            }
+                            else{
+                                sum+=parseInt(data[i]['msg_user']);
+                                user[k]=sum;
+                                k++;
+                                sum=0;
+                            }
+                        }
+                        if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            user[k]=sum+parseInt(data[data.length-1]['msg_user']);
+                        }
+                        else{
+                            user[k]=sum;
+                            user[k+1]=parseInt(data[data.length-1]['msg_user']);
+                        }
+                        chart1.series[0].update({data:user});
+                        chart1.series[0].update({name:'消息发送人数'});
+
+                    }
+                });
+            channels_type=3;
+            $("#message-number").click(function() {
+                channels_type=0;
+                var index=$(this).index();
+                $(this).addClass("highlight-background").siblings().removeClass("highlight-background");
+                $("#message-trend-content").show();
+                $.ajax({
+                    type:"get",
+                    url:"/Api/WeiChat/getupstreammsg/type/1/begin_date/"+num1+"/end_date/"+num2,
+                    success: function(res) {
+                        data=res.data.list;
+                         // x轴坐标 时间
+                        var date=[],count=[],j=0;
+                        date[0]=data[0]['ref_date'];
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                j++;
+                                date[j]=data[i+1]['ref_date'];
+                            }
+                        }
+                        chart1.xAxis[0].setCategories(date);
+                         // 消息发送人数
+                        var user=[];
+                        k=0,sum=0;
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                sum+=parseInt(data[i]['msg_user']);
+                            }
+                            else{
+                                sum+=parseInt(data[i]['msg_user']);
+                                user[k]=sum;
+                                k++;
+                                sum=0;
+                            }
+                        }
+                        if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            user[k]=sum+parseInt(data[data.length-1]['msg_user']);
+                        }
+                        else{
+                            user[k]=sum;
+                            user[k+1]=parseInt(data[data.length-1]['msg_user']);
+                        }
+                        chart1.series[0].update({data:user});
+                        chart1.series[0].update({name:'消息发送人数'});
+
+                    }
+                });
+            });
+            $("#message-times").click(function() {
+                channels_type=1;
+                var index=$(this).index();
+                $(this).addClass("highlight-background").siblings().removeClass("highlight-background");
+                $("#message-trend-content").show();
+                $.ajax({
+                    type:"get",
+                    url:"/Api/WeiChat/getupstreammsg/type/1/begin_date/"+num1+"/end_date/"+num2,
+                    success: function(res) {
+                        data=res.data.list;
+                         // x轴坐标 时间
+                        var date=[],count=[],j=0;
+                        date[0]=data[0]['ref_date'];
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                j++;
+                                date[j]=data[i+1]['ref_date'];
+                            }
+                        }
+                        
+                        chart1.xAxis[0].setCategories(date);
+                         // 消息发送次数
+                        var count=[];
+                        k=0,sum=0;
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                sum+=parseInt(data[i]['msg_count']);
+                            }
+                            else{
+                                sum+=parseInt(data[i]['msg_count']);
+                                count[k]=sum;
+                                k++;
+                                sum=0;
+                            }
+                        }
+                        if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            count[k]=sum+parseInt(data[data.length-1]['msg_count']);
+                        }
+                        else{
+                            count[k]=sum;
+                            count[k+1]=parseInt(data[data.length-1]['msg_count']);
+                        }
+                        chart1.series[0].update({data:count});
+                        chart1.series[0].update({name:'消息发送次数'});
+
+                    }
+                });
+            });
+            $("#per-capita").click(function() {
+                channels_type=2;
+                var index=$(this).index();
+                $(this).addClass("highlight-background").siblings().removeClass("highlight-background");
+                $("#message-trend-content").show();
+                $.ajax({
+                    type:"get",
+                    url:"/Api/WeiChat/getupstreammsg/type/1/begin_date/"+num1+"/end_date/"+num2,
+                    success: function(res) {
+                         data=res.data.list;
+
+                        // x轴坐标 时间
+                        var date=[],count=[],j=0;
+                        date[0]=data[0]['ref_date'];
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                j++;
+                                date[j]=data[i+1]['ref_date'];
+                                
+                            }
+                        }
+                        chart1.xAxis[0].setCategories(date);
+                        // 消息发送人数
+                        var user=[];
+                        k=0,sum=0;
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                sum+=parseInt(data[i]['msg_user']);
+                            }
+                            else{
+                                sum+=parseInt(data[i]['msg_user']);
+                                user[k]=sum;
+                                k++;
+                                sum=0;
+                            }
+                        }
+                        if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            user[k]=sum+parseInt(data[data.length-1]['msg_user']);
+                        }
+                        else{
+                            user[k]=sum;
+                            user[k+1]=parseInt(data[data.length-1]['msg_user']);
+                        }
+                         // 消息发送次数
+                        var count=[];
+                        k=0,sum=0;
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                sum+=parseInt(data[i]['msg_count']);
+                            }
+                            else{
+                                sum+=parseInt(data[i]['msg_count']);
+                                count[k]=sum;
+                                k++;
+                                sum=0;
+                            }
+                        }
+                        if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            count[k]=sum+parseInt(data[data.length-1]['msg_count']);
+                        }
+                        else{
+                            count[k]=sum;
+                            count[k+1]=parseInt(data[data.length-1]['msg_count']);
+                        }
+                        //人均发送次数
+                        var per=[];
+                        for(i=0;i<user.length;i++){
+                            per[i]=count[i]/user[i];
+                        }
+                        chart1.series[0].update({data:per});
+                        chart1.series[0].update({name:'人均发送次数'});
+
+                    }
+                });
+            });  
+            
+            /*日期选择范围*/
+                $('#date-range2').dateRangePicker({
+                format: 'YYYY-MM-DD',
+                minDays:2,
+                maxDays:7,
+                endDate:new Date(new Date()-24*60*60*1000)
+            }).bind('datepicker-change',function(event,obj)
+            {
+                obj=$('#date-range2').val();
+                var arr=obj.split("to");
+                num1=$.trim(arr[0]);
+                num2=$.trim(arr[1]);
+                showTable1(num1,num2); 
+                showTable2(num1,num2);
+                if (channels_type==0) {    
+                $.ajax({
+                    type:"get",
+                    url:"/Api/WeiChat/getupstreammsg/type/1/begin_date/"+num1+"/end_date/"+num2,
+                    success: function(res) {
+                        data=res.data.list;
+                         // x轴坐标 时间
+                        var date=[],count=[],j=0;
+                        date[0]=data[0]['ref_date'];
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                j++;
+                                date[j]=data[i+1]['ref_date'];
+                            }
+                        }
+                        
+                        chart1.xAxis[0].setCategories(date);
+                         // 消息发送人数
+                        var user=[];
+                        k=0,sum=0;
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                sum+=parseInt(data[i]['msg_user']);
+                            }
+                            else{
+                                sum+=parseInt(data[i]['msg_user']);
+                                user[k]=sum;
+                                k++;
+                                sum=0;
+                            }
+                        }
+                        if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            user[k]=sum+parseInt(data[data.length-1]['msg_user']);
+                        }
+                        else{
+                            user[k]=sum;
+                            user[k+1]=parseInt(data[data.length-1]['msg_user']);
+                        }
+                        chart1.series[0].update({data:user});
+                        chart1.series[0].update({name:'消息发送人数'});
+
+                    }
+                });
+                }
+                else if(channels_type==1){
+                $.ajax({
+                    type:"get",
+                    url:"/Api/WeiChat/getupstreammsg/type/1/begin_date/"+num1+"/end_date/"+num2,
+                    success: function(res) {
+                        data=res.data.list;
+                         // x轴坐标 时间
+                        var date=[],count=[],j=0;
+                        date[0]=data[0]['ref_date'];
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                j++;
+                                date[j]=data[i+1]['ref_date'];
+                            }
+                        }
+                        
+                        chart1.xAxis[0].setCategories(date);
+                         // 消息发送次数
+                        var count=[];
+                        k=0,sum=0;
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                sum+=parseInt(data[i]['msg_count']);
+                            }
+                            else{
+                                sum+=parseInt(data[i]['msg_count']);
+                                count[k]=sum;
+                                k++;
+                                sum=0;
+                            }
+                        }
+                        if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            count[k]=sum+parseInt(data[data.length-1]['msg_count']);
+                        }
+                        else{
+                            count[k]=sum;
+                            count[k+1]=parseInt(data[data.length-1]['msg_count']);
+                        }
+                        chart1.series[0].update({data:count});
+                        chart1.series[0].update({name:'消息发送次数'});
+
+                    }
+                });
+                }
+                else if(channels_type==2){
+                $.ajax({
+                    type:"get",
+                    url:"/Api/WeiChat/getupstreammsg/type/1/begin_date/"+num1+"/end_date/"+num2,
+                    success: function(res) {
+                         data=res.data.list;
+
+                        // x轴坐标 时间
+                        var date=[],count=[],j=0;
+                        date[0]=data[0]['ref_date'];
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                j++;
+                                date[j]=data[i+1]['ref_date'];
+                                
+                            }
+                        }
+                        chart1.xAxis[0].setCategories(date);
+                        // 消息发送人数
+                        var user=[];
+                        k=0,sum=0;
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                sum+=parseInt(data[i]['msg_user']);
+                            }
+                            else{
+                                sum+=parseInt(data[i]['msg_user']);
+                                user[k]=sum;
+                                k++;
+                                sum=0;
+                            }
+                        }
+                        if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            user[k]=sum+parseInt(data[data.length-1]['msg_user']);
+                        }
+                        else{
+                            user[k]=sum;
+                            user[k+1]=parseInt(data[data.length-1]['msg_user']);
+                        }
+                         // 消息发送次数
+                        var count=[];
+                        k=0,sum=0;
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                sum+=parseInt(data[i]['msg_count']);
+                            }
+                            else{
+                                sum+=parseInt(data[i]['msg_count']);
+                                count[k]=sum;
+                                k++;
+                                sum=0;
+                            }
+                        }
+                        if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            count[k]=sum+parseInt(data[data.length-1]['msg_count']);
+                        }
+                        else{
+                            count[k]=sum;
+                            count[k+1]=parseInt(data[data.length-1]['msg_count']);
+                        }
+                        //人均发送次数
+                        var per=[];
+                        for(i=0;i<user.length;i++){
+                            per[i]=count[i]/user[i];
+                        }
+                        chart1.series[0].update({data:per});
+                        chart1.series[0].update({name:'人均发送次数'});
+
+                    }
+                });
+                }
+                else{
+                $.ajax({
+                    type:"get",
+                    url:"/Api/WeiChat/getupstreammsg/type/1/begin_date/"+num1+"/end_date/"+num2,
+                    success: function(res) {
+                        data=res.data.list;
+                         // x轴坐标 时间
+                        var date=[],count=[],j=0;
+                        date[0]=data[0]['ref_date'];
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                j++;
+                                date[j]=data[i+1]['ref_date'];
+                            }
+                        }
+                        
+                        chart1.xAxis[0].setCategories(date);
+                         // 消息发送人数
+                        var user=[];
+                        k=0,sum=0;
+                        for(i=0;i<data.length-1;i++){
+                            if(new Date(data[i]['ref_date']).getTime()==new Date(data[i+1]['ref_date']).getTime())
+                            {
+                                sum+=parseInt(data[i]['msg_user']);
+                            }
+                            else{
+                                sum+=parseInt(data[i]['msg_user']);
+                                user[k]=sum;
+                                k++;
+                                sum=0;
+                            }
+                        }
+                        if(new Date(data[data.length-2]['ref_date']).getTime()==new Date(data[data.length-1]['ref_date']).getTime()){
+                            user[k]=sum+parseInt(data[data.length-1]['msg_user']);
+                        }
+                        else{
+                            user[k]=sum;
+                            user[k+1]=parseInt(data[data.length-1]['msg_user']);
+                        }
+                        chart1.series[0].update({data:user});
+                        chart1.series[0].update({name:'消息发送人数'});
+                    }
+                });
+                }
+            });
+            
+            chart1=new Highcharts.Chart({
+                chart: {
+                    renderTo: 'days-trend-chart',
+                    type: 'area'
+                },
+                plotOptions: {
+                    area: {
+                        fillOpacity: 0.2
+                    }
+                },
+                title: {
+                    text: '趋势图'
+
+                },
+                xAxis: {
+                    title: {
+                        text: null
+                    },
+                    tickmarkPlacement:'on',
+                    categories: ['2016.02.10', '2016.02.11', '2016.02.12', '2016.02.13', '2016.02.14', '2016.02.15', '2016.02.16', '2016.02.17', '2016.02.18', '2016.02.19', '2016.02.20', '2016.02.21', '2016.02.22', '2016.02.23', '2016.02.24', '2016.02.25', '2016.02.26', '2016.02.27', '2016.02.28', '2016.02.29', '2016.03.01','2016.03.02', '2016.03.03', '2016.03.04', '2016.03.05','2016.03.06', '2016.03.07','2016.03.08', '2016.03.09']
+                },
+                yAxis: {
+                    title: {
+                        text: null
+                    },
+                    // min: 0,
+                    // max: 400,
+                    // tickInterval:100,
+                    labels: {
+                        formatter: function() {
+                            return this.value;
+                        }
+                    }
+
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [{
+                    name: '消息发送人数',
+                    color:'#44B549',
+                }],
+                credits: {
+                    enabled: false // 禁用版权信息
+                }
+            });
+        function showTable1(num1,num2){
+            $.ajax({
+            type:"get",
+            url:"/Api/WeiChat/getupstreammsgdist/type/1/begin_date/"+num1+"/end_date/"+num2,
+            success: function(res) {
+                        data=res.data.list;
+                        var date=[];
+                        var sum1=0;
+                           for(i=0;i<data.length-1;i++){
+                                 if(data[i]['count_interval']==1){
+                                     sum1+=data[i]['msg_user'];
+                                 }
+                             }
+                        var sum2=0;
+                            for(i=0;i<data.length-1;i++){
+                                 if(data[i]['count_interval']==2){
+                                     sum2+=data[i]['msg_user'];
+                                 }
+                             }
+                        var sum3=0;
+                            for(i=0;i<data.length-1;i++){
+                                 if(data[i]['count_interval']==3){
+                                     sum3+=data[i]['msg_user'];
+                                 }
+                             }
+                        var per1=((sum1/(sum1+sum2+sum3))*100).toFixed(2)+"%";
+                        var per2=((sum2/(sum1+sum2+sum3))*100).toFixed(2)+"%";
+                        var per3=((sum3/(sum1+sum2+sum3))*100).toFixed(2)+"%";
+
+                       $("#td221").html(sum1);
+                       $("#td222").html(per1);
+                       $("#td321").html(sum2);
+                       $("#td322").html(per2);
+                       $("#td421").html(sum3);
+                       $("#td422").html(per3);
+                       $("#percent1").width(per1);
+                       $("#percent2").width(per2);
+                       $("#percent3").width(per3);
+                }  
+             })
+        }
+    });
+
+    </script>
+    <script id="teletext_table2" type="text/html">
+            <div>
+            <!-- 判断语句if else-->
+            <%if(first[0].length>1) { %>
+                <%for(var j=0;j<first.length;j++){%>
+                    <tr>
+                        <!-- 循环语句 for-->
+                        <%for(var i=0;i<4;i++){%>
+                            <td ><%=first[j][i]%></td>
+                        <%}%>
+                    </tr>
+                <%}%>
+            <%}else{%>
+                <h2>没有list数据</h2>   
+            <%}%>
+            </div>  
+    </script>
+    <script type="text/javascript">
+
+        time1=new Date(new Date()-7*24*60*60*1000);
+        time2=new Date(new Date()-24*60*60*1000);
+        num1=(time1.getFullYear()+"-"+(time1.getMonth()+1).toString()+"-"+time1.getDate());
+        num2=(time2.getFullYear()+"-"+(time2.getMonth()+1).toString()+"-"+time2.getDate());
+        showTable2(num1,num2);      
+        function showTable2(num1,num2){
+                $.ajax({
+                            type:"get",
+                            url:"/Api/WeiChat/getupstreammsg/type/1/begin_date/"+num1+"/end_date/"+num2,
+                            success: function(res) {
+                                data=res.data.list;
+                                var date=[],user_count=[],k=0,user=[],count=[];
+                                var time={
+                                    'first':[],
+                                }
+
+                                var j=0;
+                                date[j]=data[0]['ref_date'];
+                                for(i=0;i<data.length-1;i++){
+                                    if(new Date(data[i]['ref_date']).getTime()!=new Date(data[i+1]['ref_date']).getTime())
+                                    {
+                                        j++;
+                                        date[j]=data[i+1]['ref_date'];
+                                    }
+                                }                                
+
+                                for(k=0;k<date.length;k++){
+                                    user_count[k]=new Array();
+                                }
+                                for(k=0;k<date.length;k++){
+                                    user_count[k][0]=date[k];
+                                }
+                                
+                                var sum=0;
+                                for(j=0;j<date.length;j++){
+                                    for(i=0;i<data.length;i++){
+                                        if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime()){
+                                            sum+=data[i]['msg_user'];
+                                        }
+                                    }
+                                    user[j]=sum;
+                                    sum=0;
+                                }
+                                for(k=0;k<date.length;k++){
+                                    user_count[k][1]=user[k];
+                                }
+
+                                sum=0;
+                                for(j=0;j<date.length;j++){
+                                    for(i=0;i<data.length;i++){
+                                        if(new Date(data[i]['ref_date']).getTime()==new Date(date[j]).getTime()){
+                                            sum+=data[i]['msg_count'];
+                                        }
+                                    }
+                                    count[j]=sum;
+                                    sum=0;
+                                }
+                                for(k=0;k<date.length;k++){
+                                    user_count[k][2]=count[k];
+                                } 
+
+                                var per=new Array();
+                                for(k=0;k<date.length;k++){
+                                    a=(parseInt(count[k])/parseInt(user[k]));
+                                    
+                                    per[k]=a.toFixed(1);
+                                } 
+                                console.log(per);
+                                for(k=0;k<date.length;k++){
+                                    user_count[k][3]=per[k];
+                                }
+
+                                for(k=0;k<date.length;k++){
+                                    time['first'][k]=new Array();
+                                }
+
+                                for(i=0;i<user_count.length;i++){
+                                    for(j=0;j<user_count[0].length;j++){
+                                        time['first'][i][j]=user_count[i][j];
+                                    }
+                                }
+                                
+                                var bt=baidu.template;
+
+                                var html=bt('teletext_table2',time);
+
+                                document.getElementById('test2').innerHTML=html;
+                            }
+                        });
+        }
+    </script>
+</block>
